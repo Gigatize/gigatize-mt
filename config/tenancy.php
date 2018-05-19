@@ -254,7 +254,7 @@ return [
          * @info Useful for overriding the connection of third party packages.
          */
         'force-tenant-connection-of-models' => [
-//            \App\User::class
+            \App\User::class
         ],
         'force-system-connection-of-models' => [
 //            \App\User::class
