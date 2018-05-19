@@ -36,6 +36,8 @@ Route::domain('{customer}.'.config('app.url_base'))->group(function () {
 Route::group(['middleware' => 'tenancy.enforce'], function () {
 
     Auth::routes();
+    Route::get('register/verify/resend',  'Auth\RegisterController@showResendVerificationEmailForm')->name('showResendVerificationEmailForm');
+    Route::post('register/verify/resend', 'Auth\RegisterController@resendVerificationEmail')->name('resendVerificationEmail')->middleware('throttle:2,1');
 });
 
 
