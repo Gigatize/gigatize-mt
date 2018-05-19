@@ -33,14 +33,11 @@ Route::domain('{customer}.'.config('app.url_base'))->group(function () {
     });
 });
 
-Route::group(['middleware' => 'tenant.exists'], function () {
-    Route::group(['middleware' => 'auth-type:password'], function () {
-        Route::group(['middleware' => 'tenancy.enforce'], function () {
+Route::group(['middleware' => 'tenancy.enforce'], function () {
 
-            Auth::routes();
-        });
-    });
+    Auth::routes();
 });
+
 
 
 Route::group(['middleware' => 'tenant.exists'], function () {
