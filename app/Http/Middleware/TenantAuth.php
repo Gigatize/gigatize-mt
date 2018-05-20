@@ -40,11 +40,9 @@ class TenantAuth
                 }
                 //return redirect()->guest('auth/login');
             }
-        }else if($hostname->auth_type == 'password' && Auth::user()->status == false){
-            return redirect('register/verify/resend')->with('success','Please check your email and activate your account');
-        }else{
-            dd(Auth::user());
-            return $next($request);
+        }else if($hostname->auth_type == 'password' && Auth::user()->status == false) {
+            return redirect('register/verify/resend')->with('success', 'Please check your email and activate your account');
         }
+        return $next($request);
     }
 }
