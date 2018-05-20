@@ -24,7 +24,7 @@ class TenantAuth
         if(session()->exists('auth_id')){
             dd(session()->get('auth_id'));
         }
-        if (Auth::guest())
+        if ($this->auth()->guest())
         {
             if ($request->ajax())
             {
