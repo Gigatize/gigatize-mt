@@ -11,39 +11,41 @@
 |
 */
 
-Route::domain('{customer}.' . config('app.url_base'))->group(function () {
-        Route::get('/', function () {
-            return view('tenant_welcome');
-        });
-
-        Route::get('/saml/login', function() {
-            return \Aacotroneo\Saml2\Facades\Saml2Auth::login();
-        });
-
-    Auth::routes();
-        //authenticate tenant based on auth type
-    Route::group(['middleware' => 'tenant.login'], function () {
+Route::domain('{customer}.'.config('app.url_base'))->group(function () {
+    //ensure tenant exists or redirect to root domain
+    Route::group(['middleware' => 'tenant.exists'], function () {
 
         Route::get('verify-user/{code}', 'Auth\RegisterController@activateUser')->name('activate.user');
 
-        Route::group(['middleware' => 'tenancy.enforce'], function () {
-            Route::get('register/verify/resend', 'Auth\RegisterController@showResendVerificationEmailForm')->name('showResendVerificationEmailForm');
-            Route::post('register/verify/resend', 'Auth\RegisterController@resendVerificationEmail')->name('resendVerificationEmail')->middleware('throttle:2,1');
+        //authenticate tenant based on auth type
+        Route::group(['middleware' => 'tenant.login'], function () {
+            Route::get('/', function () {
+                return view('tenant');
+            });
+        });
+        Route::group(['middleware' => 'auth-type:password'], function () {
+            Route::group(['middleware' => 'tenancy.enforce'], function () {
+                Auth::routes();
+                Route::get('register/verify/resend',  'Auth\RegisterController@showResendVerificationEmailForm')->name('showResendVerificationEmailForm');
+                Route::post('register/verify/resend', 'Auth\RegisterController@resendVerificationEmail')->name('resendVerificationEmail')->middleware('throttle:2,1');
+            });
         });
     });
 });
 
-    Route::group(['middleware' => 'tenancy.enforce'], function () {
+Route::group(['middleware' => 'tenancy.enforce'], function () {
 
-        Auth::routes();
-        Route::get('register/verify/resend',  'Auth\RegisterController@showResendVerificationEmailForm')->name('showResendVerificationEmailForm');
-        Route::post('register/verify/resend', 'Auth\RegisterController@resendVerificationEmail')->name('resendVerificationEmail')->middleware('throttle:2,1');
-    });
+    Auth::routes();
+    Route::get('register/verify/resend',  'Auth\RegisterController@showResendVerificationEmailForm')->name('showResendVerificationEmailForm');
+    Route::post('register/verify/resend', 'Auth\RegisterController@resendVerificationEmail')->name('resendVerificationEmail')->middleware('throttle:2,1');
+});
 
 
+
+Route::group(['middleware' => 'tenant.exists'], function () {
     Route::get('/', function () {
         return view('welcome');
     });
 
     Route::get('/home', 'HomeController@index')->name('home');
-
+});
