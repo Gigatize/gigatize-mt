@@ -11,10 +11,6 @@
 |
 */
 
-Auth::routes();
-Route::get('/', function () {
-    return view('tenant');
-});
 
 Route::domain('{customer}.'.config('app.url_base'))->group(function () {
     //ensure tenant exists or redirect to root domain
@@ -23,10 +19,13 @@ Route::domain('{customer}.'.config('app.url_base'))->group(function () {
 
         //authenticate tenant based on auth type
         Route::group(['middleware' => 'tenant.login'], function () {
-            
+            Route::get('/', function () {
+                return view('tenant');
+            });
         });
         Route::group(['middleware' => 'auth-type:password'], function () {
             Route::group(['middleware' => 'tenancy.enforce'], function () {
+                Auth::routes();
                 Route::get('register/verify/resend',  'Auth\RegisterController@showResendVerificationEmailForm')->name('showResendVerificationEmailForm');
                 Route::post('register/verify/resend', 'Auth\RegisterController@resendVerificationEmail')->name('resendVerificationEmail')->middleware('throttle:2,1');
             });
