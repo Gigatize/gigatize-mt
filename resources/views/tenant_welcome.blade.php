@@ -76,7 +76,11 @@
                 </div>
 
                 <div class="links">
+                    @if(Auth::check())
+                        <h1>Logged In</h1>
+                    @else
                     <a class="btn btn-primary" href="{{url('/saml/login')}}">Login with SSO</a>
+                    @endif
                 </div>
             </div>
         </div>
