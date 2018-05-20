@@ -23,9 +23,7 @@ Route::domain('{customer}.'.config('app.url_base'))->group(function () {
 
         //authenticate tenant based on auth type
         Route::group(['middleware' => 'tenant.login'], function () {
-            Route::get('/', function () {
-                return view('tenant');
-            });
+            
         });
         Route::group(['middleware' => 'auth-type:password'], function () {
             Route::group(['middleware' => 'tenancy.enforce'], function () {
