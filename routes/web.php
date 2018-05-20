@@ -11,7 +11,6 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
         Route::domain('{customer}.' . config('app.url_base'))->group(function () {
             Route::get('/', function () {
                 return view('tenant_welcome');
@@ -48,4 +47,3 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
 
-});
