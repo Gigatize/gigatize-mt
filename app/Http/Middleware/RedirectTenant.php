@@ -22,6 +22,7 @@ class RedirectTenant
         //dd($customer);
         if(!Customer::where('name',$customer)->exists() and $pieces[0] != explode('.',config('app.url_base'))[0])
         {
+            dd('cant find tenant');
             return Redirect::to('https://'.config('app.url_base'))->with('error','Unable to find specified host');
         }
 

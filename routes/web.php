@@ -14,7 +14,6 @@
 Route::domain('{customer}.'.config('app.url_base'))->group(function () {
     //ensure tenant exists or redirect to root domain
     Route::group(['middleware' => 'tenant.exists'], function () {
-        Auth::routes();
         Route::get('verify-user/{code}', 'Auth\RegisterController@activateUser')->name('activate.user');
 
         //authenticate tenant based on auth type
