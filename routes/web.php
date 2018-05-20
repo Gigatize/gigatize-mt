@@ -12,6 +12,9 @@
 */
 
 Auth::routes();
+Route::get('/', function () {
+    return view('tenant');
+});
 
 Route::domain('{customer}.'.config('app.url_base'))->group(function () {
     //ensure tenant exists or redirect to root domain
