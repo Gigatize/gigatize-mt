@@ -20,7 +20,7 @@ class ProjectSkillsRelationshipResource extends ResourceCollection
                 'self'    => route('projects.relationships.skills', ['project' => $project->id]),
                 'related' => route('projects.skills', ['project' => $project->id]),
             ],
-            'data'  => SkillIdentifierResource::collection($this->collection),
+            'data'  => new SkillsResource($this),
         ];
     }
 }

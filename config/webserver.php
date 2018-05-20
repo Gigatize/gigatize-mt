@@ -100,7 +100,7 @@ return [
         /**
          * Whether the integration with nginx is currently active.
          */
-        'enabled' => true,
+        'enabled' => false,
 
         /**
          * The php sock to be used.

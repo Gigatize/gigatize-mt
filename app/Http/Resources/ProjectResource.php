@@ -33,13 +33,13 @@ class ProjectResource extends JsonResource
                 'updated_at' => (string)$this->updated_at->toDateTimeString(),
                 'created_at' => (string)$this->created_at->toDateTimeString(),
                 'computed' => [
-                    //'sponsor_points' => $this->when($this->Sponsors()->exists(), function () {
-                        //return (string)$this->Sponsors()->sum('points');
-                    //}),
-                    //'project_users' => (string)$this->Users()->count(),
+                    'sponsor_points' => $this->when($this->Sponsors()->exists(), function () {
+                        return (string)$this->Sponsors()->sum('points');
+                    }),
+                    'project_users' => (string)$this->Users()->count(),
                 ]
             ],
-            //'relationships' => new ProjectRelationshipResource($this),
+            'relationships' => new ProjectRelationshipResource($this),
             'links'         => [
                 'self' => route('projects.show', ['project' => $this->id]),
             ],

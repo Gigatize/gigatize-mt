@@ -1,11 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\v1;
 
+use App\Http\Resources\UserResource;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Resources\Json\Resource;
+use Illuminate\Support\Facades\Auth;
 
-class LocationController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,12 +35,16 @@ class LocationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  User  $user
+     * @return Resource
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return new UserResource($user);
+    }
+
+    public function user(){
+        return new UserResource(Auth::user());
     }
 
     /**

@@ -23,14 +23,27 @@ class ProjectService {
     public function create(CreateProjectFormRequest $request)
     {
         $user = Auth::user();
-        // Check if the user has permission to create other users.
+        // Check if the user has permission to create projects.
         // Will throw an exception if not.
-        $user->hasPermissionTo('create project');
-        $data = $request->all();
-        // Set the account ID on the user and create the record in the database
-        $data['user_id'] = $user->id;
-        $project = $this->projectRepository->create($data);
+        //dd($user->getAllPermissions());
+        if($user->can('create project')) {
+            $data = $request->all();
+            // Set the account ID on the user and create the record in the database
+            $data['user_id'] = $user->id;
+            $project = $this->projectRepository->create($data);
 
-        return $project;
+            return $project;
+        }else{
+            return false;
+        }
+    }
+
+    public function getAll($options = [])
+    {
+        return $this->projectRepository->get($options);
+    }
+
+    public function getById($id, $options){
+        return $this->projectRepository->getById($id, $options);
     }
 }

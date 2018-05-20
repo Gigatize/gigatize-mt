@@ -6,9 +6,15 @@ namespace App\Repositories;
 use App\Project;
 use App\Skill;
 use Carbon\Carbon;
+use Optimus\Genie\Repository;
 
-class ProjectRepository
+class ProjectRepository extends Repository
 {
+    protected function getModel()
+    {
+        return new Project;
+    }
+
     public function create(array $data)
     {
         $project = new Project();

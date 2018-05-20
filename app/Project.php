@@ -2,7 +2,7 @@
 
 namespace App;
 
-//use Actuallymab\LaravelComment\Commentable;
+use App\Traits\Commentable;
 use Hyn\Tenancy\Traits\UsesTenantConnection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +15,7 @@ class Project extends Model
     //use SearchableTrait;
     use HasSlug;
     use UsesTenantConnection;
-    //use Commentable;
+    use Commentable;
 
     protected $table = 'projects';
     public $timestamps = true;
@@ -26,6 +26,7 @@ class Project extends Model
         'start_date',
         'deadline'
     ];
+    protected $mustBeApproved = false;
 
     protected $searchable = [
         /**

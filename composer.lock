@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f904f1202178fe19793ed6c461b3d6e1",
+    "content-hash": "a5976d77e8be7d2550a88b2cf1993bd7",
     "packages": [
         {
             "name": "aacotroneo/laravel-saml2",
@@ -64,6 +64,68 @@
                 "saml"
             ],
             "time": "2018-02-19T01:04:09+00:00"
+        },
+        {
+            "name": "actuallymab/laravel-comment",
+            "version": "0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/actuallymab/laravel-comment.git",
+                "reference": "9b09405f9274409372de0c27662b5b0f6700eaf8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/actuallymab/laravel-comment/zipball/9b09405f9274409372de0c27662b5b0f6700eaf8",
+                "reference": "9b09405f9274409372de0c27662b5b0f6700eaf8",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "5.6.*",
+                "php": ">=7.1.3"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "~1.4",
+                "mockery/mockery": "~0.9.0",
+                "orchestra/database": "3.6.x@dev",
+                "orchestra/testbench": "~3.6",
+                "phpunit/phpunit": "~7.0",
+                "squizlabs/php_codesniffer": "^2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "\\Actuallymab\\LaravelComment\\LaravelCommentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Actuallymab\\LaravelComment\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mehmet Aydin Bahadir",
+                    "email": "mehmet.aydin.bahadir@gmail.com",
+                    "homepage": "http://www.actuallymab.me",
+                    "role": "Software Engineer"
+                }
+            ],
+            "description": "Just another comment system for laravel projects.",
+            "homepage": "https://github.com/actuallymab/laravel-comment",
+            "keywords": [
+                "actuallymab",
+                "laravel-comment"
+            ],
+            "time": "2018-03-16T12:21:04+00:00"
         },
         {
             "name": "defuse/php-encryption",
@@ -2063,6 +2125,41 @@
                 "MIT"
             ],
             "time": "2017-08-29T08:14:27+00:00"
+        },
+        {
+            "name": "optimus/genie",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/esbenp/genie.git",
+                "reference": "12cd7a4fcd32d953dd234a82252289f71961f3f4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/esbenp/genie/zipball/12cd7a4fcd32d953dd234a82252289f71961f3f4",
+                "reference": "12cd7a4fcd32d953dd234a82252289f71961f3f4",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": ">=4.0",
+                "optimus/bruno": "~3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "~4.7",
+                "satooshi/php-coveralls": "dev-master@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Optimus\\Genie\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "time": "2017-09-13T14:14:20+00:00"
         },
         {
             "name": "paragonie/random_compat",

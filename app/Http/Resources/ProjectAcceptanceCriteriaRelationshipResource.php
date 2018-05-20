@@ -20,7 +20,7 @@ class ProjectAcceptanceCriteriaRelationshipResource extends JsonResource
                 'self'    => route('projects.relationships.acceptance-criteria', ['project' => $project->id]),
                 'related' => route('projects.acceptance-criteria', ['project' => $project->id]),
             ],
-            'data'  => AcceptanceCriteriaIdentifierResource::collection($this),
+            'data'  => new AcceptanceCriteriaCollectionResource($this),
         ];
     }
 }

@@ -20,7 +20,7 @@ class ProjectUsersRelationshipResource extends JsonResource
                 'self'    => route('projects.relationships.users', ['project' => $project->id]),
                 'related' => route('projects.users', ['project' => $project->id]),
             ],
-            'data'  => UserIdentifierResource::collection($this),
+            'data'  => new UsersResource($this),
         ];
     }
 }

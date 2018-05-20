@@ -2,6 +2,13 @@
 
 namespace App\Http\Resources;
 
+use App\AcceptanceCriteria;
+use App\Category;
+use App\Comment;
+use App\Location;
+use App\Skill;
+use App\User;
+use Illuminate\Support\Collection;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class ProjectsResource extends ResourceCollection
@@ -18,4 +25,14 @@ class ProjectsResource extends ResourceCollection
             'data' => ProjectResource::collection($this->collection),
         ];
     }
+
+    public function with($request)
+    {
+        return [
+            'links'    => [
+                'self' => route('projects.index'),
+            ],
+        ];
+    }
+
 }

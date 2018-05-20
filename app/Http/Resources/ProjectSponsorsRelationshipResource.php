@@ -20,7 +20,7 @@ class ProjectSponsorsRelationshipResource extends JsonResource
                 'self'    => route('projects.relationships.sponsors', ['project' => $project->id]),
                 'related' => route('projects.sponsors', ['project' => $project->id]),
             ],
-            'data'  => SponsorsIdentifierResource::collection($this),
+            'data'  => new SponsorsResource($this),
         ];
     }
 }
