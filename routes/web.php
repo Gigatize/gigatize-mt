@@ -17,7 +17,7 @@
             });
 
             Route::get('/saml/login', function() {
-                return \Aacotroneo\Saml2\Facades\Saml2Auth::login(URL::full());
+                return \Aacotroneo\Saml2\Facades\Saml2Auth::login();
             });
 
             //authenticate tenant based on auth type
