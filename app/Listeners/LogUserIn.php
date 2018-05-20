@@ -28,6 +28,7 @@ class LogUserIn
      */
     public function handle(Saml2LoginEvent $event)
     {
+        dd($pieces = explode('.', $request->getHost()));
         $messageId = $event->getSaml2Auth()->getLastMessageId();
         // your own code preventing reuse of a $messageId to stop replay attacks
         $user = $event->getSaml2User();
@@ -42,6 +43,5 @@ class LogUserIn
         //if it does not exist create it and go on or show an error message
         Auth::login($laravelUser);
 
-        session()->put('auth_id',Auth::id());
     }
 }
