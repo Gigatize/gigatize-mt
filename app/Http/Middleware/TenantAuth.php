@@ -34,7 +34,8 @@ class TenantAuth
                 if($hostname->auth_type == 'oidc'){
 
                 }elseif ($hostname->auth_type == 'saml'){
-                    return Saml2Auth::login(URL::full());
+                    Saml2Auth::login(URL::full());
+                    return redirect('/');
                 }else{
                     return redirect('/login');
                 }
