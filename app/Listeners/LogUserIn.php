@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\User;
+use Hyn\Tenancy\Environment;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Aacotroneo\Saml2\Events\Saml2LoginEvent;
@@ -28,7 +29,9 @@ class LogUserIn
      */
     public function handle(Saml2LoginEvent $event)
     {
-        dd($pieces = explode('.', $request->getHost()));
+        $tenancy = app(Environment::class);
+        $hostname = $tenancy->hostname();
+        dd($hostname);
         $messageId = $event->getSaml2Auth()->getLastMessageId();
         // your own code preventing reuse of a $messageId to stop replay attacks
         $user = $event->getSaml2User();
