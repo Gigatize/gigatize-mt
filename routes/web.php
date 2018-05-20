@@ -12,12 +12,14 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //authenticate tenant based on auth type
-    Route::group(['middleware' => 'tenant.login'], function () {
         Route::domain('{customer}.' . config('app.url_base'))->group(function () {
             Route::get('/', function () {
                 return view('tenant');
             });
+
+            //authenticate tenant based on auth type
+            Route::group(['middleware' => 'tenant.login'], function () {
+                
             Route::get('verify-user/{code}', 'Auth\RegisterController@activateUser')->name('activate.user');
 
             Route::group(['middleware' => 'tenancy.enforce'], function () {
@@ -36,13 +38,10 @@ Route::group(['middleware' => ['web']], function () {
     });
 
 
-
-    Route::group(['middleware' => 'tenant.exists'], function () {
-        Route::get('/', function () {
-            return view('welcome');
-        });
-
-        Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/', function () {
+        return view('welcome');
     });
+
+    Route::get('/home', 'HomeController@index')->name('home');
 
 });
