@@ -16,7 +16,6 @@ Route::domain('{customer}.'.config('app.url_base'))->group(function () {
 
     Route::group(['middleware' => 'auth-type:password'], function () {
         Route::group(['middleware' => 'tenancy.enforce'], function () {
-            Auth::routes();
             Route::get('register/verify/resend',  'Auth\RegisterController@showResendVerificationEmailForm')->name('showResendVerificationEmailForm');
             Route::post('register/verify/resend', 'Auth\RegisterController@resendVerificationEmail')->name('resendVerificationEmail')->middleware('throttle:2,1');
             Route::get('verify-user/{code}', 'Auth\RegisterController@activateUser')->name('activate.user');
@@ -31,12 +30,16 @@ Route::domain('{customer}.'.config('app.url_base'))->group(function () {
     });
 });
 
+Route::group(['middleware' => 'auth-type:password'], function () {
+    Route::group(['middleware' => 'tenancy.enforce'], function () {
+        Auth::routes();
+    });
+});
+
 
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'tenancy.enforce'], function () {
     Auth::routes();

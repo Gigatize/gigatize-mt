@@ -21,10 +21,10 @@
 
 <script src="{{asset('js/app.js')}}"></script>
 <script>
-    /*axios.get('/api/user')
+    axios.get('/api/user')
         .then(response => {
             console.log(response.data);
-        });*/
+        });
 </script>
 </body>
 </html>
