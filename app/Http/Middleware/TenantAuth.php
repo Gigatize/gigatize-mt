@@ -21,7 +21,9 @@ class TenantAuth
     {
         $tenancy = app(Environment::class);
         $hostname = $tenancy->hostname();
-
+        if(session()->exists('auth_id')){
+            dd(session()->get('auth_id'));
+        }
         if (Auth::guest())
         {
             if ($request->ajax())
