@@ -21,9 +21,7 @@ class TenantAuth
     {
         $tenancy = app(Environment::class);
         $hostname = $tenancy->hostname();
-        if(session()->exists('auth_id')){
-            dd(session()->get('auth_id'));
-        }
+
         if (Auth::guest())
         {
             if ($request->ajax())
@@ -42,9 +40,11 @@ class TenantAuth
                 }
                 //return redirect()->guest('auth/login');
             }
-        }else if($hostname->auth_type == 'password' && Auth::user()->status == false) {
-            return redirect('register/verify/resend')->with('success', 'Please check your email and activate your account');
+        }else if($hostname->auth_type == 'password' && Auth::user()->status == false){
+            return redirect('register/verify/resend')->with('success','Please check your email and activate your account');
+        }else{
+            //dd(Auth::user()->status);
+            return $next($request);
         }
-        return $next($request);
     }
 }
