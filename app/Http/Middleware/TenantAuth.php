@@ -46,5 +46,7 @@ class TenantAuth
             //dd(Auth::user()->status);
             return $next($request);
         }
+
+        return $next($request);
     }
 }

@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\API\v1;
 
 use App\Http\Requests\CreateProjectFormRequest;
+use App\Http\Requests\EditProjectFormRequest;
 use App\Http\Resources\ProjectResource;
 use App\Http\Resources\ProjectsResource;
 use App\Project;
 use App\Services\ProjectService;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Optimus\Bruno\EloquentBuilderTrait;
 use Optimus\Bruno\LaravelController;
@@ -50,7 +52,6 @@ class ProjectController extends LaravelController
         $project = $this->projectService->create($request);
 
         if($project) {
-            Auth::user()->comment($project,"test comment");
             return new ProjectResource($project);
         }else{
             return response("Unauthorized action",403);
@@ -79,13 +80,19 @@ class ProjectController extends LaravelController
     /**
      * Update the specified resource in storage.
      *
-     * @param  CreateProjectFormRequest  $request
+     * @param  EditProjectFormRequest  $request
      * @param  Project $project
      * @return ProjectResource
      */
-    public function update(CreateProjectFormRequest $request, Project $project)
+    public function update(EditProjectFormRequest $request, Project $project)
     {
-        //
+        $project = $this->projectService->update($request, $project);
+
+        if($project) {
+            return new ProjectResource($project);
+        }else{
+            return response("Unauthorized action",403);
+        }
     }
 
     /**
