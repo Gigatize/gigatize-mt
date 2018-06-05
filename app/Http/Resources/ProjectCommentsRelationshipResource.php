@@ -20,7 +20,7 @@ class ProjectCommentsRelationshipResource extends JsonResource
                 'self'    => route('projects.relationships.comments', ['project' => $project->id]),
                 'related' => route('projects.comments', ['project' => $project->id]),
             ],
-            'data'  => new CommentsResource($this)
+            'data'  => CommentResource::collection($this)
         ];
     }
 }

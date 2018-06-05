@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SkillsResource extends JsonResource
+class VoteResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,14 +14,6 @@ class SkillsResource extends JsonResource
      */
     public function toArray($request)
     {
-        return SkillResource::collection($this);
-    }
-    public function with($request)
-    {
-        return [
-            'links'    => [
-                'self' => route('skills.index'),
-            ],
-        ];
+        return parent::toArray($request);
     }
 }

@@ -3,22 +3,39 @@
 namespace App\Http\Controllers\API\v1;
 
 use App\Http\Resources\UserResource;
+use App\Http\Resources\UsersResource;
+use App\Services\UserService;
+use App\Traits\EloquentBuilderTrait;
 use App\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\Resource;
 use Illuminate\Support\Facades\Auth;
+use Optimus\Bruno\LaravelController;
 
-class UserController extends Controller
+class UserController extends LaravelController
 {
+    use EloquentBuilderTrait;
+
+    private $userService;
+
+    public function __construct(UserService $userService) {
+        $this->userService = $userService;
+    }
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return UsersResource
      */
     public function index()
     {
-        //
+        // Parse the resource options given by GET parameters
+        $resourceOptions = $this->parseResourceOptions();
+
+        $data = $this->userService->getAll($resourceOptions);
+        $parsedData = $this->parseData($data, $resourceOptions, 'users');
+
+        // Create JSON response of parsed data
+        return new UsersResource($parsedData['users']);
     }
 
     /**
@@ -36,15 +53,28 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  User  $user
-     * @return Resource
+     * @return UserResource
      */
     public function show(User $user)
     {
-        return new UserResource($user);
+        // Parse the resource options given by GET parameters
+        $resourceOptions = $this->parseResourceOptions();
+
+        $data = $this->userService->getById($user->id, $resourceOptions);
+        $parsedData = $this->parseData($data, $resourceOptions, 'user');
+
+        // Create JSON response of parsed data
+        return new UserResource($parsedData['user']);
     }
 
     public function user(){
-        return new UserResource(Auth::user());
+        // Parse the resource options given by GET parameters
+        $resourceOptions = $this->parseResourceOptions();
+
+        $data = $this->userService->getById(Auth::id(), $resourceOptions);
+        $parsedData = $this->parseData($data, $resourceOptions, 'user');
+
+        return new UserResource($parsedData['user']);
     }
 
     /**

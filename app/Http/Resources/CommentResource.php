@@ -26,6 +26,9 @@ class CommentResource extends JsonResource
                 'created_at' => (string)$this->created_at->toDateTimeString(),
                 'updated_at' => (string)$this->updated_at->toDateTimeString(),
             ],
+            'relationships' => $this->when($this->getRelations(), function() {
+                return new CommentRelationshipResource($this);
+            }),
             'links'         => [
                 'self' => route('comments.show', ['comment' => $this->id]),
             ],

@@ -6,7 +6,8 @@ use App\Traits\Commentable;
 use Hyn\Tenancy\Traits\UsesTenantConnection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
-//use Nicolaslopezj\Searchable\SearchableTrait;
+use Overtrue\LaravelFollow\Traits\CanBeFollowed;
+use Overtrue\LaravelFollow\Traits\CanBeVoted;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -16,6 +17,8 @@ class Project extends Model
     use HasSlug;
     use UsesTenantConnection;
     use Commentable;
+    use CanBeVoted;
+    use CanBeFollowed;
 
     protected $table = 'projects';
     public $timestamps = true;
@@ -27,6 +30,7 @@ class Project extends Model
         'deadline'
     ];
     protected $mustBeApproved = false;
+    protected $vote = User::class;
 
     protected $searchable = [
         /**
@@ -93,11 +97,6 @@ class Project extends Model
     public function Skills()
     {
         return $this->belongsToMany('App\Skill');
-    }
-
-    public function Favorites()
-    {
-        return $this->belongsToMany('App\User', 'favorites', 'project_id', 'user_id')->withTimeStamps();
     }
 
     public function Sponsors(){

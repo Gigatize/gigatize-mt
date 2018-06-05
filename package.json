@@ -19,5 +19,9 @@
         "popper.js": "^1.12",
         "vue": "^2.5.7",
         "vue-router": "^3.0.1"
+    },
+    "dependencies": {
+        "vue-nprogress": "^0.1.5",
+        "vuetify": "^1.0.18"
     }
 }

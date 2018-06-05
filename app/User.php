@@ -9,6 +9,8 @@ use Hyn\Tenancy\Traits\UsesTenantConnection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
+use Overtrue\LaravelFollow\Traits\CanFollow;
+use Overtrue\LaravelFollow\Traits\CanVote;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -18,6 +20,8 @@ class User extends Authenticatable
     use HasRoles;
     use HasApiTokens;
     use CanComment;
+    use CanVote;
+    use CanFollow;
 
     /**
      * The attributes that are mass assignable.
@@ -74,11 +78,17 @@ class User extends Authenticatable
         return $this->hasMany('App\Project', 'user_id');
     }
 
-    /**
-     * Get all of favorite posts for the user.
-     */
-    public function Favorites()
+    public function Projects()
     {
-        return $this->belongsToMany('App\Project', 'favorites', 'user_id', 'project_id')->withTimeStamps();
+        return $this->belongsToMany('App\Project');
+    }
+
+    public function Skills()
+    {
+        return $this->belongsToMany('App\Skill');
+    }
+
+    public function SponsoredProjects(){
+        return $this->belongsToMany('App\Project', 'project_sponsor')->withPivot('points');
     }
 }

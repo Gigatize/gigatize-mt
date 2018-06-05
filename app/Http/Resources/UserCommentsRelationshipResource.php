@@ -2,9 +2,10 @@
 
 namespace App\Http\Resources;
 
+use App\Comment;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProjectUsersRelationshipResource extends JsonResource
+class UserCommentsRelationshipResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,13 +15,13 @@ class ProjectUsersRelationshipResource extends JsonResource
      */
     public function toArray($request)
     {
-        $project = $this->additional['project'];
+        $user = $this->additional['user'];
         return [
             'links' => [
-                'self'    => route('projects.relationships.users', ['project' => $project->id]),
-                'related' => route('projects.users', ['project' => $project->id]),
+                'self'    => route('users.relationships.comments', ['user' => $user->id]),
+                'related' => route('users.comments', ['user' => $user->id]),
             ],
-            'data'  => UserResource::collection($this),
+            'data'  => CommentResource::collection($this),
         ];
     }
 }

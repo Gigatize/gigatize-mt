@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5976d77e8be7d2550a88b2cf1993bd7",
+    "content-hash": "b6476142b4217fe1f18b83b4d457cb15",
     "packages": [
         {
             "name": "aacotroneo/laravel-saml2",
@@ -2162,6 +2162,54 @@
             "time": "2017-09-13T14:14:20+00:00"
         },
         {
+            "name": "overtrue/laravel-follow",
+            "version": "1.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/overtrue/laravel-follow.git",
+                "reference": "4d22c784f4d1d941e541682fc57a9a2890d0f954"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/overtrue/laravel-follow/zipball/4d22c784f4d1d941e541682fc57a9a2890d0f954",
+                "reference": "4d22c784f4d1d941e541682fc57a9a2890d0f954",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "laravel/laravel": "5.*",
+                "mockery/mockery": "1.0.x-dev",
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Overtrue\\LaravelFollow\\FollowServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Overtrue\\LaravelFollow\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "overtrue",
+                    "email": "i@overtrue.me"
+                }
+            ],
+            "description": "Laravel 5 User Based System",
+            "time": "2018-04-25T15:02:52+00:00"
+        },
+        {
             "name": "paragonie/random_compat",
             "version": "v2.0.12",
             "source": {
@@ -4044,6 +4092,52 @@
                 "test"
             ],
             "time": "2016-01-20T08:20:44+00:00"
+        },
+        {
+            "name": "jcc/laravel-vote",
+            "version": "v1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jcc/laravel-vote.git",
+                "reference": "a49eedf4e7e22f828391b62eb56c9015261fc08c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jcc/laravel-vote/zipball/a49eedf4e7e22f828391b62eb56c9015261fc08c",
+                "reference": "a49eedf4e7e22f828391b62eb56c9015261fc08c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Jcc\\LaravelVote\\VoteServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jcc\\LaravelVote\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "jcc",
+                    "email": "changejian@gmail.com"
+                }
+            ],
+            "description": "The package helps you to add user based vote system to your model",
+            "time": "2018-01-11T10:01:20+00:00"
         },
         {
             "name": "mockery/mockery",

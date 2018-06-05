@@ -26,6 +26,8 @@ class CreateProjectsTable extends Migration {
 			$table->boolean('on_site')->default(0);
 			$table->boolean('renew')->default(0);
 			$table->boolean('flexible_start')->default(0);
+			$table->string('status',50)->default('Not Started');
+			$table->boolean('started')->default(0);
 			$table->boolean('complete')->default(0);
 			$table->timestamps();
 		});

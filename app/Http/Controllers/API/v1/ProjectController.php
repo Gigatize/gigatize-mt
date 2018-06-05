@@ -8,10 +8,8 @@ use App\Http\Resources\ProjectResource;
 use App\Http\Resources\ProjectsResource;
 use App\Project;
 use App\Services\ProjectService;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Optimus\Bruno\EloquentBuilderTrait;
+use App\Traits\EloquentBuilderTrait;
 use Optimus\Bruno\LaravelController;
 
 class ProjectController extends LaravelController
@@ -23,9 +21,8 @@ class ProjectController extends LaravelController
     public function __construct(ProjectService $projectService) {
         $this->projectService = $projectService;
     }
-
     /**
-     * Display a listing of the resource.
+     * Display a listing of projects.
      *
      * @return ProjectsResource
      */
@@ -42,7 +39,7 @@ class ProjectController extends LaravelController
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created project in storage.
      *
      * @param  CreateProjectFormRequest  $request
      * @return ProjectResource
@@ -60,7 +57,7 @@ class ProjectController extends LaravelController
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified project.
      *
      * @param  Project $project
      * @return ProjectResource
@@ -78,7 +75,7 @@ class ProjectController extends LaravelController
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified project in storage.
      *
      * @param  EditProjectFormRequest  $request
      * @param  Project $project
@@ -96,7 +93,7 @@ class ProjectController extends LaravelController
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified project from storage.
      *
      * @param  Project $project
      * @return \Illuminate\Http\Response
@@ -110,4 +107,5 @@ class ProjectController extends LaravelController
             return response("Unauthorized action",403);
         }
     }
+
 }

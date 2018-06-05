@@ -26,6 +26,9 @@ class UserResource extends JsonResource
                 'created_at' => $this->created_at->toDateTimeString(),
                 'updated_at' => $this->updated_at->toDateTimeString(),
             ],
+            'relationships' => $this->when($this->getRelations(), function() {
+                return new UserRelationshipResource($this);
+            }),
             'links'         => [
                 'self' => route('users.show', ['user' => $this->id]),
             ],
