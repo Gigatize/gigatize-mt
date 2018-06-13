@@ -2,84 +2,56 @@
 
 namespace App\Http\Controllers\API\v1;
 
-use App\Http\Controllers\Controller;
+use App\Http\Resources\SkillResource;
+use App\Http\Resources\SkillsResource;
+use App\Services\SkillService;
+use App\Skill;
+use App\Traits\EloquentBuilderTrait;
 use Illuminate\Http\Request;
+use Optimus\Bruno\LaravelController;
 
-class SkillController extends Controller
+class SkillController extends LaravelController
 {
+    use EloquentBuilderTrait;
+
+    private $skillService;
+
+    public function __construct(SkillService $skillService) {
+        $this->skillService = $skillService;
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return SkillsResource
      */
     public function index()
     {
-        //
-    }
+        // Parse the resource options given by GET parameters
+        $resourceOptions = $this->parseResourceOptions();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        $data = $this->skillService->getAll($resourceOptions);
+        $parsedData = $this->parseData($data, $resourceOptions, 'skills');
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        // Create JSON response of parsed data
+        return new SkillsResource($parsedData['skills']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  Skill $skill
+     * @return SkillResource
      */
-    public function show($id)
+    public function show(Skill $skill)
     {
-        //
-    }
+        // Parse the resource options given by GET parameters
+        $resourceOptions = $this->parseResourceOptions();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        $data = $this->skillService->getById($category->id, $resourceOptions);
+        $parsedData = $this->parseData($data, $resourceOptions, 'skill');
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        // Create JSON response of parsed data
+        return new SkillResource($parsedData['skill']);
     }
 }

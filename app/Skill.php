@@ -15,7 +15,12 @@ class Skill extends Model
 
     public function Projects()
     {
-        return $this->belongsToMany('Project');
+        return $this->belongsToMany('App\Project');
+    }
+
+    public function Users()
+    {
+        return $this->belongsToMany('App\User');
     }
 
 }

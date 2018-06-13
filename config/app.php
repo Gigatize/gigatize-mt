@@ -152,6 +152,7 @@ return [
          * Package Service Providers...
          */
         Overtrue\LaravelFollow\FollowServiceProvider::class,
+        Gstt\Achievements\AchievementsServiceProvider::class,
 
         /*
          * Application Service Providers...

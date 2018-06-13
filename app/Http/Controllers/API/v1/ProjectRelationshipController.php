@@ -1,11 +1,13 @@
 <?php
 namespace App\Http\Controllers\API\v1;
+use App\Achievements\UserJoinedAProject;
 use App\Http\Resources\AcceptanceCriteriaCollectionResource;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\CommentsResource;
 use App\Http\Resources\FollowerResource;
 use App\Http\Resources\FollowersResource;
 use App\Http\Resources\LocationResource;
+use App\Http\Resources\ProjectResource;
 use App\Http\Resources\SkillsResource;
 use App\Http\Resources\UserResource;
 use App\Http\Resources\UsersResource;
@@ -72,10 +74,9 @@ class ProjectRelationshipController extends LaravelController
     public function joinProject(Project $project){
         $user = Auth::user();
         $project->users()->attach($user->id);
+        $user->addProgress(new UserJoinedAProject(), 1);
 
-        return (new UsersResource($project->users))
-            ->response()
-            ->setStatusCode(201);
+        return new ProjectResource(Project::find($project->id)->with('users')->first());
     }
 
     public function leaveProject(Project $project){

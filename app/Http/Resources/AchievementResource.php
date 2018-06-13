@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SkillResource extends JsonResource
+class AchievementResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,18 +15,21 @@ class SkillResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'type'          => 'skill',
+            'type'          => 'achievement',
             'id'            => (string)$this->id,
             'attributes'    => [
-                'name' => (string)$this->name,
+                'name' => $this->details->name,
+                'description' => $this->details->description,
+                'points' => (string)$this->points,
+                'unlocked_at' => (string)$this->unlocked_at->toDateTimeString(),
                 'created_at' => (string)$this->created_at->toDateTimeString(),
                 'updated_at' => (string)$this->updated_at->toDateTimeString(),
             ],
-            'relationships' => $this->when($this->getRelations(), function() {
-                return new SkillRelationshipResource($this);
+            'relationships' => $this->when($this->relationLoaded('achiever'), function() {
+                return new AchievementRelationshipResource($this);
             }),
             'links'         => [
-                'self' => route('skills.show', ['skill' => $this->id]),
+                'self' => route('achievements.show', ['achievement' => $this->id]),
             ],
         ];
     }

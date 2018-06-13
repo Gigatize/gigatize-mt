@@ -18,11 +18,14 @@ class CategoryResource extends JsonResource
             'type'          => 'category',
             'id'            => (string)$this->id,
             'attributes'    => [
-                'name' => $this->name,
-                'icon_path' => $this->icon_path,
+                'name' => (string)$this->name,
+                'icon_path' => (string)secure_asset($this->icon_path),
                 //'created_at' => $this->created_at->toDateTimeString(),
                 //'updated_at' => $this->updated_at->toDateTimeString(),
             ],
+            'relationships' => $this->when($this->getRelations(), function() {
+                return new CategoryRelationshipResource($this);
+            }),
             'links'         => [
                 'self' => route('categories.show', ['category' => $this->id]),
             ],

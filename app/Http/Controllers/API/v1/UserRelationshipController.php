@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\API\V1;
 
+use App\Http\Resources\AchievementResource;
+use App\Http\Resources\AchievementsResource;
 use App\Http\Resources\CommentsResource;
 use App\Http\Resources\FollowersResource;
 use App\Http\Resources\ProjectResource;
@@ -17,11 +19,17 @@ class UserRelationshipController extends LaravelController
 {
     use EloquentBuilderTrait;
 
-    public function Badges(User $user = null)
+    public function Achievements(User $user = null)
     {
         if (!isset($user)) {
             $user = Auth::user();
         }
+
+        $resourceOptions = $this->parseResourceOptions();
+
+        $parsedData = $this->parseData($user->achievements, $resourceOptions, 'achievements');
+
+        return new AchievementsResource($parsedData['achievements']);
     }
 
     public function Comments(User $user = null)

@@ -109,9 +109,9 @@ class RegisterController extends Controller
             $user->save();
             $user->notify(new UserRegisteredSuccessfully($user));
 
-            return redirect()->back()->with('success', 'We have sent a verification mail to ' . $validatedData['email'] . 'please activate your account with the link in this mail');
+            return redirect()->back()->with('success', 'If the email exists in our database, we\'ll send you a verification link.');
         }else{
-            return redirect()->back()->with('message', 'No user exists with that email');
+            return redirect()->back()->with('success', 'If the email exists in our database, we\'ll send you a verification link.');
         }
     }
 }

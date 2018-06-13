@@ -4,6 +4,7 @@ namespace App;
 
 use App\Notifications\ResetPassword;
 use App\Traits\CanComment;
+use App\Traits\Achiever;
 use Hyn\Tenancy\Environment;
 use Hyn\Tenancy\Traits\UsesTenantConnection;
 use Illuminate\Notifications\Notifiable;
@@ -22,6 +23,7 @@ class User extends Authenticatable
     use CanComment;
     use CanVote;
     use CanFollow;
+    use Achiever;
 
     /**
      * The attributes that are mass assignable.

@@ -18,6 +18,7 @@ class UsersResource extends JsonResource
             'users' => UserResource::collection($this),
         ];
     }
+
     public function with($request)
     {
         return [

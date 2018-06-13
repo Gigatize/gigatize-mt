@@ -14,6 +14,16 @@ class CategoriesResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'categories' => CategoryResource::collection($this),
+        ];
+    }
+    public function with($request)
+    {
+        return [
+            'links'    => [
+                'self' => route('categories.index'),
+            ],
+        ];
     }
 }

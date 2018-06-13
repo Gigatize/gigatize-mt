@@ -2,63 +2,56 @@
 
 namespace App\Http\Controllers\API\v1;
 
+use App\Category;
+use App\Http\Resources\CategoriesResource;
+use App\Http\Resources\CategoryResource;
+use App\Services\CategoryService;
+use App\Traits\EloquentBuilderTrait;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Optimus\Bruno\LaravelController;
 
-class CategoryController extends Controller
+class CategoryController extends LaravelController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    use EloquentBuilderTrait;
+
+    private $categoryService;
+
+    public function __construct(CategoryService $categoryService) {
+        $this->categoryService = $categoryService;
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Display a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return CategoriesResource
      */
-    public function store(Request $request)
+    public function index()
     {
-        //
+        // Parse the resource options given by GET parameters
+        $resourceOptions = $this->parseResourceOptions();
+
+        $data = $this->categoryService->getAll($resourceOptions);
+        $parsedData = $this->parseData($data, $resourceOptions, 'categories');
+
+        // Create JSON response of parsed data
+        return new CategoriesResource($parsedData['categories']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  Category $category
+     * @return CategoryResource
      */
-    public function show($id)
+    public function show(Category $category)
     {
-        //
-    }
+        // Parse the resource options given by GET parameters
+        $resourceOptions = $this->parseResourceOptions();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        $data = $this->categoryService->getById($category->id, $resourceOptions);
+        $parsedData = $this->parseData($data, $resourceOptions, 'category');
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        // Create JSON response of parsed data
+        return new CategoryResource($parsedData['category']);
     }
 }

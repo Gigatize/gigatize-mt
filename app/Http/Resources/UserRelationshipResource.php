@@ -15,8 +15,8 @@ class UserRelationshipResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'badges' => $this->when($this->relationLoaded('skills'), function () {
-                return (new UserSkillsRelationshipResource($this->Skills))->additional(['user' => $this]);
+            'achievements' => $this->when($this->relationLoaded('achievements'), function () {
+                return (new UserAchievementsRelationshipResource($this->achievements))->additional(['user' => $this]);
             }),
             'comments' => $this->when($this->relationLoaded('comments'), function () {
                 return (new UserCommentsRelationshipResource($this->comments))->additional(['user' => $this]);

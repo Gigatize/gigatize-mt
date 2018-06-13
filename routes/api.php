@@ -17,10 +17,46 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::group(['prefix' => '/v1'], function () {
         /*
         |--------------------------------------------------------------------------
+        | Achievement Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::apiResource('achievements','API\v1\AchievementController')->only([
+            'index','show'
+        ]);
+
+        /*
+        |--------------------------------------------------------------------------
+        | Achievement Relationship Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('achievements/{achievement}/relationships/user', 'API\v1\AchievementRelationshipController@User')->name('achievements.relationships.user');
+        Route::get('achievements/{achievement}/user', 'API\v1\AchievementRelationshipController@User')->name('achievements.user');
+
+        /*
+        |--------------------------------------------------------------------------
+        | Category Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::apiResource('categories','API\v1\CategoryController')->only([
+            'index','show'
+        ]);
+
+        /*
+        |--------------------------------------------------------------------------
+        | Category Relationship Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('categories/{category}/relationships/projects', 'API\v1\CategoryRelationshipController@Projects')->name('categories.relationships.projects');
+        Route::get('categories/{category}/projects', 'API\v1\CategoryRelationshipController@Projects')->name('categories.projects');
+
+        /*
+        |--------------------------------------------------------------------------
         | Comment Routes
         |--------------------------------------------------------------------------
         */
-        Route::apiResource('comments','API\v1\CommentsController');
+        Route::apiResource('comments','API\v1\CommentsController')->except([
+            'store'
+        ]);
         /*
         |--------------------------------------------------------------------------
         | Comment Relationship Routes
@@ -30,12 +66,13 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::get('comments/{comment}/user', 'API\v1\CommentRelationshipController@User')->name('comments.user');
         Route::get('comments/{comment}/relationships/project', 'API\v1\CommentRelationshipController@Project')->name('comments.relationships.project');
         Route::get('comments/{comment}/project', 'API\v1\CommentRelationshipController@Project')->name('comments.project');
+
         /*
         |--------------------------------------------------------------------------
         | Project Routes
         |--------------------------------------------------------------------------
         */
-        Route::apiResource('projects', 'API\v1\projectController');
+        Route::apiResource('projects', 'API\v1\ProjectController');
 
         /*
         |--------------------------------------------------------------------------
@@ -67,10 +104,11 @@ Route::group(['middleware' => 'auth:api'], function () {
 
         Route::get('projects/{project}/relationships/comments', 'API\v1\ProjectRelationshipController@Comments')->name('projects.relationships.comments');
         Route::get('projects/{project}/comments', 'API\v1\ProjectRelationshipController@Comments')->name('projects.comments');
+        Route::post('projects/{project}/comments', 'API\v1\CommentController@joinProject')->name('comments.create');
 
         Route::get('projects/{project}/relationships/votes', 'API\v1\ProjectRelationshipController@Votes')->name('projects.relationships.votes');
         Route::get('projects/{project}/votes', 'API\v1\ProjectRelationshipController@Votes')->name('projects.votes');
-        Route::post('projects/{project}/votes', 'API\v1\ProjectRelationshipontroller@upVote')->name('projects.upvote');
+        Route::post('projects/{project}/votes', 'API\v1\ProjectRelationshipController@upVote')->name('projects.upvote');
         Route::delete('projects/{project}/votes', 'API\v1\ProjectRelationshipController@downVote')->name('projects.downvote');
 
         Route::get('projects/{project}/relationships/followers', 'API\v1\ProjectRelationshipController@Followers')->name('projects.relationships.followers');
@@ -82,9 +120,11 @@ Route::group(['middleware' => 'auth:api'], function () {
         | User Routes
         |--------------------------------------------------------------------------
         */
-        Route::apiResource('users','API\v1\UserController');
+        Route::apiResource('users','API\v1\UserController')->except([
+            'store'
+        ]);
         Route::get('user', 'API\v1\UserController@user');
-        Route::get('user/badges', 'API\v1\UserRelationshipController@Badges')->name('user.badges');
+        Route::get('user/achievements', 'API\v1\UserRelationshipController@Achievements')->name('user.achievements');
         Route::get('user/comments', 'API\v1\UserRelationshipController@Comments')->name('user.comments');
         Route::get('user/followings', 'API\v1\UserRelationshipController@Followings')->name('user.followings');
         Route::get('user/owned-projects', 'API\v1\UserRelationshipController@OwnedProjects')->name('user.owned-projects');
@@ -99,8 +139,8 @@ Route::group(['middleware' => 'auth:api'], function () {
         | User Relationship Routes
         |--------------------------------------------------------------------------
         */
-        Route::get('users/{user}/relationships/badges', 'API\v1\UserRelationshipController@Badges')->name('users.relationships.badges');
-        Route::get('users/{user}/badges', 'API\v1\UserRelationshipController@Badges')->name('users.badges');
+        Route::get('users/{user}/relationships/achievements', 'API\v1\UserRelationshipController@Achievements')->name('users.relationships.achievements');
+        Route::get('users/{user}/achievements', 'API\v1\UserRelationshipController@Achievements')->name('users.achievements');
 
         Route::get('users/{user}/relationships/comments', 'API\v1\UserRelationshipController@Comments')->name('users.relationships.comments');
         Route::get('users/{user}/comments', 'API\v1\UserRelationshipController@Comments')->name('users.comments');
@@ -120,9 +160,26 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::get('users/{user}/relationships/votes', 'API\v1\UserRelationshipController@Votes')->name('users.relationships.votes');
         Route::get('users/{user}/votes', 'API\v1\UserRelationshipController@Votes')->name('users.votes');
 
-
-        Route::apiResource('categories','API\v1\CategoryController');
+        /*
+        |--------------------------------------------------------------------------
+        | Skill Routes
+        |--------------------------------------------------------------------------
+        */
         Route::apiResource('skills','API\v1\SkillController');
+
+        /*
+        |--------------------------------------------------------------------------
+        | Skill Relationship Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('skills/{skill}/relationships/projects', 'API\v1\SkillRelationshipController@Projects')->name('skills.relationships.projects');
+        Route::get('skills/{skill}/projects', 'API\v1\SkillRelationshipController@Projects')->name('skills.projects');
+
+        Route::get('skills/{skill}/relationships/users', 'API\v1\SkillRelationshipController@Users')->name('skills.relationships.users');
+        Route::get('skills/{skill}/users', 'API\v1\SkillRelationshipController@Users')->name('skills.users');
+
+
+
         Route::apiResource('locations','API\v1\LocationController');
         Route::apiResource('acceptance-criteria','API\v1\AcceptanceCriteriaController');
 
