@@ -19,11 +19,21 @@
 <script>
     export default {
         data(){
-            return {}
+            return {
+
+            }
         },
-        mounted()
-        {
+        mounted(){
+            Promise.all([
+                self.getUserData()
+            ])
         },
-        methods: {}
+        methods: {
+            getUserData(){
+                axios.get('/api/v1/user').then(response => {
+                    console.log(response.data);
+                });
+            }
+        }
     }
 </script>

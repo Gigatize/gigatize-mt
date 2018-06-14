@@ -21,11 +21,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+    <div id="app" class="d-flex flex-column">
+        <nav class="navbar navbar-expand-md bg-white navbar-laravel border-bottom flex-shrink-0">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="/images/logo.png" />
+                    <img src="/images/logo.svg" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -66,10 +66,42 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+        <div class="d-flex flex-column flex-grow-1 scroll-y">
+            <main class="py-4 flex-grow-1">
+                @yield('content')
+            </main>
+            <footer class="px-4 py-2 bg-white border-top flex-shrink-0">
+                <img src="/images/logo.svg" class="mb-2" width="120px" />
+                <div class="row">
+                    <div class="col-xs-12 col-md-3 col-lg-2">
+                        <ul class="p-0 m-0 small">
+                            <li><a class="text-dark" href="#">Home</a></li>
+                            <li><a class="text-dark" href="#">My Profile</a></li>
+                            <li><a class="text-dark" href="#">Company Impact</a></li>
+                            <li><a class="text-dark" href="#">Find a Gig</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-md-3 col-lg-2">
+                        <ul class="p-0 m-0 small">
+                            <li><a class="text-dark" href="#">About</a></li>
+                            <li><a class="text-dark" href="#">Support</a></li>
+                            <li><a class="text-dark" href="#">Contact Gigatize</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-md-3 col-lg-2">
+                        <ul class="p-0 m-0 small">
+                            <li><a class="text-dark" href="#">Privacy Policy</a></li>
+                            <li><a class="text-dark" href="#">Terms and Conditions</a></li>
+                        </ul>
+                    </div>
+                    <div class="align-self-end ml-auto mt-1">
+                        <ul class="p-0 m-0 small">
+                            <li class="text-dark">&copy; 2018 Gigatize</li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
     </div>
 </body>
 </html>
