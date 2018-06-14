@@ -61,6 +61,10 @@ nav {
 
 	.notifications {
 		width: 300px;
+
+		.dropdown-item {
+			white-space: normal;
+		}
 	}
 }
 

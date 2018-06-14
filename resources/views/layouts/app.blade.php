@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app" class="d-flex flex-column">
-        <nav class="navbar navbar-expand-md bg-white navbar-laravel border-bottom flex-shrink-0">
+        <nav class="navbar navbar-expand-lg bg-white navbar-laravel border-bottom flex-shrink-0">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="/images/logo.svg" />
@@ -57,10 +57,12 @@
                             <router-link tag="li" to="/">
                                 <a class="nav-link text-dark mx-3 py-1 px-0">Company Impact</a>
                             </router-link>
-                            <li class="nav-item dropdown">
-                                <img src="{{ Auth::user()->picture }}" class=" ml-3 mr-1 nav-avatar" />
+                            <li class="nav-item dropdown flex-shrink-0 d-flex flex-row">
+                                <div class="ml-3 mr-2 nav-avatar">
+                                    <img src="{{ Auth::user()->picture }}" class="img-fluid" />
+                                </div>
                                 <a id="navbarDropdown" class="dropdown-toggle mr-3 py-1 text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <span>{{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}</span>&nbsp;
+                                    <span>{{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}</span>
                                     <span class="caret"></span>
                                 </a>
 
@@ -77,16 +79,16 @@
                                     </form>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown flex-shrink-0">
                                 <a class="dropdown-toggle mr-3 py-1 text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    B
+                                    <span class="text-danger">B</span>
                                     <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right notifications p-0">
-                                    <div class="d-flex flex-row border-bottom p-2">
+                                <div class="dropdown-menu dropdown-menu-right notifications">
+                                    <a class="dropdown-item d-flex flex-row border-bottom p-2" href="#">
                                         <div class="flex-shrink-0 pr-2">
-                                            B
+                                            <span class="text-danger">B</span>
                                         </div>
                                         <div>
                                             Notification 1<br />
@@ -94,10 +96,10 @@
                                                 This notification is informing you that lorem ipsum sic dolor set amet.
                                             </small>
                                         </div>
-                                    </div>
-                                    <div class="d-flex flex-row p-2">
+                                    </a>
+                                    <a class="dropdown-item d-flex flex-row p-2" href="#">
                                         <div class="flex-shrink-0 pr-2">
-                                            B
+                                            <span class="text-secondary">B</span>
                                         </div>
                                         <div>
                                             Notification 2<br />
@@ -105,7 +107,7 @@
                                                 This notification is informing you that lorem ipsum sic dolor set amet.
                                             </small>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </li>
                         @endguest
