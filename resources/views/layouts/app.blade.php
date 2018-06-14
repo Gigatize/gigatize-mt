@@ -23,7 +23,7 @@
 <body>
     <div id="app" class="d-flex flex-column">
         <nav class="navbar navbar-expand-md bg-white navbar-laravel border-bottom flex-shrink-0">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="/images/logo.svg" />
                 </a>
@@ -38,19 +38,31 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto d-flex align-items-center">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                            <li class="mx-2"><a class="nav-link text-dark" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                            <li class="mx-2"><a class="nav-link text-dark" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
+                            <router-link tag="li" to="/">
+                                <a class="nav-link text-dark mx-3 py-1 px-0">Post a Gig</a>
+                            </router-link>
+                            <router-link tag="li" to="/">
+                                <a class="nav-link text-dark mx-3 py-1 px-0">Find a Gig</a>
+                            </router-link>
+                            <router-link tag="li" to="/">
+                                <a class="nav-link text-dark mx-3 py-1 px-0">Company Impact</a>
+                            </router-link>
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                <img src="{{ Auth::user()->picture }}" class=" ml-3 mr-1 nav-avatar" />
+                                <a id="navbarDropdown" class="dropdown-toggle mr-3 py-1 text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <span>{{ Auth::user()->first_name . ' ' . Auth::user()->last_name }}</span>&nbsp;
+                                    <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item small" href="">My Profile</a>
+                                    <a class="dropdown-item small" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -88,14 +100,11 @@
                             <li><a class="text-dark" href="#">Contact Gigatize</a></li>
                         </ul>
                     </div>
-                    <div class="col-xs-12 col-md-3 col-lg-2">
+                    <div class="col-xs-12 col-md-3 ml-auto text-right">
                         <ul class="p-0 m-0 small">
                             <li><a class="text-dark" href="#">Privacy Policy</a></li>
                             <li><a class="text-dark" href="#">Terms and Conditions</a></li>
-                        </ul>
-                    </div>
-                    <div class="align-self-end ml-auto mt-1">
-                        <ul class="p-0 m-0 small">
+                            <li>&nbsp;</li>
                             <li class="text-dark">&copy; 2018 Gigatize</li>
                         </ul>
                     </div>

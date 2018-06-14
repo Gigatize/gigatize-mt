@@ -12,8 +12,43 @@ import router from './routes';
 window.Vue = Vue;
 Vue.use(VueRouter);
 
+var user = {
+    data(){
+    	return {
+    		user: {
+	    		first_name: '',
+	    		last_name: '',
+	    		picture: '',
+	    		id: '',
+	    	}
+	    }
+    },
+    computed: {
+    	userFullName(){
+    		return this.user.first_name + ' ' + this.user.last_name
+    	}
+    },
+    mounted(){
+        this.getAndSetUserData()
+    },
+    methods: {
+    	getAndSetUserData(){
+    		var self = this;
+			return new Promise(async function(resolve, reject){
+	        	axios.get('/api/v1/user').then(response => {
+	        		self.user.first_name = response.data.data.attributes.first_name;
+	        		self.user.last_name = response.data.data.attributes.last_name;
+	        		self.user.picture = response.data.data.attributes.picture;
+	        		self.user.id = response.data.data.id;
+	                resolve(response.data.data);
+	            });
+            });
+    	}
+    }
+}
 
 const app = new Vue({
     el: '#app',
+    mixins: [user],
     router
 });

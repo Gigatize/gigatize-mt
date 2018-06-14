@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="px-3">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -24,16 +24,8 @@
             }
         },
         mounted(){
-            Promise.all([
-                self.getUserData()
-            ])
         },
         methods: {
-            getUserData(){
-                axios.get('/api/v1/user').then(response => {
-                    console.log(response.data);
-                });
-            }
         }
     }
 </script>
