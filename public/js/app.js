@@ -16647,7 +16647,8 @@ var user = {
                 first_name: '',
                 last_name: '',
                 picture: '',
-                id: ''
+                id: '',
+                notifications: []
             }
         };
     },

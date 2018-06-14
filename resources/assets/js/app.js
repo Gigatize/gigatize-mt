@@ -20,6 +20,7 @@ var user = {
 	    		last_name: '',
 	    		picture: '',
 	    		id: '',
+	    		notifications: []
 	    	}
 	    }
     },

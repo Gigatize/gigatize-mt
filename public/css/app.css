@@ -12063,6 +12063,23 @@ nav .navbar-brand img {
   height: 60px;
 }
 
+nav input {
+  border: 0px solid #FFD11F;
+  border-radius: 0px;
+  opacity: 0;
+  max-width: 20px;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+nav input:focus {
+  outline: 0px;
+  border-bottom: 2px solid #FFD11F;
+  margin-bottom: -2px;
+  max-width: 200px;
+  opacity: 1;
+}
+
 nav li > a:hover {
   text-decoration: none;
   border-bottom: 2px solid #ccc;
@@ -12076,6 +12093,10 @@ nav li > a.active {
 
 nav .nav-avatar {
   width: 30px;
+}
+
+nav .notifications {
+  width: 300px;
 }
 
 footer {

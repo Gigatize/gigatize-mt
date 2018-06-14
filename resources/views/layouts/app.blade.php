@@ -44,6 +44,10 @@
                             <li class="mx-2"><a class="nav-link text-dark" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                             <li class="mx-2"><a class="nav-link text-dark" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @else
+                            <li class="mx-2">
+                                <!-- Search Icon -->
+                                <input class="p-1 pr-4" placeholder="Search" />
+                            </li>
                             <router-link tag="li" to="/">
                                 <a class="nav-link text-dark mx-3 py-1 px-0">Post a Gig</a>
                             </router-link>
@@ -71,6 +75,37 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle mr-3 py-1 text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    B
+                                    <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right notifications p-0">
+                                    <div class="d-flex flex-row border-bottom p-2">
+                                        <div class="flex-shrink-0 pr-2">
+                                            B
+                                        </div>
+                                        <div>
+                                            Notification 1<br />
+                                            <small>
+                                                This notification is informing you that lorem ipsum sic dolor set amet.
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row p-2">
+                                        <div class="flex-shrink-0 pr-2">
+                                            B
+                                        </div>
+                                        <div>
+                                            Notification 2<br />
+                                            <small>
+                                                This notification is informing you that lorem ipsum sic dolor set amet.
+                                            </small>
+                                        </div>
+                                    </div>
                                 </div>
                             </li>
                         @endguest
