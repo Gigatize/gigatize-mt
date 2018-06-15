@@ -33,15 +33,6 @@ class ProjectRelationshipResource extends JsonResource
                     'data' => new CategoryResource($this->Category),
                 ];
             }),
-            'location' => $this->when($this->relationLoaded('location'), function () {
-                return [
-                    'links' => [
-                        'self' => route('projects.relationships.location', ['project' => $this->id]),
-                        'related' => route('projects.location', ['project' => $this->id]),
-                    ],
-                    'data' => new LocationResource($this->Location),
-                ];
-            }),
             'skills' => $this->when($this->relationLoaded('skills'), function () {
                 return (new ProjectSkillsRelationshipResource($this->Skills))->additional(['project' => $this]);
             }),

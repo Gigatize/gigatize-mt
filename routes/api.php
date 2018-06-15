@@ -93,9 +93,6 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::post('projects/{project}/users', 'API\v1\ProjectRelationshipController@joinProject')->name('projects.join');
         Route::delete('projects/{project}/users', 'API\v1\ProjectRelationshipController@leaveProject')->name('projects.leave');
 
-        Route::get('projects/{project}/relationships/location', 'API\v1\ProjectRelationshipController@Location')->name('projects.relationships.location');
-        Route::get('projects/{project}/location', 'API\v1\ProjectRelationshipController@Location')->name('projects.location');
-
         Route::get('projects/{project}/relationships/acceptance-criteria', 'API\v1\ProjectRelationshipController@AcceptanceCriteria')->name('projects.relationships.acceptance-criteria');
         Route::get('projects/{project}/acceptance-criteria', 'API\v1\ProjectRelationshipController@AcceptanceCriteria')->name('projects.acceptance-criteria');
 

@@ -23,7 +23,6 @@ class ProjectResource extends JsonResource
                 'description' => (string)$this->description,
                 'start_date' => (string)$this->start_date->toDateString(),
                 'deadline' => (string)$this->deadline->toDateString(),
-                'timezone' => (string)$this->timezone,
                 'impact' => (string)$this->impact,
                 'max_users' => (string)$this->max_users,
                 'estimated_hours' => (string)$this->estimated_hours,
