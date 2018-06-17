@@ -1,7 +1,9 @@
 <?php
 namespace App\Http\Controllers\API\v1;
+use App\AcceptanceCriteria;
 use App\Achievements\UserJoinedAProject;
 use App\Http\Resources\AcceptanceCriteriaCollectionResource;
+use App\Http\Resources\AcceptanceCriteriaResource;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\CommentsResource;
 use App\Http\Resources\FollowerResource;
@@ -14,6 +16,7 @@ use App\Http\Resources\UsersResource;
 use App\Http\Resources\VotesResource;
 use App\Project;
 use App\Traits\EloquentBuilderTrait;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Optimus\Bruno\LaravelController;
 
@@ -96,6 +99,25 @@ class ProjectRelationshipController extends LaravelController
         return new AcceptanceCriteriaCollectionResource($parsedData['AcceptanceCriteria']);
     }
 
+    public function CompleteAcceptanceCriteria(Project $project, $criteria)
+    {
+        $criteria = AcceptanceCriteria::findOrFail($criteria);
+        $user = Auth::user();
+        if(($user->can('edit project') and $user->id == $project->user_id or $user->can('manage projects')) and $project->id == $criteria->project_id) {
+            // Parse the resource options given by GET parameters
+            $criteria->complete = true;
+            $criteria->completed_at = Carbon::now();
+            $criteria->save();
+            $resourceOptions = $this->parseResourceOptions();
+
+            $parsedData = $this->parseData($criteria, $resourceOptions, 'AcceptanceCriteria');
+
+            return new AcceptanceCriteriaResource($parsedData['AcceptanceCriteria']);
+        }else{
+            return response()->json(['message'=>'Unauthorized action','error'=>403],403);
+        }
+    }
+
     public function Comments(Project $project)
     {
         // Parse the resource options given by GET parameters
@@ -151,7 +173,7 @@ class ProjectRelationshipController extends LaravelController
         $user = Auth::user();
         $user->unfollow($project);
 
-        return response(['status'=> 204, 'message'=>'you successfully unfollowed the project'],204);
+        return response()->json(['status'=> 204, 'message'=>'you successfully unfollowed the project'],204);
     }
 
 }

@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AcceptanceCriteriaIdentifierResource extends JsonResource
+class PermissionsResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,8 +15,16 @@ class AcceptanceCriteriaIdentifierResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'type' => 'acceptance criteria',
-            'id' => $this->id,
+            'permissions' => PermissionResource::collection($this),
+        ];
+    }
+
+    public function with($request)
+    {
+        return [
+            'links'    => [
+                'self' => route('permissions.index'),
+            ],
         ];
     }
 }

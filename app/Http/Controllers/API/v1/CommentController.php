@@ -11,7 +11,7 @@ use App\Traits\EloquentBuilderTrait;
 use Illuminate\Http\Request;
 use Optimus\Bruno\LaravelController;
 
-class CommentsController extends LaravelController
+class CommentController extends LaravelController
 {
     use EloquentBuilderTrait;
 

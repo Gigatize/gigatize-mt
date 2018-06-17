@@ -77,8 +77,8 @@ class CreateTenant extends Command
     {
         $admin = User::create(['first_name' => $name, 'last_name' => 'Admin', 'email' => $email, 'password' => Hash::make($password), 'status'=>'1']);
         $admin->guard_name = 'web';
+        $admin->assignRole('admin');
         $admin->assignRole('gig sponsor');
-
 
         return $admin;
     }

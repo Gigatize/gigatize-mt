@@ -11,9 +11,14 @@ class AcceptanceCriteria extends Model
 
     protected $table = 'acceptance_criteria';
     public $timestamps = true;
-    protected $fillable = array('project_id', 'criteria');
+    protected $guarded = [];
+    protected $dates = [
+        'completed_at',
+        'created_at',
+        'updated_at'
+    ];
 
-    public function Projects()
+    public function Project()
     {
         return $this->belongsTo('App\Project');
     }

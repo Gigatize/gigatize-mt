@@ -10,7 +10,7 @@ use App\Traits\EloquentBuilderTrait;
 use Illuminate\Http\Request;
 use Optimus\Bruno\LaravelController;
 
-class AcceptanceCriteriaController extends LaravelController
+class AchievementController extends LaravelController
 {
     use EloquentBuilderTrait;
 
