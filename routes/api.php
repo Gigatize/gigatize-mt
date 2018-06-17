@@ -151,6 +151,12 @@ Route::group(['middleware' => 'auth:api'], function () {
 
         /*
         |--------------------------------------------------------------------------
+        | Engagement Score Routes
+        |--------------------------------------------------------------------------
+        */
+        Route::get('scores','API\v1\ScoreController@index')->name('scores.index');
+        /*
+        |--------------------------------------------------------------------------
         | Skill Routes
         |--------------------------------------------------------------------------
         */
@@ -183,6 +189,7 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::get('user/permissions', 'API\v1\UserRelationshipController@Permissions')->name('user.permissions');
         Route::get('user/projects', 'API\v1\UserRelationshipController@Projects')->name('user.projects');
         Route::get('user/roles', 'API\v1\UserRelationshipController@Roles')->name('user.roles');
+        Route::get('user/score', 'API\v1\UserRelationshipController@engagementScore')->name('user.score');
         Route::get('user/skills', 'API\v1\UserRelationshipController@Skills')->name('user.skills');
         Route::get('user/votes', 'API\v1\UserRelationshipController@Votes')->name('user.votes');
 
@@ -212,11 +219,14 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::get('users/{user}/relationships/roles', 'API\v1\UserRelationshipController@Roles')->name('users.relationships.roles');
         Route::get('users/{user}/roles', 'API\v1\UserRelationshipController@Roles')->name('users.roles');
 
+        Route::get('users/{user}/score', 'API\v1\UserRelationshipController@engagementScore')->name('users.score');
+
         Route::get('users/{user}/relationships/skills', 'API\v1\UserRelationshipController@Skills')->name('users.relationships.skills');
         Route::get('users/{user}/skills', 'API\v1\UserRelationshipController@Skills')->name('users.skills');
 
         Route::get('users/{user}/relationships/votes', 'API\v1\UserRelationshipController@Votes')->name('users.relationships.votes');
         Route::get('users/{user}/votes', 'API\v1\UserRelationshipController@Votes')->name('users.votes');
+
     });
 });
 

@@ -69,7 +69,7 @@ class CommentController extends LaravelController
         if($comment) {
             return new CommentResource($comment);
         }else{
-            return response(['message' => 'Unauthorized action','error' => '403'], 403);
+            return response()->json(['message' => 'Unauthorized action','error' => 403], 403);
         }
     }
 
@@ -83,9 +83,9 @@ class CommentController extends LaravelController
     {
         $success = $this->commentService->delete($comment);
         if($success) {
-            return response(['message' => 'success', 'status' => '204'], 204);
+            return response()->json(['message' => 'success', 'status' => 204], 204);
         }else{
-            return response(['message' => 'Unauthorized action','error' => '403'], 403);
+            return response()->json(['message' => 'Unauthorized action','error' => 403], 403);
         }
     }
 }

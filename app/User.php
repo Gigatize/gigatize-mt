@@ -5,6 +5,7 @@ namespace App;
 use App\Notifications\ResetPassword;
 use App\Traits\CanComment;
 use App\Traits\Achiever;
+use Carbon\Carbon;
 use Hyn\Tenancy\Environment;
 use Hyn\Tenancy\Traits\UsesTenantConnection;
 use Illuminate\Notifications\Notifiable;
@@ -12,6 +13,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 use Overtrue\LaravelFollow\Traits\CanFollow;
 use Overtrue\LaravelFollow\Traits\CanVote;
+use phpDocumentor\Reflection\Types\Integer;
+use Spatie\Activitylog\Traits\CausesActivity;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -24,6 +27,7 @@ class User extends Authenticatable
     use CanVote;
     use CanFollow;
     use Achiever;
+    use CausesActivity;
 
     /**
      * The attributes that are mass assignable.
@@ -93,4 +97,24 @@ class User extends Authenticatable
     public function SponsoredProjects(){
         return $this->belongsToMany('App\Project', 'project_sponsor')->withPivot('points');
     }
+
+    /*
+    |---------------------------------------------------------------|
+    |Helper Methods
+    |---------------------------------------------------------------|
+    */
+
+    public function getEngagementScore(Carbon $start_date = null, Carbon $end_date = null){
+        $points = $this->activity();
+        if($start_date and $end_date) {
+            $points = $points->whereBetween('created_at', [$start_date,$end_date]);
+        }elseif ($start_date) {
+            $points = $points->where('created_at', '>=', $start_date);
+        }elseif($end_date) {
+            $points = $points->where('created_at', '<=', $end_date);
+        }
+        $points = $points->sum('properties->points');
+        return $points;
+    }
+
 }

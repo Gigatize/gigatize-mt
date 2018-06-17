@@ -76,15 +76,22 @@ class ProjectRelationshipController extends LaravelController
 
     public function joinProject(Project $project){
         $user = Auth::user();
-        $project->users()->attach($user->id);
+        $project->Users()->attach($user->id);
+        //add achievement progress
         $user->addProgress(new UserJoinedAProject(), 1);
+        //log user activity
+        $activity = activity()
+            ->causedBy($user)
+            ->performedOn($project)
+            ->withProperties(['points' => 10])
+            ->log('project joined');
 
         return new ProjectResource(Project::find($project->id)->with('users')->first());
     }
 
     public function leaveProject(Project $project){
         $user = Auth::user();
-        $project->users()->detach($user->id);
+        $project->Users()->detach($user->id);
 
         return new UsersResource($project->users);
     }
@@ -103,11 +110,17 @@ class ProjectRelationshipController extends LaravelController
     {
         $criteria = AcceptanceCriteria::findOrFail($criteria);
         $user = Auth::user();
-        if(($user->can('edit project') and $user->id == $project->user_id or $user->can('manage projects')) and $project->id == $criteria->project_id) {
+        if((($user->can('edit project') and $user->id == $project->user_id) or $user->can('manage projects')) and $project->id == $criteria->project_id) {
             // Parse the resource options given by GET parameters
             $criteria->complete = true;
             $criteria->completed_at = Carbon::now();
             $criteria->save();
+            //log user activity
+            $activity = activity()
+                ->causedBy($user)
+                ->performedOn($criteria)
+                ->withProperties(['points' => 2])
+                ->log('acceptance criteria completed');
             $resourceOptions = $this->parseResourceOptions();
 
             $parsedData = $this->parseData($criteria, $resourceOptions, 'AcceptanceCriteria');
@@ -123,7 +136,7 @@ class ProjectRelationshipController extends LaravelController
         // Parse the resource options given by GET parameters
         $resourceOptions = $this->parseResourceOptions();
 
-        $parsedData = $this->parseData($project->comments, $resourceOptions, 'comments');
+        $parsedData = $this->parseData($project->Comments, $resourceOptions, 'comments');
 
         return new CommentsResource($parsedData['comments']);
     }
@@ -139,6 +152,12 @@ class ProjectRelationshipController extends LaravelController
     public function upVote(Project $project){
         $user = Auth::user();
         $user->upvote($project);
+        //log user activity
+        $activity = activity()
+            ->causedBy($user)
+            ->performedOn($project)
+            ->withProperties(['points' => 1])
+            ->log('project upvoted');
 
         return (new VotesResource($project->upvoters))
             ->response()
@@ -164,9 +183,15 @@ class ProjectRelationshipController extends LaravelController
         $user = Auth::user();
         $user->follow($project);
         $project->followers()->where('user_id',$user->id)->first();
+        //log user activity
+        $activity = activity()
+            ->causedBy($user)
+            ->performedOn($project)
+            ->withProperties(['points' => 1])
+            ->log('project followed');
         return (new FollowerResource($project->upvoters))
             ->response()
-            ->setStatusCode(201);
+            ->json(['status'=> 201, 'message'=>'you successfully followed the project'],201);
     }
 
     public function deleteFollower(Project $project){
