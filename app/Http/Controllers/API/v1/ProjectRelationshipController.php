@@ -80,7 +80,7 @@ class ProjectRelationshipController extends LaravelController
         //add achievement progress
         $user->addProgress(new UserJoinedAProject(), 1);
         //log user activity
-        $activity = activity()
+        activity()
             ->causedBy($user)
             ->performedOn($project)
             ->withProperties(['points' => 10])
@@ -116,7 +116,7 @@ class ProjectRelationshipController extends LaravelController
             $criteria->completed_at = Carbon::now();
             $criteria->save();
             //log user activity
-            $activity = activity()
+            activity()
                 ->causedBy($user)
                 ->performedOn($criteria)
                 ->withProperties(['points' => 2])
@@ -153,7 +153,7 @@ class ProjectRelationshipController extends LaravelController
         $user = Auth::user();
         $user->upvote($project);
         //log user activity
-        $activity = activity()
+        activity()
             ->causedBy($user)
             ->performedOn($project)
             ->withProperties(['points' => 1])
@@ -184,7 +184,7 @@ class ProjectRelationshipController extends LaravelController
         $user->follow($project);
         $project->followers()->where('user_id',$user->id)->first();
         //log user activity
-        $activity = activity()
+        activity()
             ->causedBy($user)
             ->performedOn($project)
             ->withProperties(['points' => 1])
