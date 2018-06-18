@@ -5,6 +5,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Home
+
+                        <font-awesome-icon icon="spinner" spin/>
                     </div>
 
                     <div class="panel-body">

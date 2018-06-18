@@ -25,47 +25,19 @@ class ProjectRepository extends Repository
         $project->description = $data['description'];
         $project->start_date = Carbon::parse($data['start_date']);
         $project->deadline = Carbon::parse($data['deadline']);
-        $project->location_id = $data['location_id'];
-        $project->timezone = isset($data['timezone']) ?: $data['timezone'] = null;
         $project->impact = $data['impact'];
+        $project->open_to = $data['open_to'];
         $project->max_users = $data['max_users'];
         $project->estimated_hours = $data['estimated_hours'];
         $project->resources_link = isset($data['resources_link']) ?: $data['resources_link'] = null;
         $project->additional_info = isset($data['additional_info']) ?: $data['additional_info'] = null;
-        if(isset($data['flexible_start'])) {
-            $project->flexible_start = true;
-        }else{
-            $project->flexible_start = false;
-        }
-        if(isset($data['on_site'])) {
-            $project->on_site = true;
-        }else{
-            $project->on_site = false;
-        }
-        if(isset($data['renew'])) {
-            $project->renew = true;
-        }else{
-            $project->renew = false;
-        }
+        $project->flexible_start = $data['flexible_start'];
+        $project->on_site = $data['on_site'];
+        $project->renew = $data['renew'];
         $project->save();
 
-        foreach ($data['acceptance_criteria'] as $criteria){
-            $project->AcceptanceCriteria()->create([
-                'criteria' => $criteria
-            ]);
-        }
-
-        foreach (explode(',',$data['skills']) as $skillName){
-            $skill = Skill::where('name',$skillName)->first();
-            if($skill){
-                $project->Skills()->attach($skill->id);
-            }else{
-                $skill = Skill::create([
-                    'name'=> $skillName
-                ]);
-                $project->Skills()->attach($skill->id);
-            }
-        }
+        $this->attachAcceptanceCriteria($project, $data['acceptance_criteria']);
+        $this->attachSkills($project, $data['acceptance_criteria']);
 
         return $project;
     }
@@ -78,47 +50,21 @@ class ProjectRepository extends Repository
         $project->description = $data['description'];
         $project->start_date = Carbon::parse($data['start_date']);
         $project->deadline = Carbon::parse($data['deadline']);
-        $project->location_id = $data['location_id'];
-        $project->timezone = isset($data['timezone']) ?: $data['timezone'] = null;
         $project->impact = $data['impact'];
+        $project->open_to = $data['open_to'];
         $project->max_users = $data['max_users'];
         $project->estimated_hours = $data['estimated_hours'];
         $project->resources_link = isset($data['resources_link']) ?: $data['resources_link'] = null;
         $project->additional_info = isset($data['additional_info']) ?: $data['additional_info'] = null;
-        if(isset($data['flexible_start'])) {
-            $project->flexible_start = true;
-        }else{
-            $project->flexible_start = false;
-        }
-        if(isset($data['on_site'])) {
-            $project->on_site = true;
-        }else{
-            $project->on_site = false;
-        }
-        if(isset($data['renew'])) {
-            $project->renew = true;
-        }else{
-            $project->renew = false;
-        }
+        $project->flexible_start = $data['flexible_start'];
+        $project->on_site = $data['on_site'];
+        $project->renew = $data['renew'];
         $project->save();
 
-        foreach ($data['acceptance_criteria'] as $criteria){
-            $project->AcceptanceCriteria()->create([
-                'criteria' => $criteria
-            ]);
-        }
-
-        foreach (explode(',',$data['skills']) as $skillName){
-            $skill = Skill::where('name',$skillName)->first();
-            if($skill){
-                $project->Skills()->attach($skill->id);
-            }else{
-                $skill = Skill::create([
-                    'name'=> $skillName
-                ]);
-                $project->Skills()->attach($skill->id);
-            }
-        }
+        $project->AcceptanceCriteria()->delete();
+        $this->attachAcceptanceCriteria($project, $data['acceptance_criteria']);
+        $project->Skills()->detach();
+        $this->attachSkills($project, $data['acceptance_criteria']);
 
         return $project;
     }
@@ -142,6 +88,28 @@ class ProjectRepository extends Repository
             call_user_func([$query, $method], 'skills.name', $value);
         } else {
             call_user_func([$query, $method], 'skills.name', $clauseOperator, $value);
+        }
+    }
+
+    private function attachAcceptanceCriteria(Project $project, $acceptanceCriteriaArray){
+        foreach ($acceptanceCriteriaArray as $criteria){
+            $project->AcceptanceCriteria()->create([
+                'criteria' => $criteria
+            ]);
+        }
+    }
+
+    private function attachSkills(Project $project, $skillsArray){
+        foreach ($skillsArray as $skillName){
+            $skill = Skill::where('name',$skillName)->first();
+            if($skill){
+                $project->Skills()->attach($skill->id);
+            }else{
+                $skill = Skill::create([
+                    'name'=> $skillName
+                ]);
+                $project->Skills()->attach($skill->id);
+            }
         }
     }
 }

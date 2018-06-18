@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Auth;
 
 class UserRelationshipResource extends JsonResource
 {
@@ -27,7 +28,7 @@ class UserRelationshipResource extends JsonResource
             'owned_projects' => $this->when($this->relationLoaded('OwnedProjects'), function () {
                 return (new UserOwnedProjectsRelationshipResource($this->OwnedProjects))->additional(['user' => $this]);
             }),
-            'projects' => $this->when($this->relationLoaded('project'), function () {
+            'projects' => $this->when($this->relationLoaded('projects'), function () {
                 return (new UserProjectsRelationshipResource($this->Projects))->additional(['user' => $this]);
             }),
             'skills' => $this->when($this->relationLoaded('skills'), function () {
@@ -38,6 +39,12 @@ class UserRelationshipResource extends JsonResource
             }),
             'votes' => $this->when($this->relationLoaded('upvotes'), function () {
                 return (new UserVotesRelationshipResource($this->upvotes))->additional(['user' => $this]);
+            }),
+            'roles' => $this->when($this->relationLoaded('roles') and Auth::user()->can('manage users'), function () {
+                return (new UserRolesRelationshipResource($this->roles))->additional(['role' => $this]);
+            }),
+            'permissions' => $this->when($this->relationLoaded('permissions') and Auth::user()->can('manage users'), function () {
+                return (new UserPermissionsRelationshipResource($this->permissions))->additional(['permission' => $this]);
             }),
         ];
     }

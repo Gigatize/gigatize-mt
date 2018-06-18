@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Auth;
 
 class UserResource extends JsonResource
 {
@@ -26,7 +27,7 @@ class UserResource extends JsonResource
                 'created_at' => $this->created_at->toDateTimeString(),
                 'updated_at' => $this->updated_at->toDateTimeString(),
             ],
-            'relationships' => $this->when($this->getRelations(), function() {
+            'relationships' => $this->when(($this->relationLoaded('achievements') or $this->relationLoaded('comments') or $this->relationLoaded('followings') or $this->relationLoaded('OwnedProjects') or $this->relationLoaded('projects') or $this->relationLoaded('skills') or $this->relationLoaded('upvotes')) or (($this->relationLoaded('roles') or $this->relationLoaded('permissions')) and Auth::user()->can('manage users') or ($this->relationLoaded('SponsoredProjects') and Auth::user()->can('sponsor project'))), function() {
                 return new UserRelationshipResource($this);
             }),
             'links'         => [

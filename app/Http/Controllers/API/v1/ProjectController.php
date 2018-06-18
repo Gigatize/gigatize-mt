@@ -51,7 +51,7 @@ class ProjectController extends LaravelController
         if($project) {
             return new ProjectResource($project);
         }else{
-            return response("Unauthorized action",403);
+            return response()->json(['message'=>'Unauthorized action','error'=>403],403);
         }
 
     }
@@ -88,7 +88,7 @@ class ProjectController extends LaravelController
         if($project) {
             return new ProjectResource($project);
         }else{
-            return response(['message' => 'Unauthorized action','error' => '403'], 403);
+            return response()->json(['message'=>'Unauthorized action','error'=>403],403);
         }
     }
 
@@ -102,9 +102,9 @@ class ProjectController extends LaravelController
     {
         $success = $this->projectService->delete($project);
         if($success) {
-            return response(['message' => 'success', 'status' => '204'], 204);
+            return response()->json(['message' => 'success', 'status' => '204'], 204);
         }else{
-            return response(['message' => 'Unauthorized action','error' => '403'], 403);
+            return response()->json(['message'=>'Unauthorized action','error'=>403],403);
         }
     }
 

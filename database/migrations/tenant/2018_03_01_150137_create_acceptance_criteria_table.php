@@ -11,6 +11,8 @@ class CreateAcceptanceCriteriaTable extends Migration {
 			$table->increments('id');
 			$table->integer('project_id')->unsigned();
 			$table->string('criteria', 500);
+			$table->boolean('complete')->default(false);
+			$table->dateTime('completed_at')->nullable();
 			$table->timestamps();
 		});
 	}

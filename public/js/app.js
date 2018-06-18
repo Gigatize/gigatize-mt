@@ -16645,6 +16645,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
  // importing Vue router library
 
 
+/*import fontawesome from '@fortawesome/fontawesome';
+import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
+import fas from '@fortawesome/fontawesome-free-solid';
+import fab from '@fortawesome/fontawesome-free-brands';
+
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+fontawesome.library.add(fas, fab);*/
 
 window.Vue = __WEBPACK_IMPORTED_MODULE_2_vue___default.a;
 __WEBPACK_IMPORTED_MODULE_2_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue_router__["a" /* default */]);
@@ -50848,6 +50855,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -50866,28 +50875,27 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "px-3" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "panel panel-default" }, [
-            _c("div", { staticClass: "panel-heading" }, [
-              _vm._v("\n                    Home\n                ")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "panel-body" })
-          ])
+  return _c("div", { staticClass: "px-3" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "panel panel-default" }, [
+          _c(
+            "div",
+            { staticClass: "panel-heading" },
+            [
+              _vm._v("\n                    Home\n\n                    "),
+              _c("font-awesome-icon", { attrs: { icon: "spinner", spin: "" } })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel-body" })
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

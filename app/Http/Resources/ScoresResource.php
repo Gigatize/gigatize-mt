@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AcceptanceCriteriaIdentifierResource extends JsonResource
+class ScoresResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,8 +15,15 @@ class AcceptanceCriteriaIdentifierResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'type' => 'acceptance criteria',
-            'id' => $this->id,
+            'scores' => ScoreResource::collection($this),
+        ];
+    }
+    public function with($request)
+    {
+        return [
+            'links'    => [
+                'self' => route('scores.index'),
+            ],
         ];
     }
 }

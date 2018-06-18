@@ -81,14 +81,14 @@
                             </li>
                             <li class="nav-item dropdown flex-shrink-0">
                                 <a class="dropdown-toggle mr-3 py-1 text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <span class="text-danger">B</span>
+                                    <span class="text-danger"><font-awesome-icon icon="bell"/></span>
                                     <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right notifications">
                                     <a class="dropdown-item d-flex flex-row border-bottom p-2" href="#">
                                         <div class="flex-shrink-0 pr-2">
-                                            <span class="text-danger">B</span>
+                                            <span class="text-danger"><font-awesome-icon icon="bell"/></span>
                                         </div>
                                         <div>
                                             Notification 1<br />
@@ -99,7 +99,7 @@
                                     </a>
                                     <a class="dropdown-item d-flex flex-row p-2" href="#">
                                         <div class="flex-shrink-0 pr-2">
-                                            <span class="text-secondary">B</span>
+                                            <span class="text-secondary"><font-awesome-icon icon="bell"/></span>
                                         </div>
                                         <div>
                                             Notification 2<br />

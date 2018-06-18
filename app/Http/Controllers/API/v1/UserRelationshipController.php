@@ -8,9 +8,12 @@ use App\Http\Resources\CommentsResource;
 use App\Http\Resources\FollowersResource;
 use App\Http\Resources\ProjectResource;
 use App\Http\Resources\ProjectsResource;
+use App\Http\Resources\RolesResource;
+use App\Http\Resources\ScoreResource;
 use App\Http\Resources\SkillsResource;
 use App\Traits\EloquentBuilderTrait;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Optimus\Bruno\LaravelController;
@@ -84,6 +87,23 @@ class UserRelationshipController extends LaravelController
         return new ProjectsResource($parsedData['projects']);
     }
 
+    public function Roles(User $user = null){
+
+        if(!isset($user)){
+            $user = Auth::user();
+        }
+        if($user->can('manage users')) {
+            // Parse the resource options given by GET parameters
+            $resourceOptions = $this->parseResourceOptions();
+
+            $parsedData = $this->parseData($user->roles, $resourceOptions, 'roles');
+
+            return new RolesResource($parsedData['roles']);
+        }else{
+            return response()->json(['message'=>'Unauthorized action','error'=>403],403);
+        }
+    }
+
     public function Skills(User $user = null)
     {
         if(!isset($user)){
@@ -108,5 +128,13 @@ class UserRelationshipController extends LaravelController
         $parsedData = $this->parseData($user->Skills, $resourceOptions, 'skills');
 
         return new SkillsResource($parsedData['skills']);
+    }
+
+    public function engagementScore(Request $request, User $user = null){
+
+        if(!isset($user)){
+            $user = Auth::user();
+        }
+        return new ScoreResource($user);
     }
 }

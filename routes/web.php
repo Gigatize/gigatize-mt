@@ -19,6 +19,7 @@ Route::domain('{customer}.'.config('app.url_base'))->group(function () {
             Route::get('register/verify/resend',  'Auth\RegisterController@showResendVerificationEmailForm')->name('showResendVerificationEmailForm');
             Route::post('register/verify/resend', 'Auth\RegisterController@resendVerificationEmail')->name('resendVerificationEmail')->middleware('throttle:2,1');
             Route::get('verify-user/{code}', 'Auth\RegisterController@activateUser')->name('activate.user');
+            Auth::routes();
         });
     });
 

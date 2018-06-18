@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SponsorsIdentifierResource extends JsonResource
+class RolesResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,8 +15,15 @@ class SponsorsIdentifierResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'type' => 'sponsors',
-            'id' => $this->id,
+            'roles' => RoleResource::collection($this),
+        ];
+    }
+    public function with($request)
+    {
+        return [
+            'links'    => [
+                'self' => route('roles.index'),
+            ],
         ];
     }
 }

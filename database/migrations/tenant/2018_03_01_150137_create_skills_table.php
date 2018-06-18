@@ -9,8 +9,8 @@ class CreateSkillsTable extends Migration {
 	{
 		Schema::create('skills', function(Blueprint $table) {
 			$table->increments('id');
+            $table->string('name', 100)->unique();
 			$table->timestamps();
-			$table->string('name', 75)->unique();
 		});
 	}
 

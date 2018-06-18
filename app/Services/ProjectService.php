@@ -33,8 +33,18 @@ class ProjectService {
             // Set the account ID on the user and create the record in the database
             $data['user_id'] = $user->id;
             $project = $this->projectRepository->create($data);
+            if($project) {
+                //log user activity
+                $activity = activity()
+                    ->causedBy($user)
+                    ->performedOn($project)
+                    ->withProperties(['points' => 20])
+                    ->log('project created');
 
-            return $project;
+                return $project;
+            }else{
+                return false;
+            }
         }else{
             return false;
         }

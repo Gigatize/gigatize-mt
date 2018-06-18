@@ -16,9 +16,9 @@ class CreateProjectsTable extends Migration {
 			$table->text('description');
 			$table->date('start_date');
 			$table->date('deadline');
-			$table->integer('location_id')->unsigned();
-			$table->string('timezone', 200)->nullable();
+			$table->integer('location_id')->unsigned()->nullable();
 			$table->string('impact', 550);
+			$table->string('open_to', 100)->default('Anyone');
 			$table->integer('max_users');
 			$table->integer('estimated_hours');
 			$table->string('resources_link', 200)->nullable();
