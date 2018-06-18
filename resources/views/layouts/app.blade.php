@@ -48,10 +48,10 @@
                                 <!-- Search Icon -->
                                 <input class="p-1 pr-4" placeholder="Search" />
                             </li>
-                            <router-link tag="li" to="/">
+                            <router-link tag="li" to="/gigs/new">
                                 <a class="nav-link text-dark mx-3 py-1 px-0">Post a Gig</a>
                             </router-link>
-                            <router-link tag="li" to="/">
+                            <router-link tag="li" to="/gigs">
                                 <a class="nav-link text-dark mx-3 py-1 px-0">Find a Gig</a>
                             </router-link>
                             <router-link tag="li" to="/">

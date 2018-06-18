@@ -12041,6 +12041,1950 @@ a.text-orange:focus {
   }
 }
 
+.gradient-primary-primary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#00A1AC));
+  background-image: linear-gradient(to right, #00A1AC 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-primary-secondary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#6c757d));
+  background-image: linear-gradient(to right, #00A1AC 0%, #6c757d 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-primary-success {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#28a745));
+  background-image: linear-gradient(to right, #00A1AC 0%, #28a745 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-primary-info {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#17a2b8));
+  background-image: linear-gradient(to right, #00A1AC 0%, #17a2b8 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-primary-warning {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#FFD11F));
+  background-image: linear-gradient(to right, #00A1AC 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-primary-danger {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#CF1F37));
+  background-image: linear-gradient(to right, #00A1AC 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-primary-light {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#f8f9fa));
+  background-image: linear-gradient(to right, #00A1AC 0%, #f8f9fa 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-primary-dark {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#343a40));
+  background-image: linear-gradient(to right, #00A1AC 0%, #343a40 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-primary-empty {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#ffffff));
+  background-image: linear-gradient(to right, #00A1AC 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-primary-white {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#ffffff));
+  background-image: linear-gradient(to right, #00A1AC 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-primary-alternate {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#C3D023));
+  background-image: linear-gradient(to right, #00A1AC 0%, #C3D023 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-primary-accent {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#FFD11F));
+  background-image: linear-gradient(to right, #00A1AC 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-primary-teal {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#00A1AC));
+  background-image: linear-gradient(to right, #00A1AC 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-primary-red {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#CF1F37));
+  background-image: linear-gradient(to right, #00A1AC 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-primary-yellow {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#FFD11F));
+  background-image: linear-gradient(to right, #00A1AC 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-primary-green {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#C4D02E));
+  background-image: linear-gradient(to right, #00A1AC 0%, #C4D02E 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-primary-blue {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#6A67CC));
+  background-image: linear-gradient(to right, #00A1AC 0%, #6A67CC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-primary-orange {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#FB8139));
+  background-image: linear-gradient(to right, #00A1AC 0%, #FB8139 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-secondary-primary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6c757d), to(#00A1AC));
+  background-image: linear-gradient(to right, #6c757d 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-secondary-secondary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6c757d), to(#6c757d));
+  background-image: linear-gradient(to right, #6c757d 0%, #6c757d 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-secondary-success {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6c757d), to(#28a745));
+  background-image: linear-gradient(to right, #6c757d 0%, #28a745 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-secondary-info {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6c757d), to(#17a2b8));
+  background-image: linear-gradient(to right, #6c757d 0%, #17a2b8 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-secondary-warning {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6c757d), to(#FFD11F));
+  background-image: linear-gradient(to right, #6c757d 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-secondary-danger {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6c757d), to(#CF1F37));
+  background-image: linear-gradient(to right, #6c757d 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-secondary-light {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6c757d), to(#f8f9fa));
+  background-image: linear-gradient(to right, #6c757d 0%, #f8f9fa 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-secondary-dark {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6c757d), to(#343a40));
+  background-image: linear-gradient(to right, #6c757d 0%, #343a40 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-secondary-empty {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6c757d), to(#ffffff));
+  background-image: linear-gradient(to right, #6c757d 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-secondary-white {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6c757d), to(#ffffff));
+  background-image: linear-gradient(to right, #6c757d 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-secondary-alternate {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6c757d), to(#C3D023));
+  background-image: linear-gradient(to right, #6c757d 0%, #C3D023 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-secondary-accent {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6c757d), to(#FFD11F));
+  background-image: linear-gradient(to right, #6c757d 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-secondary-teal {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6c757d), to(#00A1AC));
+  background-image: linear-gradient(to right, #6c757d 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-secondary-red {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6c757d), to(#CF1F37));
+  background-image: linear-gradient(to right, #6c757d 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-secondary-yellow {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6c757d), to(#FFD11F));
+  background-image: linear-gradient(to right, #6c757d 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-secondary-green {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6c757d), to(#C4D02E));
+  background-image: linear-gradient(to right, #6c757d 0%, #C4D02E 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-secondary-blue {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6c757d), to(#6A67CC));
+  background-image: linear-gradient(to right, #6c757d 0%, #6A67CC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-secondary-orange {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6c757d), to(#FB8139));
+  background-image: linear-gradient(to right, #6c757d 0%, #FB8139 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-success-primary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#28a745), to(#00A1AC));
+  background-image: linear-gradient(to right, #28a745 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-success-secondary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#28a745), to(#6c757d));
+  background-image: linear-gradient(to right, #28a745 0%, #6c757d 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-success-success {
+  background-image: -webkit-gradient(linear, left top, right top, from(#28a745), to(#28a745));
+  background-image: linear-gradient(to right, #28a745 0%, #28a745 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-success-info {
+  background-image: -webkit-gradient(linear, left top, right top, from(#28a745), to(#17a2b8));
+  background-image: linear-gradient(to right, #28a745 0%, #17a2b8 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-success-warning {
+  background-image: -webkit-gradient(linear, left top, right top, from(#28a745), to(#FFD11F));
+  background-image: linear-gradient(to right, #28a745 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-success-danger {
+  background-image: -webkit-gradient(linear, left top, right top, from(#28a745), to(#CF1F37));
+  background-image: linear-gradient(to right, #28a745 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-success-light {
+  background-image: -webkit-gradient(linear, left top, right top, from(#28a745), to(#f8f9fa));
+  background-image: linear-gradient(to right, #28a745 0%, #f8f9fa 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-success-dark {
+  background-image: -webkit-gradient(linear, left top, right top, from(#28a745), to(#343a40));
+  background-image: linear-gradient(to right, #28a745 0%, #343a40 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-success-empty {
+  background-image: -webkit-gradient(linear, left top, right top, from(#28a745), to(#ffffff));
+  background-image: linear-gradient(to right, #28a745 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-success-white {
+  background-image: -webkit-gradient(linear, left top, right top, from(#28a745), to(#ffffff));
+  background-image: linear-gradient(to right, #28a745 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-success-alternate {
+  background-image: -webkit-gradient(linear, left top, right top, from(#28a745), to(#C3D023));
+  background-image: linear-gradient(to right, #28a745 0%, #C3D023 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-success-accent {
+  background-image: -webkit-gradient(linear, left top, right top, from(#28a745), to(#FFD11F));
+  background-image: linear-gradient(to right, #28a745 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-success-teal {
+  background-image: -webkit-gradient(linear, left top, right top, from(#28a745), to(#00A1AC));
+  background-image: linear-gradient(to right, #28a745 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-success-red {
+  background-image: -webkit-gradient(linear, left top, right top, from(#28a745), to(#CF1F37));
+  background-image: linear-gradient(to right, #28a745 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-success-yellow {
+  background-image: -webkit-gradient(linear, left top, right top, from(#28a745), to(#FFD11F));
+  background-image: linear-gradient(to right, #28a745 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-success-green {
+  background-image: -webkit-gradient(linear, left top, right top, from(#28a745), to(#C4D02E));
+  background-image: linear-gradient(to right, #28a745 0%, #C4D02E 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-success-blue {
+  background-image: -webkit-gradient(linear, left top, right top, from(#28a745), to(#6A67CC));
+  background-image: linear-gradient(to right, #28a745 0%, #6A67CC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-success-orange {
+  background-image: -webkit-gradient(linear, left top, right top, from(#28a745), to(#FB8139));
+  background-image: linear-gradient(to right, #28a745 0%, #FB8139 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-info-primary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#17a2b8), to(#00A1AC));
+  background-image: linear-gradient(to right, #17a2b8 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-info-secondary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#17a2b8), to(#6c757d));
+  background-image: linear-gradient(to right, #17a2b8 0%, #6c757d 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-info-success {
+  background-image: -webkit-gradient(linear, left top, right top, from(#17a2b8), to(#28a745));
+  background-image: linear-gradient(to right, #17a2b8 0%, #28a745 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-info-info {
+  background-image: -webkit-gradient(linear, left top, right top, from(#17a2b8), to(#17a2b8));
+  background-image: linear-gradient(to right, #17a2b8 0%, #17a2b8 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-info-warning {
+  background-image: -webkit-gradient(linear, left top, right top, from(#17a2b8), to(#FFD11F));
+  background-image: linear-gradient(to right, #17a2b8 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-info-danger {
+  background-image: -webkit-gradient(linear, left top, right top, from(#17a2b8), to(#CF1F37));
+  background-image: linear-gradient(to right, #17a2b8 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-info-light {
+  background-image: -webkit-gradient(linear, left top, right top, from(#17a2b8), to(#f8f9fa));
+  background-image: linear-gradient(to right, #17a2b8 0%, #f8f9fa 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-info-dark {
+  background-image: -webkit-gradient(linear, left top, right top, from(#17a2b8), to(#343a40));
+  background-image: linear-gradient(to right, #17a2b8 0%, #343a40 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-info-empty {
+  background-image: -webkit-gradient(linear, left top, right top, from(#17a2b8), to(#ffffff));
+  background-image: linear-gradient(to right, #17a2b8 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-info-white {
+  background-image: -webkit-gradient(linear, left top, right top, from(#17a2b8), to(#ffffff));
+  background-image: linear-gradient(to right, #17a2b8 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-info-alternate {
+  background-image: -webkit-gradient(linear, left top, right top, from(#17a2b8), to(#C3D023));
+  background-image: linear-gradient(to right, #17a2b8 0%, #C3D023 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-info-accent {
+  background-image: -webkit-gradient(linear, left top, right top, from(#17a2b8), to(#FFD11F));
+  background-image: linear-gradient(to right, #17a2b8 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-info-teal {
+  background-image: -webkit-gradient(linear, left top, right top, from(#17a2b8), to(#00A1AC));
+  background-image: linear-gradient(to right, #17a2b8 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-info-red {
+  background-image: -webkit-gradient(linear, left top, right top, from(#17a2b8), to(#CF1F37));
+  background-image: linear-gradient(to right, #17a2b8 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-info-yellow {
+  background-image: -webkit-gradient(linear, left top, right top, from(#17a2b8), to(#FFD11F));
+  background-image: linear-gradient(to right, #17a2b8 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-info-green {
+  background-image: -webkit-gradient(linear, left top, right top, from(#17a2b8), to(#C4D02E));
+  background-image: linear-gradient(to right, #17a2b8 0%, #C4D02E 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-info-blue {
+  background-image: -webkit-gradient(linear, left top, right top, from(#17a2b8), to(#6A67CC));
+  background-image: linear-gradient(to right, #17a2b8 0%, #6A67CC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-info-orange {
+  background-image: -webkit-gradient(linear, left top, right top, from(#17a2b8), to(#FB8139));
+  background-image: linear-gradient(to right, #17a2b8 0%, #FB8139 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-warning-primary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#00A1AC));
+  background-image: linear-gradient(to right, #FFD11F 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-warning-secondary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#6c757d));
+  background-image: linear-gradient(to right, #FFD11F 0%, #6c757d 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-warning-success {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#28a745));
+  background-image: linear-gradient(to right, #FFD11F 0%, #28a745 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-warning-info {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#17a2b8));
+  background-image: linear-gradient(to right, #FFD11F 0%, #17a2b8 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-warning-warning {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#FFD11F));
+  background-image: linear-gradient(to right, #FFD11F 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-warning-danger {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#CF1F37));
+  background-image: linear-gradient(to right, #FFD11F 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-warning-light {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#f8f9fa));
+  background-image: linear-gradient(to right, #FFD11F 0%, #f8f9fa 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-warning-dark {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#343a40));
+  background-image: linear-gradient(to right, #FFD11F 0%, #343a40 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-warning-empty {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#ffffff));
+  background-image: linear-gradient(to right, #FFD11F 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-warning-white {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#ffffff));
+  background-image: linear-gradient(to right, #FFD11F 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-warning-alternate {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#C3D023));
+  background-image: linear-gradient(to right, #FFD11F 0%, #C3D023 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-warning-accent {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#FFD11F));
+  background-image: linear-gradient(to right, #FFD11F 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-warning-teal {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#00A1AC));
+  background-image: linear-gradient(to right, #FFD11F 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-warning-red {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#CF1F37));
+  background-image: linear-gradient(to right, #FFD11F 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-warning-yellow {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#FFD11F));
+  background-image: linear-gradient(to right, #FFD11F 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-warning-green {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#C4D02E));
+  background-image: linear-gradient(to right, #FFD11F 0%, #C4D02E 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-warning-blue {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#6A67CC));
+  background-image: linear-gradient(to right, #FFD11F 0%, #6A67CC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-warning-orange {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#FB8139));
+  background-image: linear-gradient(to right, #FFD11F 0%, #FB8139 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-danger-primary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#00A1AC));
+  background-image: linear-gradient(to right, #CF1F37 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-danger-secondary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#6c757d));
+  background-image: linear-gradient(to right, #CF1F37 0%, #6c757d 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-danger-success {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#28a745));
+  background-image: linear-gradient(to right, #CF1F37 0%, #28a745 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-danger-info {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#17a2b8));
+  background-image: linear-gradient(to right, #CF1F37 0%, #17a2b8 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-danger-warning {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#FFD11F));
+  background-image: linear-gradient(to right, #CF1F37 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-danger-danger {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#CF1F37));
+  background-image: linear-gradient(to right, #CF1F37 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-danger-light {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#f8f9fa));
+  background-image: linear-gradient(to right, #CF1F37 0%, #f8f9fa 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-danger-dark {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#343a40));
+  background-image: linear-gradient(to right, #CF1F37 0%, #343a40 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-danger-empty {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#ffffff));
+  background-image: linear-gradient(to right, #CF1F37 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-danger-white {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#ffffff));
+  background-image: linear-gradient(to right, #CF1F37 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-danger-alternate {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#C3D023));
+  background-image: linear-gradient(to right, #CF1F37 0%, #C3D023 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-danger-accent {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#FFD11F));
+  background-image: linear-gradient(to right, #CF1F37 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-danger-teal {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#00A1AC));
+  background-image: linear-gradient(to right, #CF1F37 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-danger-red {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#CF1F37));
+  background-image: linear-gradient(to right, #CF1F37 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-danger-yellow {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#FFD11F));
+  background-image: linear-gradient(to right, #CF1F37 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-danger-green {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#C4D02E));
+  background-image: linear-gradient(to right, #CF1F37 0%, #C4D02E 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-danger-blue {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#6A67CC));
+  background-image: linear-gradient(to right, #CF1F37 0%, #6A67CC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-danger-orange {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#FB8139));
+  background-image: linear-gradient(to right, #CF1F37 0%, #FB8139 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-light-primary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f8f9fa), to(#00A1AC));
+  background-image: linear-gradient(to right, #f8f9fa 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-light-secondary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f8f9fa), to(#6c757d));
+  background-image: linear-gradient(to right, #f8f9fa 0%, #6c757d 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-light-success {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f8f9fa), to(#28a745));
+  background-image: linear-gradient(to right, #f8f9fa 0%, #28a745 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-light-info {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f8f9fa), to(#17a2b8));
+  background-image: linear-gradient(to right, #f8f9fa 0%, #17a2b8 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-light-warning {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f8f9fa), to(#FFD11F));
+  background-image: linear-gradient(to right, #f8f9fa 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-light-danger {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f8f9fa), to(#CF1F37));
+  background-image: linear-gradient(to right, #f8f9fa 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-light-light {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f8f9fa), to(#f8f9fa));
+  background-image: linear-gradient(to right, #f8f9fa 0%, #f8f9fa 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-light-dark {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f8f9fa), to(#343a40));
+  background-image: linear-gradient(to right, #f8f9fa 0%, #343a40 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-light-empty {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f8f9fa), to(#ffffff));
+  background-image: linear-gradient(to right, #f8f9fa 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-light-white {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f8f9fa), to(#ffffff));
+  background-image: linear-gradient(to right, #f8f9fa 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-light-alternate {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f8f9fa), to(#C3D023));
+  background-image: linear-gradient(to right, #f8f9fa 0%, #C3D023 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-light-accent {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f8f9fa), to(#FFD11F));
+  background-image: linear-gradient(to right, #f8f9fa 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-light-teal {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f8f9fa), to(#00A1AC));
+  background-image: linear-gradient(to right, #f8f9fa 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-light-red {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f8f9fa), to(#CF1F37));
+  background-image: linear-gradient(to right, #f8f9fa 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-light-yellow {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f8f9fa), to(#FFD11F));
+  background-image: linear-gradient(to right, #f8f9fa 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-light-green {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f8f9fa), to(#C4D02E));
+  background-image: linear-gradient(to right, #f8f9fa 0%, #C4D02E 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-light-blue {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f8f9fa), to(#6A67CC));
+  background-image: linear-gradient(to right, #f8f9fa 0%, #6A67CC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-light-orange {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f8f9fa), to(#FB8139));
+  background-image: linear-gradient(to right, #f8f9fa 0%, #FB8139 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-dark-primary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#343a40), to(#00A1AC));
+  background-image: linear-gradient(to right, #343a40 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-dark-secondary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#343a40), to(#6c757d));
+  background-image: linear-gradient(to right, #343a40 0%, #6c757d 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-dark-success {
+  background-image: -webkit-gradient(linear, left top, right top, from(#343a40), to(#28a745));
+  background-image: linear-gradient(to right, #343a40 0%, #28a745 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-dark-info {
+  background-image: -webkit-gradient(linear, left top, right top, from(#343a40), to(#17a2b8));
+  background-image: linear-gradient(to right, #343a40 0%, #17a2b8 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-dark-warning {
+  background-image: -webkit-gradient(linear, left top, right top, from(#343a40), to(#FFD11F));
+  background-image: linear-gradient(to right, #343a40 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-dark-danger {
+  background-image: -webkit-gradient(linear, left top, right top, from(#343a40), to(#CF1F37));
+  background-image: linear-gradient(to right, #343a40 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-dark-light {
+  background-image: -webkit-gradient(linear, left top, right top, from(#343a40), to(#f8f9fa));
+  background-image: linear-gradient(to right, #343a40 0%, #f8f9fa 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-dark-dark {
+  background-image: -webkit-gradient(linear, left top, right top, from(#343a40), to(#343a40));
+  background-image: linear-gradient(to right, #343a40 0%, #343a40 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-dark-empty {
+  background-image: -webkit-gradient(linear, left top, right top, from(#343a40), to(#ffffff));
+  background-image: linear-gradient(to right, #343a40 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-dark-white {
+  background-image: -webkit-gradient(linear, left top, right top, from(#343a40), to(#ffffff));
+  background-image: linear-gradient(to right, #343a40 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-dark-alternate {
+  background-image: -webkit-gradient(linear, left top, right top, from(#343a40), to(#C3D023));
+  background-image: linear-gradient(to right, #343a40 0%, #C3D023 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-dark-accent {
+  background-image: -webkit-gradient(linear, left top, right top, from(#343a40), to(#FFD11F));
+  background-image: linear-gradient(to right, #343a40 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-dark-teal {
+  background-image: -webkit-gradient(linear, left top, right top, from(#343a40), to(#00A1AC));
+  background-image: linear-gradient(to right, #343a40 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-dark-red {
+  background-image: -webkit-gradient(linear, left top, right top, from(#343a40), to(#CF1F37));
+  background-image: linear-gradient(to right, #343a40 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-dark-yellow {
+  background-image: -webkit-gradient(linear, left top, right top, from(#343a40), to(#FFD11F));
+  background-image: linear-gradient(to right, #343a40 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-dark-green {
+  background-image: -webkit-gradient(linear, left top, right top, from(#343a40), to(#C4D02E));
+  background-image: linear-gradient(to right, #343a40 0%, #C4D02E 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-dark-blue {
+  background-image: -webkit-gradient(linear, left top, right top, from(#343a40), to(#6A67CC));
+  background-image: linear-gradient(to right, #343a40 0%, #6A67CC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-dark-orange {
+  background-image: -webkit-gradient(linear, left top, right top, from(#343a40), to(#FB8139));
+  background-image: linear-gradient(to right, #343a40 0%, #FB8139 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-empty-primary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#00A1AC));
+  background-image: linear-gradient(to right, #ffffff 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-empty-secondary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#6c757d));
+  background-image: linear-gradient(to right, #ffffff 0%, #6c757d 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-empty-success {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#28a745));
+  background-image: linear-gradient(to right, #ffffff 0%, #28a745 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-empty-info {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#17a2b8));
+  background-image: linear-gradient(to right, #ffffff 0%, #17a2b8 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-empty-warning {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#FFD11F));
+  background-image: linear-gradient(to right, #ffffff 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-empty-danger {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#CF1F37));
+  background-image: linear-gradient(to right, #ffffff 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-empty-light {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#f8f9fa));
+  background-image: linear-gradient(to right, #ffffff 0%, #f8f9fa 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-empty-dark {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#343a40));
+  background-image: linear-gradient(to right, #ffffff 0%, #343a40 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-empty-empty {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#ffffff));
+  background-image: linear-gradient(to right, #ffffff 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-empty-white {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#ffffff));
+  background-image: linear-gradient(to right, #ffffff 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-empty-alternate {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#C3D023));
+  background-image: linear-gradient(to right, #ffffff 0%, #C3D023 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-empty-accent {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#FFD11F));
+  background-image: linear-gradient(to right, #ffffff 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-empty-teal {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#00A1AC));
+  background-image: linear-gradient(to right, #ffffff 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-empty-red {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#CF1F37));
+  background-image: linear-gradient(to right, #ffffff 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-empty-yellow {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#FFD11F));
+  background-image: linear-gradient(to right, #ffffff 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-empty-green {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#C4D02E));
+  background-image: linear-gradient(to right, #ffffff 0%, #C4D02E 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-empty-blue {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#6A67CC));
+  background-image: linear-gradient(to right, #ffffff 0%, #6A67CC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-empty-orange {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#FB8139));
+  background-image: linear-gradient(to right, #ffffff 0%, #FB8139 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-white-primary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#00A1AC));
+  background-image: linear-gradient(to right, #ffffff 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-white-secondary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#6c757d));
+  background-image: linear-gradient(to right, #ffffff 0%, #6c757d 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-white-success {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#28a745));
+  background-image: linear-gradient(to right, #ffffff 0%, #28a745 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-white-info {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#17a2b8));
+  background-image: linear-gradient(to right, #ffffff 0%, #17a2b8 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-white-warning {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#FFD11F));
+  background-image: linear-gradient(to right, #ffffff 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-white-danger {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#CF1F37));
+  background-image: linear-gradient(to right, #ffffff 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-white-light {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#f8f9fa));
+  background-image: linear-gradient(to right, #ffffff 0%, #f8f9fa 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-white-dark {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#343a40));
+  background-image: linear-gradient(to right, #ffffff 0%, #343a40 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-white-empty {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#ffffff));
+  background-image: linear-gradient(to right, #ffffff 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-white-white {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#ffffff));
+  background-image: linear-gradient(to right, #ffffff 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-white-alternate {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#C3D023));
+  background-image: linear-gradient(to right, #ffffff 0%, #C3D023 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-white-accent {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#FFD11F));
+  background-image: linear-gradient(to right, #ffffff 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-white-teal {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#00A1AC));
+  background-image: linear-gradient(to right, #ffffff 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-white-red {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#CF1F37));
+  background-image: linear-gradient(to right, #ffffff 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-white-yellow {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#FFD11F));
+  background-image: linear-gradient(to right, #ffffff 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-white-green {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#C4D02E));
+  background-image: linear-gradient(to right, #ffffff 0%, #C4D02E 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-white-blue {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#6A67CC));
+  background-image: linear-gradient(to right, #ffffff 0%, #6A67CC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-white-orange {
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#FB8139));
+  background-image: linear-gradient(to right, #ffffff 0%, #FB8139 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-alternate-primary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C3D023), to(#00A1AC));
+  background-image: linear-gradient(to right, #C3D023 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-alternate-secondary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C3D023), to(#6c757d));
+  background-image: linear-gradient(to right, #C3D023 0%, #6c757d 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-alternate-success {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C3D023), to(#28a745));
+  background-image: linear-gradient(to right, #C3D023 0%, #28a745 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-alternate-info {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C3D023), to(#17a2b8));
+  background-image: linear-gradient(to right, #C3D023 0%, #17a2b8 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-alternate-warning {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C3D023), to(#FFD11F));
+  background-image: linear-gradient(to right, #C3D023 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-alternate-danger {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C3D023), to(#CF1F37));
+  background-image: linear-gradient(to right, #C3D023 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-alternate-light {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C3D023), to(#f8f9fa));
+  background-image: linear-gradient(to right, #C3D023 0%, #f8f9fa 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-alternate-dark {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C3D023), to(#343a40));
+  background-image: linear-gradient(to right, #C3D023 0%, #343a40 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-alternate-empty {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C3D023), to(#ffffff));
+  background-image: linear-gradient(to right, #C3D023 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-alternate-white {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C3D023), to(#ffffff));
+  background-image: linear-gradient(to right, #C3D023 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-alternate-alternate {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C3D023), to(#C3D023));
+  background-image: linear-gradient(to right, #C3D023 0%, #C3D023 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-alternate-accent {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C3D023), to(#FFD11F));
+  background-image: linear-gradient(to right, #C3D023 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-alternate-teal {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C3D023), to(#00A1AC));
+  background-image: linear-gradient(to right, #C3D023 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-alternate-red {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C3D023), to(#CF1F37));
+  background-image: linear-gradient(to right, #C3D023 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-alternate-yellow {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C3D023), to(#FFD11F));
+  background-image: linear-gradient(to right, #C3D023 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-alternate-green {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C3D023), to(#C4D02E));
+  background-image: linear-gradient(to right, #C3D023 0%, #C4D02E 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-alternate-blue {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C3D023), to(#6A67CC));
+  background-image: linear-gradient(to right, #C3D023 0%, #6A67CC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-alternate-orange {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C3D023), to(#FB8139));
+  background-image: linear-gradient(to right, #C3D023 0%, #FB8139 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-accent-primary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#00A1AC));
+  background-image: linear-gradient(to right, #FFD11F 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-accent-secondary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#6c757d));
+  background-image: linear-gradient(to right, #FFD11F 0%, #6c757d 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-accent-success {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#28a745));
+  background-image: linear-gradient(to right, #FFD11F 0%, #28a745 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-accent-info {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#17a2b8));
+  background-image: linear-gradient(to right, #FFD11F 0%, #17a2b8 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-accent-warning {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#FFD11F));
+  background-image: linear-gradient(to right, #FFD11F 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-accent-danger {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#CF1F37));
+  background-image: linear-gradient(to right, #FFD11F 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-accent-light {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#f8f9fa));
+  background-image: linear-gradient(to right, #FFD11F 0%, #f8f9fa 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-accent-dark {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#343a40));
+  background-image: linear-gradient(to right, #FFD11F 0%, #343a40 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-accent-empty {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#ffffff));
+  background-image: linear-gradient(to right, #FFD11F 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-accent-white {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#ffffff));
+  background-image: linear-gradient(to right, #FFD11F 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-accent-alternate {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#C3D023));
+  background-image: linear-gradient(to right, #FFD11F 0%, #C3D023 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-accent-accent {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#FFD11F));
+  background-image: linear-gradient(to right, #FFD11F 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-accent-teal {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#00A1AC));
+  background-image: linear-gradient(to right, #FFD11F 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-accent-red {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#CF1F37));
+  background-image: linear-gradient(to right, #FFD11F 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-accent-yellow {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#FFD11F));
+  background-image: linear-gradient(to right, #FFD11F 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-accent-green {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#C4D02E));
+  background-image: linear-gradient(to right, #FFD11F 0%, #C4D02E 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-accent-blue {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#6A67CC));
+  background-image: linear-gradient(to right, #FFD11F 0%, #6A67CC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-accent-orange {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#FB8139));
+  background-image: linear-gradient(to right, #FFD11F 0%, #FB8139 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-teal-primary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#00A1AC));
+  background-image: linear-gradient(to right, #00A1AC 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-teal-secondary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#6c757d));
+  background-image: linear-gradient(to right, #00A1AC 0%, #6c757d 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-teal-success {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#28a745));
+  background-image: linear-gradient(to right, #00A1AC 0%, #28a745 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-teal-info {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#17a2b8));
+  background-image: linear-gradient(to right, #00A1AC 0%, #17a2b8 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-teal-warning {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#FFD11F));
+  background-image: linear-gradient(to right, #00A1AC 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-teal-danger {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#CF1F37));
+  background-image: linear-gradient(to right, #00A1AC 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-teal-light {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#f8f9fa));
+  background-image: linear-gradient(to right, #00A1AC 0%, #f8f9fa 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-teal-dark {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#343a40));
+  background-image: linear-gradient(to right, #00A1AC 0%, #343a40 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-teal-empty {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#ffffff));
+  background-image: linear-gradient(to right, #00A1AC 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-teal-white {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#ffffff));
+  background-image: linear-gradient(to right, #00A1AC 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-teal-alternate {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#C3D023));
+  background-image: linear-gradient(to right, #00A1AC 0%, #C3D023 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-teal-accent {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#FFD11F));
+  background-image: linear-gradient(to right, #00A1AC 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-teal-teal {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#00A1AC));
+  background-image: linear-gradient(to right, #00A1AC 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-teal-red {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#CF1F37));
+  background-image: linear-gradient(to right, #00A1AC 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-teal-yellow {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#FFD11F));
+  background-image: linear-gradient(to right, #00A1AC 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-teal-green {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#C4D02E));
+  background-image: linear-gradient(to right, #00A1AC 0%, #C4D02E 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-teal-blue {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#6A67CC));
+  background-image: linear-gradient(to right, #00A1AC 0%, #6A67CC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-teal-orange {
+  background-image: -webkit-gradient(linear, left top, right top, from(#00A1AC), to(#FB8139));
+  background-image: linear-gradient(to right, #00A1AC 0%, #FB8139 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-red-primary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#00A1AC));
+  background-image: linear-gradient(to right, #CF1F37 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-red-secondary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#6c757d));
+  background-image: linear-gradient(to right, #CF1F37 0%, #6c757d 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-red-success {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#28a745));
+  background-image: linear-gradient(to right, #CF1F37 0%, #28a745 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-red-info {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#17a2b8));
+  background-image: linear-gradient(to right, #CF1F37 0%, #17a2b8 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-red-warning {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#FFD11F));
+  background-image: linear-gradient(to right, #CF1F37 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-red-danger {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#CF1F37));
+  background-image: linear-gradient(to right, #CF1F37 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-red-light {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#f8f9fa));
+  background-image: linear-gradient(to right, #CF1F37 0%, #f8f9fa 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-red-dark {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#343a40));
+  background-image: linear-gradient(to right, #CF1F37 0%, #343a40 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-red-empty {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#ffffff));
+  background-image: linear-gradient(to right, #CF1F37 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-red-white {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#ffffff));
+  background-image: linear-gradient(to right, #CF1F37 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-red-alternate {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#C3D023));
+  background-image: linear-gradient(to right, #CF1F37 0%, #C3D023 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-red-accent {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#FFD11F));
+  background-image: linear-gradient(to right, #CF1F37 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-red-teal {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#00A1AC));
+  background-image: linear-gradient(to right, #CF1F37 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-red-red {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#CF1F37));
+  background-image: linear-gradient(to right, #CF1F37 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-red-yellow {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#FFD11F));
+  background-image: linear-gradient(to right, #CF1F37 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-red-green {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#C4D02E));
+  background-image: linear-gradient(to right, #CF1F37 0%, #C4D02E 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-red-blue {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#6A67CC));
+  background-image: linear-gradient(to right, #CF1F37 0%, #6A67CC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-red-orange {
+  background-image: -webkit-gradient(linear, left top, right top, from(#CF1F37), to(#FB8139));
+  background-image: linear-gradient(to right, #CF1F37 0%, #FB8139 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-yellow-primary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#00A1AC));
+  background-image: linear-gradient(to right, #FFD11F 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-yellow-secondary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#6c757d));
+  background-image: linear-gradient(to right, #FFD11F 0%, #6c757d 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-yellow-success {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#28a745));
+  background-image: linear-gradient(to right, #FFD11F 0%, #28a745 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-yellow-info {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#17a2b8));
+  background-image: linear-gradient(to right, #FFD11F 0%, #17a2b8 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-yellow-warning {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#FFD11F));
+  background-image: linear-gradient(to right, #FFD11F 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-yellow-danger {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#CF1F37));
+  background-image: linear-gradient(to right, #FFD11F 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-yellow-light {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#f8f9fa));
+  background-image: linear-gradient(to right, #FFD11F 0%, #f8f9fa 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-yellow-dark {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#343a40));
+  background-image: linear-gradient(to right, #FFD11F 0%, #343a40 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-yellow-empty {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#ffffff));
+  background-image: linear-gradient(to right, #FFD11F 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-yellow-white {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#ffffff));
+  background-image: linear-gradient(to right, #FFD11F 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-yellow-alternate {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#C3D023));
+  background-image: linear-gradient(to right, #FFD11F 0%, #C3D023 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-yellow-accent {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#FFD11F));
+  background-image: linear-gradient(to right, #FFD11F 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-yellow-teal {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#00A1AC));
+  background-image: linear-gradient(to right, #FFD11F 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-yellow-red {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#CF1F37));
+  background-image: linear-gradient(to right, #FFD11F 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-yellow-yellow {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#FFD11F));
+  background-image: linear-gradient(to right, #FFD11F 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-yellow-green {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#C4D02E));
+  background-image: linear-gradient(to right, #FFD11F 0%, #C4D02E 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-yellow-blue {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#6A67CC));
+  background-image: linear-gradient(to right, #FFD11F 0%, #6A67CC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-yellow-orange {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FFD11F), to(#FB8139));
+  background-image: linear-gradient(to right, #FFD11F 0%, #FB8139 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-green-primary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C4D02E), to(#00A1AC));
+  background-image: linear-gradient(to right, #C4D02E 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-green-secondary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C4D02E), to(#6c757d));
+  background-image: linear-gradient(to right, #C4D02E 0%, #6c757d 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-green-success {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C4D02E), to(#28a745));
+  background-image: linear-gradient(to right, #C4D02E 0%, #28a745 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-green-info {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C4D02E), to(#17a2b8));
+  background-image: linear-gradient(to right, #C4D02E 0%, #17a2b8 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-green-warning {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C4D02E), to(#FFD11F));
+  background-image: linear-gradient(to right, #C4D02E 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-green-danger {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C4D02E), to(#CF1F37));
+  background-image: linear-gradient(to right, #C4D02E 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-green-light {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C4D02E), to(#f8f9fa));
+  background-image: linear-gradient(to right, #C4D02E 0%, #f8f9fa 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-green-dark {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C4D02E), to(#343a40));
+  background-image: linear-gradient(to right, #C4D02E 0%, #343a40 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-green-empty {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C4D02E), to(#ffffff));
+  background-image: linear-gradient(to right, #C4D02E 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-green-white {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C4D02E), to(#ffffff));
+  background-image: linear-gradient(to right, #C4D02E 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-green-alternate {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C4D02E), to(#C3D023));
+  background-image: linear-gradient(to right, #C4D02E 0%, #C3D023 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-green-accent {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C4D02E), to(#FFD11F));
+  background-image: linear-gradient(to right, #C4D02E 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-green-teal {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C4D02E), to(#00A1AC));
+  background-image: linear-gradient(to right, #C4D02E 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-green-red {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C4D02E), to(#CF1F37));
+  background-image: linear-gradient(to right, #C4D02E 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-green-yellow {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C4D02E), to(#FFD11F));
+  background-image: linear-gradient(to right, #C4D02E 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-green-green {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C4D02E), to(#C4D02E));
+  background-image: linear-gradient(to right, #C4D02E 0%, #C4D02E 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-green-blue {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C4D02E), to(#6A67CC));
+  background-image: linear-gradient(to right, #C4D02E 0%, #6A67CC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-green-orange {
+  background-image: -webkit-gradient(linear, left top, right top, from(#C4D02E), to(#FB8139));
+  background-image: linear-gradient(to right, #C4D02E 0%, #FB8139 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-blue-primary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6A67CC), to(#00A1AC));
+  background-image: linear-gradient(to right, #6A67CC 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-blue-secondary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6A67CC), to(#6c757d));
+  background-image: linear-gradient(to right, #6A67CC 0%, #6c757d 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-blue-success {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6A67CC), to(#28a745));
+  background-image: linear-gradient(to right, #6A67CC 0%, #28a745 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-blue-info {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6A67CC), to(#17a2b8));
+  background-image: linear-gradient(to right, #6A67CC 0%, #17a2b8 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-blue-warning {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6A67CC), to(#FFD11F));
+  background-image: linear-gradient(to right, #6A67CC 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-blue-danger {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6A67CC), to(#CF1F37));
+  background-image: linear-gradient(to right, #6A67CC 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-blue-light {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6A67CC), to(#f8f9fa));
+  background-image: linear-gradient(to right, #6A67CC 0%, #f8f9fa 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-blue-dark {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6A67CC), to(#343a40));
+  background-image: linear-gradient(to right, #6A67CC 0%, #343a40 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-blue-empty {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6A67CC), to(#ffffff));
+  background-image: linear-gradient(to right, #6A67CC 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-blue-white {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6A67CC), to(#ffffff));
+  background-image: linear-gradient(to right, #6A67CC 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-blue-alternate {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6A67CC), to(#C3D023));
+  background-image: linear-gradient(to right, #6A67CC 0%, #C3D023 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-blue-accent {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6A67CC), to(#FFD11F));
+  background-image: linear-gradient(to right, #6A67CC 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-blue-teal {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6A67CC), to(#00A1AC));
+  background-image: linear-gradient(to right, #6A67CC 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-blue-red {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6A67CC), to(#CF1F37));
+  background-image: linear-gradient(to right, #6A67CC 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-blue-yellow {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6A67CC), to(#FFD11F));
+  background-image: linear-gradient(to right, #6A67CC 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-blue-green {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6A67CC), to(#C4D02E));
+  background-image: linear-gradient(to right, #6A67CC 0%, #C4D02E 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-blue-blue {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6A67CC), to(#6A67CC));
+  background-image: linear-gradient(to right, #6A67CC 0%, #6A67CC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-blue-orange {
+  background-image: -webkit-gradient(linear, left top, right top, from(#6A67CC), to(#FB8139));
+  background-image: linear-gradient(to right, #6A67CC 0%, #FB8139 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-orange-primary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FB8139), to(#00A1AC));
+  background-image: linear-gradient(to right, #FB8139 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-orange-secondary {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FB8139), to(#6c757d));
+  background-image: linear-gradient(to right, #FB8139 0%, #6c757d 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-orange-success {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FB8139), to(#28a745));
+  background-image: linear-gradient(to right, #FB8139 0%, #28a745 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-orange-info {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FB8139), to(#17a2b8));
+  background-image: linear-gradient(to right, #FB8139 0%, #17a2b8 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-orange-warning {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FB8139), to(#FFD11F));
+  background-image: linear-gradient(to right, #FB8139 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-orange-danger {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FB8139), to(#CF1F37));
+  background-image: linear-gradient(to right, #FB8139 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-orange-light {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FB8139), to(#f8f9fa));
+  background-image: linear-gradient(to right, #FB8139 0%, #f8f9fa 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-orange-dark {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FB8139), to(#343a40));
+  background-image: linear-gradient(to right, #FB8139 0%, #343a40 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-orange-empty {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FB8139), to(#ffffff));
+  background-image: linear-gradient(to right, #FB8139 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-orange-white {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FB8139), to(#ffffff));
+  background-image: linear-gradient(to right, #FB8139 0%, #ffffff 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-orange-alternate {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FB8139), to(#C3D023));
+  background-image: linear-gradient(to right, #FB8139 0%, #C3D023 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-orange-accent {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FB8139), to(#FFD11F));
+  background-image: linear-gradient(to right, #FB8139 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-orange-teal {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FB8139), to(#00A1AC));
+  background-image: linear-gradient(to right, #FB8139 0%, #00A1AC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-orange-red {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FB8139), to(#CF1F37));
+  background-image: linear-gradient(to right, #FB8139 0%, #CF1F37 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-orange-yellow {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FB8139), to(#FFD11F));
+  background-image: linear-gradient(to right, #FB8139 0%, #FFD11F 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-orange-green {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FB8139), to(#C4D02E));
+  background-image: linear-gradient(to right, #FB8139 0%, #C4D02E 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-orange-blue {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FB8139), to(#6A67CC));
+  background-image: linear-gradient(to right, #FB8139 0%, #6A67CC 100%);
+  background-repeat: repeat-x;
+}
+
+.gradient-orange-orange {
+  background-image: -webkit-gradient(linear, left top, right top, from(#FB8139), to(#FB8139));
+  background-image: linear-gradient(to right, #FB8139 0%, #FB8139 100%);
+  background-repeat: repeat-x;
+}
+
 .btn-xl {
   padding: 1rem 1.5rem;
   font-size: 1.5rem;
@@ -12054,16 +13998,16 @@ body,
   height: 100%;
 }
 
-nav {
+.navbar-laravel {
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-nav .navbar-brand img {
+.navbar-laravel .navbar-brand img {
   height: 60px;
 }
 
-nav input {
+.navbar-laravel input {
   border: 0px solid #FFD11F;
   border-radius: 0px;
   opacity: 0;
@@ -12072,7 +14016,7 @@ nav input {
   transition: .3s;
 }
 
-nav input:focus {
+.navbar-laravel input:focus {
   outline: 0px;
   border-bottom: 2px solid #FFD11F;
   margin-bottom: -2px;
@@ -12080,26 +14024,26 @@ nav input:focus {
   opacity: 1;
 }
 
-nav li > a:hover {
+.navbar-laravel li > a:hover {
   text-decoration: none;
   border-bottom: 2px solid #ccc;
   margin-bottom: -2px;
 }
 
-nav li > a.active {
+.navbar-laravel li > a.active {
   border-bottom: 2px solid #FFD11F;
   margin-bottom: -2px;
 }
 
-nav .nav-avatar {
+.navbar-laravel .nav-avatar {
   width: 30px;
 }
 
-nav .notifications {
+.navbar-laravel .notifications {
   width: 300px;
 }
 
-nav .notifications .dropdown-item {
+.navbar-laravel .notifications .dropdown-item {
   white-space: normal;
 }
 
@@ -12110,5 +14054,29 @@ footer {
 
 footer ul {
   list-style: none;
+}
+
+.progress-meter {
+  width: 70%;
+  margin: auto;
+  position: relative;
+}
+
+.progress-meter .step-count {
+  width: 40px;
+  height: 40px;
+}
+
+.progress-meter .progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 18px;
+  height: 4px;
+}
+
+.progress-meter .steps {
+  z-index: 1;
+  position: relative;
 }
 

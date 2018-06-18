@@ -8,6 +8,7 @@ import './bootstrap';
 import Vue from 'vue'; // Importing Vue Library
 import VueRouter from 'vue-router'; // importing Vue router library
 import router from './routes';
+import Datepicker from 'vuejs-datepicker';
 
 window.Vue = Vue;
 Vue.use(VueRouter);
@@ -51,5 +52,8 @@ var user = {
 const app = new Vue({
     el: '#app',
     mixins: [user],
+    components: {
+    	Datepicker
+    },
     router
 });

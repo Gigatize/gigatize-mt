@@ -4,6 +4,9 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Gradients
+@import "gradients";
+
 // Elements
 @import "elements";
 
@@ -13,7 +16,7 @@ body,
 	height: 100%;
 }
 
-nav {
+.navbar-laravel {
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 
 	.navbar-brand {
@@ -73,5 +76,29 @@ footer {
 
 	ul {
 		list-style: none;
+	}
+}
+
+.progress-meter {
+	width: 70%;
+	margin: auto;
+	position: relative;
+	
+	.step-count {
+		width: 40px;
+		height: 40px;
+	}
+
+	.progress {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 18px;
+		height: 4px;
+	}
+
+	.steps {
+		z-index: 1;
+		position: relative;
 	}
 }

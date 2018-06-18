@@ -1,0 +1,8 @@
+@each $color1Name, $color1Color in ($theme-colors){
+
+	@each $color2Name, $color2Color in ($theme-colors){
+		.gradient-#{$color1Name}-#{$color2Name} {
+			@include gradient-x($color1Color, $color2Color)
+		}
+	}
+}
