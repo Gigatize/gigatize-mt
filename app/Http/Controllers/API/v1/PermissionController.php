@@ -9,6 +9,7 @@ use App\Permission;
 use App\Services\PermissionService;
 use App\Traits\EloquentBuilderTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Optimus\Bruno\LaravelController;
 
 class PermissionController extends LaravelController

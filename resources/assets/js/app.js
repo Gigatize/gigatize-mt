@@ -9,13 +9,13 @@ import Vue from 'vue'; // Importing Vue Library
 import VueRouter from 'vue-router'; // importing Vue router library
 import router from './routes';
 import Datepicker from 'vuejs-datepicker';
-/*import fontawesome from '@fortawesome/fontawesome';
+import fontawesome from '@fortawesome/fontawesome';
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
 import fas from '@fortawesome/fontawesome-free-solid';
 import fab from '@fortawesome/fontawesome-free-brands';
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
-fontawesome.library.add(fas, fab);*/
+fontawesome.library.add(fas, fab);
 
 window.Vue = Vue;
 Vue.use(VueRouter);

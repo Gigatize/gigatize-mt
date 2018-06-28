@@ -2,9 +2,12 @@
 namespace App\Http\Controllers\API\v1;
 use App\AcceptanceCriteria;
 use App\Achievements\UserJoinedAProject;
+use App\Comment;
+use App\Http\Requests\EditCommentFormRequest;
 use App\Http\Resources\AcceptanceCriteriaCollectionResource;
 use App\Http\Resources\AcceptanceCriteriaResource;
 use App\Http\Resources\CategoryResource;
+use App\Http\Resources\CommentResource;
 use App\Http\Resources\CommentsResource;
 use App\Http\Resources\FollowerResource;
 use App\Http\Resources\FollowersResource;
@@ -141,6 +144,47 @@ class ProjectRelationshipController extends LaravelController
         return new CommentsResource($parsedData['comments']);
     }
 
+    public function leaveComment(EditCommentFormRequest $request, Project $project){
+        $user = Auth::user();
+        $user->comment($project, $request->get('comment'));
+        $comment = $project->comments()->orderBy('created_at','desc')->first();
+
+        return new CommentResource($comment);
+    }
+
+    public function editComment(EditCommentFormRequest $request, Project $project, Comment $comment){
+        $user = Auth::user();
+
+        if($comment->commentable_id == $project->id){
+            if($comment->commented_id  == $user->id){
+                $comment->comment = $request->get('comment');
+                $comment->save();
+                return new CommentResource($comment);
+            }else{
+                return $this->response()->json(['message'=>'Unauthorized action', 'error' => 403],403);
+            }
+
+        }else{
+            return $this->response()->json(['message'=>'Unable to find comment associated with this project', 'error' => 404],404);
+        }
+    }
+
+    public function deleteComment(Project $project, Comment $comment){
+        $user = Auth::user();
+
+        if($comment->commentable_id == $project->id){
+            if($comment->commented_id  == $user->id){
+                $comment->delete();
+                return $this->response(204);
+            }else{
+                return $this->response()->json(['message'=>'Unauthorized action', 'error' => 403],403);
+            }
+
+        }else{
+            return $this->response()->json(['message'=>'Unable to find comment associated with this project', 'error' => 404],404);
+        }
+    }
+
     public function Votes(Project $project){
         $resourceOptions = $this->parseResourceOptions();
 
@@ -182,16 +226,14 @@ class ProjectRelationshipController extends LaravelController
     public function createFollower(Project $project){
         $user = Auth::user();
         $user->follow($project);
-        $project->followers()->where('user_id',$user->id)->first();
+        $follower = $project->followers()->where('user_id',$user->id)->first();
         //log user activity
         activity()
             ->causedBy($user)
             ->performedOn($project)
             ->withProperties(['points' => 1])
             ->log('project followed');
-        return (new FollowerResource($project->upvoters))
-            ->response()
-            ->json(['status'=> 201, 'message'=>'you successfully followed the project'],201);
+        return (new FollowerResource($follower));
     }
 
     public function deleteFollower(Project $project){

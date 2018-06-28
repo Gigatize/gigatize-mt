@@ -113,41 +113,36 @@ class Project extends Model
         return $query->where('complete', false);
     }
 
-    public function scopeAvailable($query)
-    {
-        return $query->where('completed', false);
-    }
-
     public function scopeByCategory($query, $categoryId){
         return $query->whereHas('categories', function($q) use ($categoryId){
             $q->where('id', $categoryId);
         });
     }
 
-    /*
-    |---------------------------------------------------------------|
-    |Favorite Methods
-    |---------------------------------------------------------------|
-    */
-    public function favorited()
-    {
-        return (bool) Favorite::where('user_id', Auth::id())
-            ->where('project_id', $this->id)
-            ->first();
-    }
-
-    public function favoriteCount(){
-        return $this->Favorites()->count();
-    }
 
     /*
     |---------------------------------------------------------------|
-    |Sponsor Methods
+    |Helper Methods
     |---------------------------------------------------------------|
     */
-
     public function isSponsored(){
         return $this->Sponsors()->exists();
+    }
+
+    public function getCompletePercent(){
+        return round(($this->acceptanceCriteriaCompleteCount()/$this->acceptanceCriteriaCount())*100,2);
+    }
+
+    public function acceptanceCriteriaCount(){
+        return $this->AcceptanceCriteria()->count();
+    }
+
+    public function acceptanceCriteriaCompleteCount(){
+        return $this->AcceptanceCriteria()->where('complete',true)->count();
+    }
+
+    public function acceptanceCriteriaIncompleteCount(){
+        return $this->AcceptanceCriteria()->where('complete',false)->count();
     }
 
 }

@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\API\v1;
 use App\Comment;
+use App\Http\Resources\ProjectResource;
 use App\Http\Resources\UserResource;
 use App\Traits\EloquentBuilderTrait;
 use Optimus\Bruno\LaravelController;
@@ -26,7 +27,7 @@ class CommentRelationshipController extends LaravelController
 
         $parsedData = $this->parseData($comment->commentable, $resourceOptions, 'project');
 
-        return new UserResource($parsedData['project']);
+        return new ProjectResource($parsedData['project']);
     }
 
 }
