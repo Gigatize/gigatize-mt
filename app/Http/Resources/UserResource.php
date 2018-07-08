@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Project;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,6 +25,8 @@ class UserResource extends JsonResource
                 'job_title' => $this->job_title,
                 'location' => $this->location,
                 'picture' => secure_asset($this->picture),
+                'followed_projects' => $this->followings(Project::class)->select('id')->orderBy('id')->pluck('id')->toArray(),
+                'upvoted_projects' => $this->upvotes(Project::class)->select('id')->orderBy('id')->pluck('id')->toArray(),
                 'created_at' => $this->created_at->toDateTimeString(),
                 'updated_at' => $this->updated_at->toDateTimeString(),
             ],

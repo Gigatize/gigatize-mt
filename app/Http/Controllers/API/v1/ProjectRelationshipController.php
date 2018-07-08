@@ -18,6 +18,7 @@ use App\Http\Resources\UserResource;
 use App\Http\Resources\UsersResource;
 use App\Http\Resources\VotesResource;
 use App\Project;
+use App\Services\ProjectRelationshipService;
 use App\Traits\EloquentBuilderTrait;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -27,14 +28,40 @@ class ProjectRelationshipController extends LaravelController
 {
     use EloquentBuilderTrait;
 
-    public function Owner(Project $project)
+    private $projectRelationshipService;
+
+    public function __construct(ProjectRelationshipService $projectRelationshipService) {
+        $this->projectRelationshipService = $projectRelationshipService;
+    }
+
+    public function AcceptanceCriteria(Project $project)
     {
         // Parse the resource options given by GET parameters
         $resourceOptions = $this->parseResourceOptions();
+        $response = $this->projectRelationshipService->AcceptanceCriteria($project);
 
-        $parsedData = $this->parseData($project->Owner, $resourceOptions, 'owner');
+        if($response->success) {
+            $parsedData = $this->parseData($response->object, $resourceOptions, 'AcceptanceCriteria');
+            return new AcceptanceCriteriaCollectionResource($parsedData['AcceptanceCriteria']);
+        }else{
+            return response()->json(['message' => $response->msg, 'error' => $response->error], $response->error);
+        }
 
-        return new UserResource($parsedData['owner']);
+    }
+
+    public function CompleteAcceptanceCriteria(Project $project, $criteria)
+    {
+        $criteria = AcceptanceCriteria::findOrFail($criteria);
+        $resourceOptions = $this->parseResourceOptions();
+
+        $response = $this->projectRelationshipService->CompleteAcceptanceCriteria($project, $criteria);
+        if($response->success) {
+            $parsedData = $this->parseData($response->object, $resourceOptions, 'AcceptanceCriteria');
+
+            return new AcceptanceCriteriaResource($parsedData['AcceptanceCriteria']);
+        }else{
+            return response()->json(['message'=> $response->msg,'error'=> $response->error], $response->error);
+        }
     }
 
     public function Category(Project $project)
@@ -42,114 +69,42 @@ class ProjectRelationshipController extends LaravelController
         // Parse the resource options given by GET parameters
         $resourceOptions = $this->parseResourceOptions();
 
-        $parsedData = $this->parseData($project->Category, $resourceOptions, 'category');
+        $response = $this->projectRelationshipService->Category($project);
 
-        return new CategoryResource($parsedData['category']);
-    }
+        if($response->success) {
+            $parsedData = $this->parseData($response->object, $resourceOptions, 'category');
 
-    public function Skills(Project $project)
-    {
-        // Parse the resource options given by GET parameters
-        $resourceOptions = $this->parseResourceOptions();
-
-        $parsedData = $this->parseData($project->Skills, $resourceOptions, 'skills');
-
-        return new SkillsResource($parsedData['skills']);
-    }
-
-    public function Location(Project $project)
-    {
-        // Parse the resource options given by GET parameters
-        $resourceOptions = $this->parseResourceOptions();
-
-        $parsedData = $this->parseData($project->Location, $resourceOptions, 'location');
-
-        return new LocationResource($parsedData['location']);
-    }
-
-    public function Users(Project $project)
-    {
-        // Parse the resource options given by GET parameters
-        $resourceOptions = $this->parseResourceOptions();
-
-        $parsedData = $this->parseData($project->Users, $resourceOptions, 'users');
-
-        return new UsersResource($parsedData['users']);
-    }
-
-    public function joinProject(Project $project){
-        $user = Auth::user();
-        $project->Users()->attach($user->id);
-        //add achievement progress
-        $user->addProgress(new UserJoinedAProject(), 1);
-        //log user activity
-        activity()
-            ->causedBy($user)
-            ->performedOn($project)
-            ->withProperties(['points' => 10])
-            ->log('project joined');
-
-        return new ProjectResource(Project::find($project->id)->with('users')->first());
-    }
-
-    public function leaveProject(Project $project){
-        $user = Auth::user();
-        $project->Users()->detach($user->id);
-
-        return new UsersResource($project->users);
-    }
-
-    public function AcceptanceCriteria(Project $project)
-    {
-        // Parse the resource options given by GET parameters
-        $resourceOptions = $this->parseResourceOptions();
-
-        $parsedData = $this->parseData($project->AcceptanceCriteria, $resourceOptions, 'AcceptanceCriteria');
-
-        return new AcceptanceCriteriaCollectionResource($parsedData['AcceptanceCriteria']);
-    }
-
-    public function CompleteAcceptanceCriteria(Project $project, $criteria)
-    {
-        $criteria = AcceptanceCriteria::findOrFail($criteria);
-        $user = Auth::user();
-        if((($user->can('edit project') and $user->id == $project->user_id) or $user->can('manage projects')) and $project->id == $criteria->project_id) {
-            // Parse the resource options given by GET parameters
-            $criteria->complete = true;
-            $criteria->completed_at = Carbon::now();
-            $criteria->save();
-            //log user activity
-            activity()
-                ->causedBy($user)
-                ->performedOn($criteria)
-                ->withProperties(['points' => 2])
-                ->log('acceptance criteria completed');
-            $resourceOptions = $this->parseResourceOptions();
-
-            $parsedData = $this->parseData($criteria, $resourceOptions, 'AcceptanceCriteria');
-
-            return new AcceptanceCriteriaResource($parsedData['AcceptanceCriteria']);
+            return new CategoryResource($parsedData['category']);
         }else{
-            return response()->json(['message'=>'Unauthorized action','error'=>403],403);
+            return response()->json(['message'=> $response->msg,'error'=> $response->error], $response->error);
         }
     }
 
     public function Comments(Project $project)
     {
+
         // Parse the resource options given by GET parameters
         $resourceOptions = $this->parseResourceOptions();
 
-        $parsedData = $this->parseData($project->Comments, $resourceOptions, 'comments');
+        $response = $this->projectRelationshipService->Comments($project);
 
-        return new CommentsResource($parsedData['comments']);
+        if($response->success) {
+            $parsedData = $this->parseData($response->object, $resourceOptions, 'comments');
+
+            return new CommentsResource($parsedData['comments']);
+        }else{
+            return response()->json(['message'=> $response->msg,'error'=> $response->error], $response->error);
+        }
     }
 
     public function leaveComment(EditCommentFormRequest $request, Project $project){
-        $user = Auth::user();
-        $user->comment($project, $request->get('comment'));
-        $comment = $project->comments()->orderBy('created_at','desc')->first();
 
-        return new CommentResource($comment);
+        $response = $this->projectRelationshipService->leaveComment($request, $project);
+        if($response->success) {
+            return new CommentResource($response->object);
+        }else{
+            return response()->json(['message'=> $response->msg,'error'=> $response->error], $response->error);
+        }
     }
 
     public function editComment(EditCommentFormRequest $request, Project $project, Comment $comment){
@@ -185,6 +140,102 @@ class ProjectRelationshipController extends LaravelController
         }
     }
 
+    public function Followers(Project $project){
+        $resourceOptions = $this->parseResourceOptions();
+
+        $parsedData = $this->parseData($project->followers, $resourceOptions, 'followers');
+
+        return new FollowersResource($parsedData['followers']);
+    }
+
+    public function createFollower(Project $project){
+        $user = Auth::user();
+        $user->follow($project);
+        $follower = $project->followers()->where('user_id',$user->id)->first();
+        //log user activity
+        activity()
+            ->causedBy($user)
+            ->performedOn($project)
+            ->withProperties(['points' => 1])
+            ->log('project followed');
+        return (new FollowerResource($follower));
+    }
+
+    public function deleteFollower(Project $project){
+        $user = Auth::user();
+        $user->unfollow($project);
+
+        return response()->json(['status'=> 204, 'message'=>'you successfully unfollowed the project'],204);
+    }
+
+    public function Location(Project $project)
+    {
+        // Parse the resource options given by GET parameters
+        $resourceOptions = $this->parseResourceOptions();
+
+        $parsedData = $this->parseData($project->Location, $resourceOptions, 'location');
+
+        return new LocationResource($parsedData['location']);
+    }
+
+    public function Owner(Project $project)
+    {
+        // Parse the resource options given by GET parameters
+        $resourceOptions = $this->parseResourceOptions();
+
+        $response = $this->projectRelationshipService->Owner($project);
+
+        if($response->success) {
+            $parsedData = $this->parseData($response->object, $resourceOptions, 'owner');
+            return new UserResource($parsedData['owner']);
+        }else{
+            return response()->json(['message' => $response->msg, 'error' => $response->error], $response->error);
+        }
+
+    }
+
+    public function Skills(Project $project)
+    {
+        // Parse the resource options given by GET parameters
+        $resourceOptions = $this->parseResourceOptions();
+
+        $parsedData = $this->parseData($project->Skills, $resourceOptions, 'skills');
+
+        return new SkillsResource($parsedData['skills']);
+    }
+
+    public function Users(Project $project)
+    {
+        // Parse the resource options given by GET parameters
+        $resourceOptions = $this->parseResourceOptions();
+
+        $parsedData = $this->parseData($project->Users, $resourceOptions, 'users');
+
+        return new UsersResource($parsedData['users']);
+    }
+
+    public function joinProject(Project $project){
+        $user = Auth::user();
+        $project->Users()->attach($user->id);
+        //add achievement progress
+        $user->addProgress(new UserJoinedAProject(), 1);
+        //log user activity
+        activity()
+            ->causedBy($user)
+            ->performedOn($project)
+            ->withProperties(['points' => 10])
+            ->log('project joined');
+
+        return new ProjectResource(Project::find($project->id)->with('users')->first());
+    }
+
+    public function leaveProject(Project $project){
+        $user = Auth::user();
+        $project->Users()->detach($user->id);
+
+        return new UsersResource($project->users);
+    }
+
     public function Votes(Project $project){
         $resourceOptions = $this->parseResourceOptions();
 
@@ -214,33 +265,4 @@ class ProjectRelationshipController extends LaravelController
 
         return new VotesResource($project->upvoters);
     }
-
-    public function Followers(Project $project){
-        $resourceOptions = $this->parseResourceOptions();
-
-        $parsedData = $this->parseData($project->followers, $resourceOptions, 'followers');
-
-        return new FollowersResource($parsedData['followers']);
-    }
-
-    public function createFollower(Project $project){
-        $user = Auth::user();
-        $user->follow($project);
-        $follower = $project->followers()->where('user_id',$user->id)->first();
-        //log user activity
-        activity()
-            ->causedBy($user)
-            ->performedOn($project)
-            ->withProperties(['points' => 1])
-            ->log('project followed');
-        return (new FollowerResource($follower));
-    }
-
-    public function deleteFollower(Project $project){
-        $user = Auth::user();
-        $user->unfollow($project);
-
-        return response()->json(['status'=> 204, 'message'=>'you successfully unfollowed the project'],204);
-    }
-
 }
