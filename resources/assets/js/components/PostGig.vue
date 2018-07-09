@@ -41,6 +41,8 @@
                             <div class="col-xs-12 col-lg-6 pt-3">
                                 <label class="text-uppercase">Select a Category *</label>
                                 <select class="form-control" placeholder="Category" v-model="gig.category_id">
+                                    <option value=""></option>
+                                    <option v-for="category in form.selectOptions.categories" v-bind:value="category.id" v-html="category.attributes.name"></option>
                                 </select>
                             </div>
                         </div>
@@ -61,7 +63,7 @@
                             </div>
                         </div>
                         <div class="text-center pt-3">
-                            <button class="btn btn-lg btn-accent my-3 px-4 text-uppercase text-white" type="button" v-on:click="changeTab('skillsAndImpactTab')" v-bind:disabled="step1Complete == false">Continue</button>
+                            <button class="btn btn-lg btn-accent my-3 px-4 text-uppercase text-dark" type="button" v-on:click="changeTab('skillsAndImpactTab')" v-bind:disabled="step1Complete == false">Continue</button>
                         </div>
                     </div>
                 </div>
@@ -131,38 +133,39 @@
                         <div class="row">
                             <div class="col-xs-12 col-lg-6 pt-3">
                                 <label class="text-uppercase">This gig builds these skills </label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Enter Skill..." v-model="form.skills.value">
+                                <!-- <select class="form-control" placeholder="Category" v-model="gig.skills" multiple>
+                                    <option v-for="skill in form.selectOptions.skills" v-bind:value="skill.id" v-html="skill.attributes.name"></option>
+                                </select> -->
+                                <div class="card h5 p-1 pr-0 mb-1 d-block">
+                                    <div v-if="gig.skills.length == 0" class="text-muted" style="padding: 0.25em 0.4em;    font-size: 75%;">
+                                        None Selected
+                                    </div>
+                                    <div class="badge badge-secondary mr-1" v-for="skill in form.selectOptions.skills" v-on:click="toggleSkill(skill)" v-if="gig.skills.indexOf(skill.id) > -1">{{ skill.attributes.name }} <font-awesome-icon icon="times-circle" /></div>
+                                </div>
+                                <div class="card m-0" style="overflow-y: auto; height: 160px;">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item p-2 rounded-0 text-dark" v-for="(skill, index) in form.selectOptions.skills" v-on:click="toggleSkill(skill)" v-bind:class="{ 'active': gig.skills.indexOf(skill.id) > -1 }">
+                                            <div v-html="skill.attributes.name"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- <div class="input-group mt-2">
+                                    <input type="text" class="form-control" placeholder="Add New Skill..." v-model="form.skills.value">
                                     <div class="input-group-append">
                                         <button class="btn btn-success px-3" type="button" v-on:click="addSkill">Add</button>
                                     </div>
-                                </div>
-                                <div class="border-bottom d-flex flex-row align-items-center px-3 py-2 small" v-for="(skill, index) in gig.skills">
-                                    <div v-html="skill"></div>
-                                    <div class="ml-auto">
-                                        <button class="btn btn-danger btn-sm" type="button" v-on:click="removeSkill(index)"><span class="fa fa-remove"></span>X</button>
-                                    </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-xs-12 col-lg-6 pt-3">
-                                <label class="text-uppercase">This gig will provide the following benefits *</label>
+                                <label class="text-uppercase">This gig will provide the following benefits*</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Enter Benefit..." v-model="form.benefits.value">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-success px-3" type="button" v-on:click="addBenefit">Add</button>
-                                    </div>
-                                </div>
-                                <div class="border-bottom d-flex flex-row align-items-center px-3 py-2 small" v-for="(benefit, index) in gig.benefits">
-                                    <div v-html="benefit"></div>
-                                    <div class="ml-auto">
-                                        <button class="btn btn-danger btn-sm" type="button" v-on:click="removeBenefit(index)"><span class="fa fa-remove"></span>X</button>
-                                    </div>
+                                    <textarea class="form-control" placeholder="Enter Benefits" v-model="gig.impact" rows="8"></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="text-center pt-3">
                             <button class="btn btn-lg btn-outline-secondary my-3 px-4 text-uppercase" type="button" v-on:click="changeTab('descriptionTab')">Back</button>
-                            <button class="btn btn-lg btn-accent my-3 px-4 text-uppercase text-white" type="button" v-on:click="changeTab('finalizeTab')" v-bind:disabled="step2Complete == false">Continue</button>
+                            <button class="btn btn-lg btn-accent my-3 px-4 text-uppercase text-dark" type="button" v-on:click="changeTab('finalizeTab')" v-bind:disabled="step2Complete == false">Continue</button>
                         </div>
                     </div>
                 </div>
@@ -180,15 +183,15 @@
                             <div class="col-xs-12 col-sm-12 pt-3">
                                 <label class="text-uppercase">Requirements for Gig Completion</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Enter Requirement..." v-model="form.requirements.value">
+                                    <input type="text" class="form-control" placeholder="Enter Requirement..." v-model="form.acceptance_criteria.value">
                                     <div class="input-group-append">
-                                        <button class="btn btn-success px-3" type="button" v-on:click="addRequirement">Add</button>
+                                        <button class="btn btn-success px-3" type="button" v-on:click="addAcceptanceCriteria">Add</button>
                                     </div>
                                 </div>
-                                <div class="border-bottom d-flex flex-row align-items-center px-3 py-2 small" v-for="(requirement, index) in gig.requirements">
-                                    <div v-html="requirement"></div>
+                                <div class="border-bottom d-flex flex-row align-items-center px-3 py-2 small" v-for="(criterion, index) in gig.acceptance_criteria">
+                                    <div v-html="criterion"></div>
                                     <div class="ml-auto">
-                                        <button class="btn btn-danger btn-sm" type="button" v-on:click="removeRequirement(index)"><span class="fa fa-remove"></span>X</button>
+                                        <button class="btn btn-danger btn-sm" type="button" v-on:click="removeAcceptanceCriteria(index)"><span class="fa fa-remove"></span>X</button>
                                     </div>
                                 </div>
                             </div>
@@ -236,20 +239,18 @@
         data(){
             return {
                 gig: {
-                    title: '',
-                    category_id: '',
-                    description: '',
-                    benefits: [], // added
-                    start_date: '',
-                    deadline: '',
-                    // location_id: '',
-                    // impact: '',
+                    title: 'asd',
+                    category_id: '1',
+                    description: 'aasdg',
+                    start_date: 'asdgasdg',
+                    deadline: 'asdgasdg',
+                    impact: '',
                     skills: [],
                     open_to: [],
                     max_users: '',
                     estimated_hours: '',
                     resources_link: '',
-                    requirements: [], // added
+                    acceptance_criteria: [], // added
                     additional_info: '',
                     flexible_start: false,
                     on_site: false,
@@ -257,15 +258,15 @@
                 },
                 form: {
                     tab: 'descriptionTab',
+                    selectOptions: {
+                        categories: [],
+                        skills: []
+                    },
                     skills: {
                         error: false,
                         value: ''
                     },
-                    benefits: {
-                        error: false,
-                        value: ''
-                    },
-                    requirements: {
+                    acceptance_criteria: {
                         error: false,
                         value: ''
                     },
@@ -304,15 +305,177 @@
                     'max_users',
                     'estimated_hours',
                     'skills',
-                    'benefits'
+                    'impact'
                 ];
 
                 return self.isDataPopulated(requiredFields);
             }
         },
         mounted(){
+            var self = this;
+            Promise.all([
+                self.getCategories(),
+                self.getSkills()
+            ])
         },
         methods: {
+            getCategories(){
+                var self = this;
+                return new Promise(async function(resolve, reject){
+                    /*axios.get('/api/v1/categories').then(response => {
+                        console.log(response.data.data);
+                        resolve(response.data.data);
+                    });*/
+                    var response = {
+                        "data": {
+                            "categories": [
+                                {
+                                    "type": "category",
+                                    "id": "1",
+                                    "attributes": {
+                                        "name": "Digital Marketing",
+                                        "icon_path": "https://demo.gigatize-mt.dev/images/categories/digital_marketing_icon.png"
+                                    },
+                                    "links": {
+                                        "self": "https://demo.gigatize-mt.dev/api/v1/categories/1"
+                                    }
+                                },{
+                                    "type": "category",
+                                    "id": "2",
+                                    "attributes": {
+                                        "name": "Graphics and Design",
+                                        "icon_path": "https://demo.gigatize-mt.dev/images/categories/graphics_and_design_icon.png"
+                                    },
+                                    "links": {
+                                        "self": "https://demo.gigatize-mt.dev/api/v1/categories/2"
+                                    }
+                                },{
+                                    "type": "category",
+                                    "id": "3",
+                                    "attributes": {
+                                        "name": "Tech and Development",
+                                        "icon_path": "https://demo.gigatize-mt.dev/images/categories/tech_and_development_icon.png"
+                                    },
+                                    "links": {
+                                        "self": "https://demo.gigatize-mt.dev/api/v1/categories/3"
+                                    }
+                                },{
+                                    "type": "category",
+                                    "id": "4",
+                                    "attributes": {
+                                        "name": "Writing and Translation",
+                                        "icon_path": "https://demo.gigatize-mt.dev/images/categories/writing_translation_icon.png"
+                                    },
+                                    "links": {
+                                        "self": "https://demo.gigatize-mt.dev/api/v1/categories/4"
+                                    }
+                                },{
+                                    "type": "category",
+                                    "id": "5",
+                                    "attributes": {
+                                        "name": "Data Analysis",
+                                        "icon_path": "https://demo.gigatize-mt.dev/images/categories/data_analysis_icon.png"
+                                    },
+                                    "links": {
+                                        "self": "https://demo.gigatize-mt.dev/api/v1/categories/5"
+                                    }
+                                }
+                            ]
+                        },
+                        "links": {
+                            "self": "https://demo.gigatize-mt.dev/api/v1/categories"
+                        }
+                    }
+                    self.form.selectOptions.categories = response.data.categories;
+                    resolve(self.form.selectOptions.categories);
+                });
+                
+            },
+            getSkills(){
+                var self = this;
+                return new Promise(async function(resolve, reject){
+                    /*axios.get('/api/v1/skills').then(response => {
+                        console.log(response.data.data);
+                        resolve(response.data.data);
+                    });*/
+                    var response = {
+                        "data": {
+                            'skills': [
+                                {
+                                    "type": "skill",
+                                    "id": '0',
+                                    "attributes": {
+                                        "name": 'Graphic Design',
+                                        "created_at": new Date(),
+                                        "updated_at": new Date()
+                                    },
+                                    "links": {
+                                        "self": "https://demo.gigatize-mt.dev/api/v1/skills/0"
+                                    }
+                                },{
+                                    "type": "skill",
+                                    "id": '1',
+                                    "attributes": {
+                                        "name": 'Project Management',
+                                        "created_at": new Date(),
+                                        "updated_at": new Date()
+                                    },
+                                    "links": {
+                                        "self": "https://demo.gigatize-mt.dev/api/v1/skills/1"
+                                    }
+                                },{
+                                    "type": "skill",
+                                    "id": '2',
+                                    "attributes": {
+                                        "name": 'Testing',
+                                        "created_at": new Date(),
+                                        "updated_at": new Date()
+                                    },
+                                    "links": {
+                                        "self": "https://demo.gigatize-mt.dev/api/v1/skills/2"
+                                    }
+                                },{
+                                    "type": "skill",
+                                    "id": '3',
+                                    "attributes": {
+                                        "name": 'Data Analysis',
+                                        "created_at": new Date(),
+                                        "updated_at": new Date()
+                                    },
+                                    "links": {
+                                        "self": "https://demo.gigatize-mt.dev/api/v1/skills/3"
+                                    }
+                                },{
+                                    "type": "skill",
+                                    "id": '4',
+                                    "attributes": {
+                                        "name": 'Mapping',
+                                        "created_at": new Date(),
+                                        "updated_at": new Date()
+                                    },
+                                    "links": {
+                                        "self": "https://demo.gigatize-mt.dev/api/v1/skills/4"
+                                    }
+                                },{
+                                    "type": "skill",
+                                    "id": '5',
+                                    "attributes": {
+                                        "name": 'Organization',
+                                        "created_at": new Date(),
+                                        "updated_at": new Date()
+                                    },
+                                    "links": {
+                                        "self": "https://demo.gigatize-mt.dev/api/v1/skills/5"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                    self.form.selectOptions.skills = response.data.skills;
+                    resolve(self.form.selectOptions.skills);
+                });
+                
+            },
             changeTab(tab){
                 var self = this;
                 if (tab == 'descriptionTab'){
@@ -340,47 +503,68 @@
 
                 return areFieldsPopulated.length == fields.length;
             },
+            toggleSkill(skill){
+                var self = this;
+                if (self.gig.skills.indexOf(skill.id) > -1){
+                    self.gig.skills.splice(self.gig.skills.indexOf(skill.id), 1)
+                } else {
+                    self.gig.skills.push(skill.id);
+                }
+            },
             addSkill(){
                 var self = this;
-                if (self.form.skills.value.length == 0){
-                    self.form.skills.error = true;
-                } else {
-                    self.form.skills.error = false;
-                    self.gig.skills.push(self.form.skills.value);
-                    self.form.skills.value = '';
-                }
+                return new Promise(async function(resolve, reject){
+                    if (self.form.skills.value.length == 0){
+                        self.form.skills.error = true;
+                    } else {
+                        /*axios.post('/api/v1/skills', {
+                            params: {
+                                name: self.form.skills.value
+                            }
+                        }).then(response => {
+                            console.log(response);
+                            self.form.skills.error = false;
+                            self.selectOptions.skills.push(self.form.skills.value);
+                            self.form.skills.value = '';
+                        });*/
+                        var response = {
+                            "data": {
+                                "type": "skill",
+                                "id": self.form.skills.value,
+                                "attributes": {
+                                    "name": self.form.skills.value,
+                                    "created_at": new Date(),
+                                    "updated_at": new Date()
+                                },
+                                "links": {
+                                    "self": "https://demo.gigatize-mt.dev/api/v1/skills/0"
+                                }
+                            }
+                        }
+                        self.form.selectOptions.skills.push(response.data);
+                        self.gig.skills.push(self.form.skills.value);
+                        self.form.skills.error = false;
+                        self.form.skills.value = '';
+                    }
+                });
             },
             removeSkill(index) {
                 var self = this;
                 self.gig.skills.splice(index, 1);
             },
-            addBenefit(){
+            addAcceptanceCriteria(){
                 var self = this;
-                if (self.form.benefits.value.length == 0){
-                    self.form.benefits.error = true;
+                if (self.form.acceptance_criteria.value.length == 0){
+                    self.form.acceptance_criteria.error = true;
                 } else {
-                    self.form.benefits.error = false;
-                    self.gig.benefits.push(self.form.benefits.value);
-                    self.form.benefits.value = '';
+                    self.form.acceptance_criteria.error = false;
+                    self.gig.acceptance_criteria.push(self.form.acceptance_criteria.value);
+                    self.form.acceptance_criteria.value = '';
                 }
             },
-            removeBenefit(index) {
+            removeAcceptanceCriteria(index) {
                 var self = this;
-                self.gig.benefits.splice(index, 1);
-            },
-            addRequirement(){
-                var self = this;
-                if (self.form.requirements.value.length == 0){
-                    self.form.requirements.error = true;
-                } else {
-                    self.form.requirements.error = false;
-                    self.gig.requirements.push(self.form.requirements.value);
-                    self.form.requirements.value = '';
-                }
-            },
-            removeRequirement(index) {
-                var self = this;
-                self.gig.requirements.splice(index, 1);
+                self.gig.acceptance_criteria.splice(index, 1);
             }
         }
     }

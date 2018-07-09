@@ -79,7 +79,7 @@
                                     </form>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown flex-shrink-0">
+                            <!-- <li class="nav-item dropdown flex-shrink-0">
                                 <a class="dropdown-toggle mr-3 py-1 text-dark" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <span class="text-danger"><font-awesome-icon icon="bell"/></span>
                                     <span class="caret"></span>
@@ -109,7 +109,7 @@
                                         </div>
                                     </a>
                                 </div>
-                            </li>
+                            </li> -->
                         @endguest
                     </ul>
                 </div>
