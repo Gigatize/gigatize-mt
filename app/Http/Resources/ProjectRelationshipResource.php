@@ -15,14 +15,8 @@ class ProjectRelationshipResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'owner' => $this->when($this->relationLoaded('owner'), function () {
-                return [
-                    'links' => [
-                        'self'    => route('projects.relationships.owner', ['project' => $this->id]),
-                        'related' => route('projects.owner', ['project' => $this->id]),
-                    ],
-                    'data'  => new UserResource($this->Owner),
-                ];
+            'acceptance_criteria' => $this->when($this->relationLoaded('AcceptanceCriteria'), function () {
+                return (new ProjectAcceptanceCriteriaRelationshipResource($this->AcceptanceCriteria))->additional(['project' => $this]);
             }),
             'category' => $this->when($this->relationLoaded('category'), function () {
                 return [
@@ -33,20 +27,26 @@ class ProjectRelationshipResource extends JsonResource
                     'data' => new CategoryResource($this->Category),
                 ];
             }),
+            'comments' => $this->when($this->relationLoaded('comments'), function () {
+                return (new ProjectCommentsRelationshipResource($this->comments))->additional(['project' => $this]);
+            }),
+            'owner' => $this->when($this->relationLoaded('owner'), function () {
+                return [
+                    'links' => [
+                        'self'    => route('projects.relationships.owner', ['project' => $this->id]),
+                        'related' => route('projects.owner', ['project' => $this->id]),
+                    ],
+                    'data'  => new UserResource($this->Owner),
+                ];
+            }),
             'skills' => $this->when($this->relationLoaded('skills'), function () {
                 return (new ProjectSkillsRelationshipResource($this->Skills))->additional(['project' => $this]);
-            }),
-            'users' => $this->when($this->relationLoaded('users'), function () {
-                return (new ProjectUsersRelationshipResource($this->Users))->additional(['project' => $this]);
-            }),
-            'acceptance_criteria' => $this->when($this->relationLoaded('AcceptanceCriteria'), function () {
-                return (new ProjectAcceptanceCriteriaRelationshipResource($this->AcceptanceCriteria))->additional(['project' => $this]);
             }),
             'sponsors' => $this->when($this->relationLoaded('sponsors'), function () {
                 return (new ProjectSponsorsRelationshipResource($this->Sponsors))->additional(['project' => $this]);
             }),
-            'comments' => $this->when($this->relationLoaded('comments'), function () {
-                return (new ProjectCommentsRelationshipResource($this->comments))->additional(['project' => $this]);
+            'users' => $this->when($this->relationLoaded('users'), function () {
+                return (new ProjectUsersRelationshipResource($this->Users))->additional(['project' => $this]);
             })
         ];
     }

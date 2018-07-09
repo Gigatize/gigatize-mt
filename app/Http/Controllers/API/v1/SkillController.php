@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API\v1;
 
+use App\Http\Requests\CreateSkillFormRequest;
 use App\Http\Resources\SkillResource;
 use App\Http\Resources\SkillsResource;
 use App\Services\SkillService;
@@ -38,6 +39,21 @@ class SkillController extends LaravelController
     }
 
     /**
+     * Create a listing of the resource in storage.
+     *
+     * @param  CreateSkillFormRequest $request
+     * @return SkillResource
+     */
+    public function store(CreateSkillFormRequest $request)
+    {
+        $skill = new Skill();
+        $skill->name = $request->get('name');
+        $skill->save();
+        // Create JSON response of parsed data
+        return new SkillResource($skill);
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param  Skill $skill
@@ -48,7 +64,7 @@ class SkillController extends LaravelController
         // Parse the resource options given by GET parameters
         $resourceOptions = $this->parseResourceOptions();
 
-        $data = $this->skillService->getById($category->id, $resourceOptions);
+        $data = $this->skillService->getById($skill->id, $resourceOptions);
         $parsedData = $this->parseData($data, $resourceOptions, 'skill');
 
         // Create JSON response of parsed data

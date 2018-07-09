@@ -6,11 +6,14 @@ use App\Http\Resources\AchievementResource;
 use App\Http\Resources\AchievementsResource;
 use App\Http\Resources\CommentsResource;
 use App\Http\Resources\FollowersResource;
+use App\Http\Resources\PermissionResource;
+use App\Http\Resources\PermissionsResource;
 use App\Http\Resources\ProjectResource;
 use App\Http\Resources\ProjectsResource;
 use App\Http\Resources\RolesResource;
 use App\Http\Resources\ScoreResource;
 use App\Http\Resources\SkillsResource;
+use App\Http\Resources\VotesResource;
 use App\Traits\EloquentBuilderTrait;
 use App\User;
 use Carbon\Carbon;
@@ -74,6 +77,19 @@ class UserRelationshipController extends LaravelController
         return new ProjectsResource($parsedData['projects']);
     }
 
+    public function Permissions(User $user = null){
+        if(!isset($user)){
+            $user = Auth::user();
+        }
+
+        // Parse the resource options given by GET parameters
+        $resourceOptions = $this->parseResourceOptions();
+
+        $parsedData = $this->parseData($user->permissions, $resourceOptions, 'permissions');
+
+        return new PermissionsResource($parsedData['permissions']);
+    }
+
     public function Projects(User $user = null)
     {
         if(!isset($user)){
@@ -125,9 +141,9 @@ class UserRelationshipController extends LaravelController
         // Parse the resource options given by GET parameters
         $resourceOptions = $this->parseResourceOptions();
 
-        $parsedData = $this->parseData($user->Skills, $resourceOptions, 'skills');
+        $parsedData = $this->parseData($user->votes, $resourceOptions, 'votes');
 
-        return new SkillsResource($parsedData['skills']);
+        return new VotesResource($parsedData['votes']);
     }
 
     public function engagementScore(Request $request, User $user = null){

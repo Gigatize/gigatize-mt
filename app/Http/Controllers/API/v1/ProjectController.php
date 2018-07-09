@@ -47,7 +47,6 @@ class ProjectController extends LaravelController
     public function store(CreateProjectFormRequest $request)
     {
         $project = $this->projectService->create($request);
-
         if($project) {
             return new ProjectResource($project);
         }else{

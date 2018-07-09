@@ -64,6 +64,7 @@ class TenantDatabaseSeeder extends Seeder
         DB::table('categories')->insert([
             'name' => 'Digital Marketing',
             'icon_path' => '/images/categories/digital_marketing_icon.png',
+            'color' => 'yellow-blue'
         ]);
         DB::table('categories')->insert([
             'name' => 'Graphics and Design',

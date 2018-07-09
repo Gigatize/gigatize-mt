@@ -71,15 +71,16 @@ Route::group(['middleware' => 'auth:api'], function () {
         | Comment Relationship Routes
         |--------------------------------------------------------------------------
         */
-        Route::get('comments/{comment}/relationships/user', 'API\v1\CommentRelationshipController@User')->name('comments.relationships.user');
-        Route::get('comments/{comment}/user', 'API\v1\CommentRelationshipController@User')->name('comments.user');
         Route::get('comments/{comment}/relationships/project', 'API\v1\CommentRelationshipController@Project')->name('comments.relationships.project');
         Route::get('comments/{comment}/project', 'API\v1\CommentRelationshipController@Project')->name('comments.project');
+
+        Route::get('comments/{comment}/relationships/user', 'API\v1\CommentRelationshipController@User')->name('comments.relationships.user');
+        Route::get('comments/{comment}/user', 'API\v1\CommentRelationshipController@User')->name('comments.user');
 
         /*
         |--------------------------------------------------------------------------
         | Role Routes
-        |--------------------------------------------------------------------------
+        |---------------------------------------------------------------------a-----
         */
         Route::apiResource('permissions','API\v1\PermissionController')->only([
             'index','show'
@@ -106,7 +107,9 @@ Route::group(['middleware' => 'auth:api'], function () {
 
         Route::get('projects/{project}/relationships/comments', 'API\v1\ProjectRelationshipController@Comments')->name('projects.relationships.comments');
         Route::get('projects/{project}/comments', 'API\v1\ProjectRelationshipController@Comments')->name('projects.comments');
-        Route::post('projects/{project}/comments', 'API\v1\CommentController@joinProject')->name('comments.create');
+        Route::post('projects/{project}/comments', 'API\v1\ProjectRelationshipController@leaveComment')->name('comments.create');
+        Route::patch('projects/{project}/comments/{comment}', 'API\v1\ProjectRelationshipController@editComment')->name('comments.edit');
+        Route::delete('projects/{project}/comments/{comment}', 'API\v1\ProjectRelationshipController@deleteComment')->name('comments.delete');
 
         Route::get('projects/{project}/relationships/followers', 'API\v1\ProjectRelationshipController@Followers')->name('projects.relationships.followers');
         Route::get('projects/{project}/followers', 'API\v1\ProjectRelationshipController@Followers')->name('projects.followers');
