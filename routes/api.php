@@ -46,7 +46,7 @@ Route::group(['middleware' => 'auth:api'], function () {
         |--------------------------------------------------------------------------
         */
         Route::apiResource('categories','API\v1\CategoryController')->only([
-            'index','show'
+            'index','show','store'
         ]);
 
         /*

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\v1;
 
 use App\Category;
+use App\Http\Requests\CreateCategoryFormRequest;
 use App\Http\Resources\CategoriesResource;
 use App\Http\Resources\CategoryResource;
 use App\Services\CategoryService;
@@ -18,6 +19,24 @@ class CategoryController extends LaravelController
 
     public function __construct(CategoryService $categoryService) {
         $this->categoryService = $categoryService;
+    }
+
+    /**
+     * Create a listing of the resource in storage.
+     *
+     * @param  CreateCategoryFormRequest $request
+     * @return CategoryResource
+     */
+    public function store(CreateCategoryFormRequest $request)
+    {
+        $response = $this->categoryService->create($request);
+
+        if($response->success) {
+            // Create JSON response of parsed data
+            return new CategoryResource($response->object);
+        }else{
+            return response()->json(['message'=>$response->msg,'error'=>$response->error],$response->error);
+        }
     }
 
     /**
