@@ -114,10 +114,10 @@
                         <div class="card h-100">
                             <div class="card-header flex-grow-0 flex-shrink-0 d-flex flex-column" v-bind:class="gig.attributes.color">
                                 <div class="d-flex align-items-center justify-content-end">
-                                    {{ gig.attributes.computed.followers_count }} <font-awesome-icon icon="trophy" pull="right" fixed-width />
+                                    {{ gig.attributes.computed.total_points }} <font-awesome-icon icon="trophy" pull="right" fixed-width />
                                 </div>
                                 <div class="d-flex align-items-center justify-content-end">
-                                    6 days <font-awesome-icon icon="calendar" pull="right" fixed-width />
+                                    {{ getDateDifferenceFromToday(gig.attributes.start_date) }} <font-awesome-icon icon="calendar" pull="right" fixed-width />
                                 </div>
                             </div>
                             <div class="card-body flex-grow-1">
@@ -157,6 +157,7 @@
 </template>
 
 <script>
+    import moment from 'moment';
     import DatePicker from 'vue2-datepicker';
     export default {
         data(){
@@ -242,8 +243,8 @@
                             "status": "Not Started",
                             "started": false,
                             "complete": false,
-                            "updated_at": "2018-06-15 01:07:27",
-                            "created_at": "2018-06-15 01:07:27",
+                            "updated_at": "2018-09-15 01:07:27",
+                            "created_at": "2018-09-15 01:07:27",
                             "computed": {
                                 "total_points": "20",
                                 "project_users": "0",
@@ -276,8 +277,8 @@
                             "status": "Not Started",
                             "started": false,
                             "complete": false,
-                            "updated_at": "2018-06-15 01:07:27",
-                            "created_at": "2018-06-15 01:07:27",
+                            "updated_at": "2018-09-15 01:07:27",
+                            "created_at": "2018-09-15 01:07:27",
                             "computed": {
                                 "total_points": "20",
                                 "project_users": "0",
@@ -310,8 +311,8 @@
                             "status": "Not Started",
                             "started": false,
                             "complete": false,
-                            "updated_at": "2018-06-15 01:07:27",
-                            "created_at": "2018-06-15 01:07:27",
+                            "updated_at": "2018-09-15 01:07:27",
+                            "created_at": "2018-09-15 01:07:27",
                             "computed": {
                                 "total_points": "20",
                                 "project_users": "0",
@@ -510,6 +511,13 @@
                     self.options.skills = response.data.skills;
                     resolve(self.options.skills);
                 })
+            },
+            getDateDifferenceFromToday(date){
+                var self = this;
+                var now = moment(new Date());
+                var then = moment(date);
+                var duration = parseInt(moment.duration(now.diff(then)).asDays());
+                return duration + 'days';
             },
             joinSkills(skills){
                 var self = this;

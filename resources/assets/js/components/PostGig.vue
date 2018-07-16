@@ -322,72 +322,10 @@
             getCategories(){
                 var self = this;
                 return new Promise(async function(resolve, reject){
-                    /*axios.get('/api/v1/categories').then(response => {
+                    axios.get('/api/v1/categories').then(response => {
                         console.log(response.data.data);
                         resolve(response.data.data);
-                    });*/
-                    var response = {
-                        "data": {
-                            "categories": [
-                                {
-                                    "type": "category",
-                                    "id": "1",
-                                    "attributes": {
-                                        "name": "Digital Marketing",
-                                        "icon_path": "https://demo.gigatize-mt.dev/images/categories/digital_marketing_icon.png"
-                                    },
-                                    "links": {
-                                        "self": "https://demo.gigatize-mt.dev/api/v1/categories/1"
-                                    }
-                                },{
-                                    "type": "category",
-                                    "id": "2",
-                                    "attributes": {
-                                        "name": "Graphics and Design",
-                                        "icon_path": "https://demo.gigatize-mt.dev/images/categories/graphics_and_design_icon.png"
-                                    },
-                                    "links": {
-                                        "self": "https://demo.gigatize-mt.dev/api/v1/categories/2"
-                                    }
-                                },{
-                                    "type": "category",
-                                    "id": "3",
-                                    "attributes": {
-                                        "name": "Tech and Development",
-                                        "icon_path": "https://demo.gigatize-mt.dev/images/categories/tech_and_development_icon.png"
-                                    },
-                                    "links": {
-                                        "self": "https://demo.gigatize-mt.dev/api/v1/categories/3"
-                                    }
-                                },{
-                                    "type": "category",
-                                    "id": "4",
-                                    "attributes": {
-                                        "name": "Writing and Translation",
-                                        "icon_path": "https://demo.gigatize-mt.dev/images/categories/writing_translation_icon.png"
-                                    },
-                                    "links": {
-                                        "self": "https://demo.gigatize-mt.dev/api/v1/categories/4"
-                                    }
-                                },{
-                                    "type": "category",
-                                    "id": "5",
-                                    "attributes": {
-                                        "name": "Data Analysis",
-                                        "icon_path": "https://demo.gigatize-mt.dev/images/categories/data_analysis_icon.png"
-                                    },
-                                    "links": {
-                                        "self": "https://demo.gigatize-mt.dev/api/v1/categories/5"
-                                    }
-                                }
-                            ]
-                        },
-                        "links": {
-                            "self": "https://demo.gigatize-mt.dev/api/v1/categories"
-                        }
-                    }
-                    self.form.selectOptions.categories = response.data.categories;
-                    resolve(self.form.selectOptions.categories);
+                    });
                 });
                 
             },
