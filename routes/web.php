@@ -14,6 +14,10 @@
 Route::domain('{customer}.'.config('app.url_base'))->group(function () {
     //ensure tenant exists or redirect to root domain
 
+    Route::get('/email', function (){
+        return view('gig-created');
+    });
+
     Route::group(['middleware' => 'auth-type:password'], function () {
         Route::group(['middleware' => 'tenancy.enforce'], function () {
             Route::get('register/verify/resend',  'Auth\RegisterController@showResendVerificationEmailForm')->name('showResendVerificationEmailForm');
