@@ -2,7 +2,7 @@
 
 namespace App\Achievements;
 
-use Gstt\Achievements\Achievement;
+use App\Achievement;
 
 class UserJoined10Projects extends Achievement
 {

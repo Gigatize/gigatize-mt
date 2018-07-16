@@ -108,64 +108,61 @@ class ProjectRelationshipController extends LaravelController
     }
 
     public function editComment(EditCommentFormRequest $request, Project $project, Comment $comment){
-        $user = Auth::user();
 
-        if($comment->commentable_id == $project->id){
-            if($comment->commented_id  == $user->id){
-                $comment->comment = $request->get('comment');
-                $comment->save();
-                return new CommentResource($comment);
-            }else{
-                return $this->response()->json(['message'=>'Unauthorized action', 'error' => 403],403);
-            }
-
+        $response = $this->projectRelationshipService->editComment($request, $project, $comment);
+        if($response->success) {
+            return new CommentResource($response->object);
         }else{
-            return $this->response()->json(['message'=>'Unable to find comment associated with this project', 'error' => 404],404);
+            return response()->json(['message'=> $response->msg,'error'=> $response->error], $response->error);
         }
     }
 
     public function deleteComment(Project $project, Comment $comment){
-        $user = Auth::user();
 
-        if($comment->commentable_id == $project->id){
-            if($comment->commented_id  == $user->id){
-                $comment->delete();
-                return $this->response(204);
-            }else{
-                return $this->response()->json(['message'=>'Unauthorized action', 'error' => 403],403);
-            }
-
+        $response = $this->projectRelationshipService->deleteComment($project, $comment);
+        if($response->success) {
+            return response()->json(['message'=> $response->msg],$response->status);
         }else{
-            return $this->response()->json(['message'=>'Unable to find comment associated with this project', 'error' => 404],404);
+            return response()->json(['message'=> $response->msg,'error'=> $response->error], $response->error);
         }
     }
 
     public function Followers(Project $project){
+
+        // Parse the resource options given by GET parameters
         $resourceOptions = $this->parseResourceOptions();
 
-        $parsedData = $this->parseData($project->followers, $resourceOptions, 'followers');
+        $response = $this->projectRelationshipService->Followers($project);
 
-        return new FollowersResource($parsedData['followers']);
+        if($response->success) {
+            $parsedData = $this->parseData($response->object, $resourceOptions, 'followers');
+
+            return new FollowersResource($parsedData['followers']);
+        }else{
+            return response()->json(['message'=> $response->msg,'error'=> $response->error], $response->error);
+        }
+
     }
 
     public function createFollower(Project $project){
-        $user = Auth::user();
-        $user->follow($project);
-        $follower = $project->followers()->where('user_id',$user->id)->first();
-        //log user activity
-        activity()
-            ->causedBy($user)
-            ->performedOn($project)
-            ->withProperties(['points' => 1])
-            ->log('project followed');
-        return (new FollowerResource($follower));
+
+        $response = $this->projectRelationshipService->createFollower($project);
+        if($response->success) {
+            return (new FollowerResource($response->object))->response()->setStatusCode(201);
+        }else{
+            return response()->json(['message'=> $response->msg,'error'=> $response->error], $response->error);
+        }
     }
 
     public function deleteFollower(Project $project){
-        $user = Auth::user();
-        $user->unfollow($project);
 
-        return response()->json(['status'=> 204, 'message'=>'you successfully unfollowed the project'],204);
+        $response = $this->projectRelationshipService->deleteFollower($project);
+        if($response->success) {
+            return response()->json(['message'=> $response->msg],$response->status);
+        }else{
+            return response()->json(['message'=> $response->msg,'error'=> $response->error], $response->error);
+        }
+
     }
 
     public function Location(Project $project)
@@ -199,9 +196,14 @@ class ProjectRelationshipController extends LaravelController
         // Parse the resource options given by GET parameters
         $resourceOptions = $this->parseResourceOptions();
 
-        $parsedData = $this->parseData($project->Skills, $resourceOptions, 'skills');
+        $response = $this->projectRelationshipService->Skills($project);
 
-        return new SkillsResource($parsedData['skills']);
+        if($response->success) {
+            $parsedData = $this->parseData($response->object, $resourceOptions, 'skills');
+            return new SkillsResource($parsedData['skills']);
+        }else{
+            return response()->json(['message' => $response->msg, 'error' => $response->error], $response->error);
+        }
     }
 
     public function Users(Project $project)
@@ -209,60 +211,70 @@ class ProjectRelationshipController extends LaravelController
         // Parse the resource options given by GET parameters
         $resourceOptions = $this->parseResourceOptions();
 
-        $parsedData = $this->parseData($project->Users, $resourceOptions, 'users');
+        $response = $this->projectRelationshipService->Users($project);
 
-        return new UsersResource($parsedData['users']);
+        if($response->success) {
+            $parsedData = $this->parseData($response->object, $resourceOptions, 'users');
+            return new UsersResource($parsedData['users']);
+        }else{
+            return response()->json(['message' => $response->msg, 'error' => $response->error], $response->error);
+        }
+
     }
 
     public function joinProject(Project $project){
-        $user = Auth::user();
-        $project->Users()->attach($user->id);
-        //add achievement progress
-        $user->addProgress(new UserJoinedAProject(), 1);
-        //log user activity
-        activity()
-            ->causedBy($user)
-            ->performedOn($project)
-            ->withProperties(['points' => 10])
-            ->log('project joined');
 
-        return new ProjectResource(Project::find($project->id)->with('users')->first());
+        $response = $this->projectRelationshipService->joinProject($project);
+        if($response->success) {
+            return (new UsersResource($response->object))->response()->setStatusCode(201);
+        }else {
+            return response()->json(['message' => $response->msg, 'error' => $response->error], $response->error);
+        }
     }
 
     public function leaveProject(Project $project){
-        $user = Auth::user();
-        $project->Users()->detach($user->id);
 
-        return new UsersResource($project->users);
+        $response = $this->projectRelationshipService->leaveProject($project);
+        if($response->success) {
+            return (new UsersResource($response->object))->response()->setStatusCode(204);
+        }else {
+            return response()->json(['message' => $response->msg, 'error' => $response->error], $response->error);
+        }
     }
 
     public function Votes(Project $project){
+
+        // Parse the resource options given by GET parameters
         $resourceOptions = $this->parseResourceOptions();
 
-        $parsedData = $this->parseData($project->upvoters, $resourceOptions, 'upvotes');
+        $response = $this->projectRelationshipService->Votes($project);
 
-        return new VotesResource($parsedData['upvotes']);
+        if($response->success) {
+            $parsedData = $this->parseData($response->object, $resourceOptions, 'upvotes');
+            return new VotesResource($parsedData['upvotes']);
+        }else{
+            return response()->json(['message' => $response->msg, 'error' => $response->error], $response->error);
+        }
+
     }
 
     public function upVote(Project $project){
-        $user = Auth::user();
-        $user->upvote($project);
-        //log user activity
-        activity()
-            ->causedBy($user)
-            ->performedOn($project)
-            ->withProperties(['points' => 1])
-            ->log('project upvoted');
 
-        return (new VotesResource($project->upvoters))
-            ->response()
-            ->setStatusCode(201);
+        $response = $this->projectRelationshipService->upVote($project);
+        if($response->success) {
+            return (new VotesResource($response->object))->response()->setStatusCode(201);
+        }else{
+            return response()->json(['message'=> $response->msg,'error'=> $response->error], $response->error);
+        }
     }
 
     public function downVote(Project $project){
-        $user = Auth::user();
-        $user->cancelVote($project);
 
-        return new VotesResource($project->upvoters);
+        $response = $this->projectRelationshipService->downVote($project);
+        if($response->success) {
+            return response()->json(['message'=> $response->msg],$response->status);
+        }else{
+            return response()->json(['message'=> $response->msg,'error'=> $response->error], $response->error);
+        }
     }
 }
