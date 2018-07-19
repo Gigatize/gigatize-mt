@@ -47,6 +47,17 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Route notifications for the mail channel.
+     *
+     * @param  \Illuminate\Notifications\Notification  $notification
+     * @return string
+     */
+    public function routeNotificationForMail($notification)
+    {
+        return $this->email;
+    }
+
     public function sendPasswordResetNotification($token)
     {
         $tenancy = app(Environment::class);

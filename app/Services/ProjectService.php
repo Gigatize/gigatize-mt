@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Http\Requests\CreateProjectFormRequest;
 use App\Http\Requests\EditProjectFormRequest;
+use App\Notifications\GigPosted;
 use App\Project;
 use App\Repositories\ProjectRepository;
 use Illuminate\Events\Dispatcher;
@@ -34,6 +35,8 @@ class ProjectService {
             $data['user_id'] = $user->id;
             $project = $this->projectRepository->create($data);
             if($project) {
+
+                $user->notify(new GigPosted($project));
                 //log user activity
                 $activity = activity()
                     ->causedBy($user)
