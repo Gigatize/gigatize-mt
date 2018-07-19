@@ -6,6 +6,7 @@ use App\Http\Resources\AchievementResource;
 use App\Http\Resources\AchievementsResource;
 use App\Http\Resources\CommentsResource;
 use App\Http\Resources\FollowersResource;
+use App\Http\Resources\NotificationsResource;
 use App\Http\Resources\PermissionResource;
 use App\Http\Resources\PermissionsResource;
 use App\Http\Resources\ProjectResource;
@@ -75,6 +76,19 @@ class UserRelationshipController extends LaravelController
         $parsedData = $this->parseData($user->OwnedProjects, $resourceOptions, 'projects');
 
         return new ProjectsResource($parsedData['projects']);
+    }
+
+    public function Notifications(User $user = null)
+    {
+        if(!isset($user)){
+            $user = Auth::user();
+        }
+        // Parse the resource options given by GET parameters
+        $resourceOptions = $this->parseResourceOptions();
+
+        $parsedData = $this->parseData($user->notifications, $resourceOptions, 'notifications');
+
+        return new NotificationsResource($parsedData['notifications']);
     }
 
     public function Permissions(User $user = null){

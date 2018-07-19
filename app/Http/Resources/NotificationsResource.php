@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CommentsResource extends JsonResource
+class NotificationsResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,14 +15,14 @@ class CommentsResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'comments' => CommentResource::collection($this),
+            'notifications' => NotificationResource::collection($this),
         ];
     }
     public function with($request)
     {
         return [
             'links'    => [
-                'self' => route('comments.index'),
+                'self' => route('notifications.index'),
             ],
         ];
     }

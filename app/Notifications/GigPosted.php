@@ -64,7 +64,7 @@ class GigPosted extends Notification
     public function toArray($notifiable)
     {
         return [
-            'project_id' => $this->project,
+            'project_id' => $this->project->id,
             'user_id' => $this->user->id,
             'notification_type' => 'Gig posted',
             'message' => 'You posted the project ' . $this->project->title,

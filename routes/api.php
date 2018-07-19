@@ -79,7 +79,14 @@ Route::group(['middleware' => 'auth:api'], function () {
 
         /*
         |--------------------------------------------------------------------------
-        | Role Routes
+        | Notification Routes
+        |---------------------------------------------------------------------a-----
+        */
+        Route::apiResource('notifications', 'API\v1\NotificationController');
+
+        /*
+        |--------------------------------------------------------------------------
+        | Permissions Routes
         |---------------------------------------------------------------------a-----
         */
         Route::apiResource('permissions','API\v1\PermissionController')->only([
@@ -189,6 +196,7 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::get('user/comments', 'API\v1\UserRelationshipController@Comments')->name('user.comments');
         Route::get('user/followings', 'API\v1\UserRelationshipController@Followings')->name('user.followings');
         Route::get('user/owned-projects', 'API\v1\UserRelationshipController@OwnedProjects')->name('user.owned-projects');
+        Route::get('user/notifications', 'API\v1\UserRelationshipController@Notifications')->name('user.notifications');
         Route::get('user/permissions', 'API\v1\UserRelationshipController@Permissions')->name('user.permissions');
         Route::get('user/projects', 'API\v1\UserRelationshipController@Projects')->name('user.projects');
         Route::get('user/roles', 'API\v1\UserRelationshipController@Roles')->name('user.roles');
