@@ -31,7 +31,7 @@ class ProjectRepository extends Repository
         $project->estimated_hours = $data['estimated_hours'];
         $project->resources_link = isset($data['resources_link']) ?: $data['resources_link'] = null;
         $project->additional_info = isset($data['additional_info']) ?: $data['additional_info'] = null;
-        $project->flexible_start = $data['flexible_start'];
+        $project->urgent = $data['urgent'];
         $project->on_site = $data['on_site'];
         $project->renew = $data['renew'];
         $project->save();
@@ -56,7 +56,7 @@ class ProjectRepository extends Repository
         $project->estimated_hours = $data['estimated_hours'];
         $project->resources_link = isset($data['resources_link']) ?: $data['resources_link'] = null;
         $project->additional_info = isset($data['additional_info']) ?: $data['additional_info'] = null;
-        $project->flexible_start = $data['flexible_start'];
+        $project->urgent = $data['urgent'];
         $project->on_site = $data['on_site'];
         $project->renew = $data['renew'];
         $project->save();
@@ -112,4 +112,5 @@ class ProjectRepository extends Repository
             }
         }
     }
+
 }

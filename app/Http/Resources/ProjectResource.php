@@ -26,7 +26,7 @@ class ProjectResource extends JsonResource
                 'impact' => (string)$this->impact,
                 'max_users' => (string)$this->max_users,
                 'estimated_hours' => (string)$this->estimated_hours,
-                'flexible_start' => (boolean)$this->flexible_start,
+                'urgent' => (boolean)$this->urgent,
                 'on_site' => (boolean)$this->on_site,
                 'renew' => (boolean)$this->renew,
                 'status' => (string)$this->status,

@@ -36,7 +36,7 @@ class CreateProjectFormRequest extends FormRequest
             'max_users' => 'required|numeric|between:1,3',
             'estimated_hours' => 'required|numeric|max:20',
             'resources_link' => 'nullable|url',
-            'flexible_start' => 'required|boolean',
+            'urgent' => 'required|boolean',
             'on_site' => 'required|boolean',
             'renew' => 'required|boolean',
         ];

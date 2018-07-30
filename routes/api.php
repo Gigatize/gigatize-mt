@@ -82,7 +82,9 @@ Route::group(['middleware' => 'auth:api'], function () {
         | Notification Routes
         |---------------------------------------------------------------------a-----
         */
-        Route::apiResource('notifications', 'API\v1\NotificationController');
+        Route::apiResource('notifications', 'API\v1\NotificationController')->only([
+            'show','update'
+        ]);
 
         /*
         |--------------------------------------------------------------------------

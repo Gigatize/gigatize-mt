@@ -18,12 +18,4 @@ class NotificationsResource extends JsonResource
             'notifications' => NotificationResource::collection($this),
         ];
     }
-    public function with($request)
-    {
-        return [
-            'links'    => [
-                'self' => route('notifications.index'),
-            ],
-        ];
-    }
 }
