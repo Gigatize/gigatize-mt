@@ -12,9 +12,23 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::group(['middleware' => 'auth:api'], function () {
 
-    Route::group(['prefix' => '/v1'], function () {/*
+Route::group(['prefix' => '/v1'], function () {
+
+    Route::post('auth/register', 'API\v1\AuthController@register');
+    Route::post('auth/login', 'API\v1\AuthController@login');
+    Route::post('auth/verify/resend/code', 'API\v1\AuthController@resendVerificationEmail')->name('resendVerificationEmail')->middleware('throttle:2,1');
+    Route::get('auth/verify/{code}', 'API\v1\AuthController@activateUser')->name('activate.user');
+
+    Route::group(['middleware' => 'jwt.refresh'], function(){
+        Route::get('auth/refresh', 'API\v1\AuthController@refresh');
+    });
+
+    Route::group(['middleware' => 'jwt.auth'], function(){
+
+        Route::post('auth/logout', 'API\v1\AuthController@logout');
+
+        /*
         |--------------------------------------------------------------------------
         | Acceptance Criteria Routes
         |--------------------------------------------------------------------------

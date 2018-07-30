@@ -65,5 +65,7 @@ class Kernel extends HttpKernel
         'tenant.exists' => \App\Http\Middleware\RedirectTenant::class,
         'tenant.login' => \App\Http\Middleware\TenantAuth::class,
         'auth-type' => \App\Http\Middleware\AuthType::class,
+        'jwt.auth' => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
+        'jwt.refresh' => \Tymon\JWTAuth\Middleware\RefreshToken::class,
     ];
 }
